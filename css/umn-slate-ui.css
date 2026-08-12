@@ -400,11 +400,11 @@
 }
 
 .umn-button--outline {
-  --umn-button-background: transparent;
-  --umn-button-border-color: #777777;
+  --umn-button-background: var(--umn-color-white);
+  --umn-button-border-color: #666666;
   --umn-button-color: var(--umn-color-text);
   --umn-button-hover-background: var(--umn-color-background-subtle);
-  --umn-button-hover-border-color: #555555;
+  --umn-button-hover-border-color: #444444;
   --umn-button-hover-color: var(--umn-color-text);
 }
 
