@@ -634,3 +634,133 @@
   --umn-alert-accent-color: #b42318;
   --umn-alert-color: #67140e;
 }
+
+/* ==========================================================================
+   6. Badges
+   ========================================================================== */
+
+/*
+ * Badge / tag / pill component.
+ *
+ * Variants:
+ * - info-primary
+ * - info-secondary
+ * - info-alternate
+ * - warning
+ * - danger
+ *
+ * Shape modifier:
+ * - pill
+ *
+ * Examples:
+ *
+ * <span class="umn-badge umn-badge--info-primary">
+ *   In Review
+ * </span>
+ *
+ * <span class="umn-badge umn-badge--warning umn-badge--pill">
+ *   Pending
+ * </span>
+ */
+
+.umn-badge {
+  --umn-badge-background: #eeeeee;
+  --umn-badge-border-color: #cccccc;
+  --umn-badge-color: var(--umn-color-text);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.25rem 0.5rem;
+
+  color: var(--umn-badge-color);
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.2;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  background: var(--umn-badge-background);
+  border: var(--umn-border-width) solid var(--umn-badge-border-color);
+  border-radius: var(--umn-border-radius-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Badge Variants
+   -------------------------------------------------------------------------- */
+
+.umn-badge--info-primary {
+  --umn-badge-background: #eef5fb;
+  --umn-badge-border-color: #b9d3e8;
+  --umn-badge-color: #243746;
+}
+
+.umn-badge--info-secondary {
+  --umn-badge-background: #f5f5f5;
+  --umn-badge-border-color: #d5d5d5;
+  --umn-badge-color: var(--umn-color-text);
+}
+
+.umn-badge--info-alternate {
+  --umn-badge-background: #f2f5f4;
+  --umn-badge-border-color: #c4d6d0;
+  --umn-badge-color: #29453d;
+}
+
+.umn-badge--warning {
+  --umn-badge-background: #fff8df;
+  --umn-badge-border-color: #d9bd5b;
+  --umn-badge-color: #4c3b00;
+}
+
+.umn-badge--danger {
+  --umn-badge-background: #fdf0ef;
+  --umn-badge-border-color: #e3b7b3;
+  --umn-badge-color: #67140e;
+}
+
+
+/* --------------------------------------------------------------------------
+   Badge Shape
+   -------------------------------------------------------------------------- */
+
+.umn-badge--pill {
+  border-radius: 999rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-badge--info-primary {
+  --umn-badge-background: #f8eef0;
+  --umn-badge-border-color: #d7a8b2;
+  --umn-badge-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-badge--info-secondary {
+  --umn-badge-background: #f5f5f5;
+  --umn-badge-border-color: var(--umn-color-border);
+  --umn-badge-color: var(--umn-color-text);
+}
+
+.umn-theme-public .umn-badge--info-alternate {
+  --umn-badge-background: #fff9e6;
+  --umn-badge-border-color: #e6cc72;
+  --umn-badge-color: #594300;
+}
+
+.umn-theme-public .umn-badge--warning {
+  --umn-badge-background: #fff4cc;
+  --umn-badge-border-color: #d6ad1f;
+  --umn-badge-color: #3f3000;
+}
+
+.umn-theme-public .umn-badge--danger {
+  --umn-badge-background: #fdf0ef;
+  --umn-badge-border-color: #e3b7b3;
+  --umn-badge-color: #67140e;
+}
