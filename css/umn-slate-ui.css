@@ -1108,3 +1108,58 @@ border-top: 0.3rem solid var(--umn-record-card-accent-color);
 .umn-stack--large {
   --umn-stack-space: var(--umn-space-xl);
 }
+/* ==========================================================================
+   10. Container / Horizontal Spacing
+   ========================================================================== */
+
+/*
+ * Page or section wrapper for controlling horizontal breathing room
+ * and optional maximum content width.
+ *
+ * Variants:
+ * - narrow
+ * - default
+ * - wide
+ *
+ * Example:
+ *
+ * <div class="umn-container">
+ *   <div class="umn-content">
+ *     <div class="umn-stack">
+ *       ...
+ *     </div>
+ *   </div>
+ * </div>
+ */
+
+.umn-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: var(--umn-space-lg);
+  box-sizing: border-box;
+}
+
+
+/* --------------------------------------------------------------------------
+   Container Variants
+   -------------------------------------------------------------------------- */
+
+.umn-container--narrow {
+  max-width: 48rem;
+}
+
+.umn-container--wide {
+  max-width: 96rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 36rem) {
+  .umn-container {
+    padding-inline: var(--umn-space-md);
+  }
+}
