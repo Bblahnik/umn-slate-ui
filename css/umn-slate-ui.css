@@ -923,3 +923,138 @@
     grid-template-columns: 1fr;
   }
 }
+/* ==========================================================================
+   8. Cards
+   ========================================================================== */
+
+/*
+ * Generic content card for Slate dashboards and portal views.
+ *
+ * Structure:
+ *
+ * <div class="umn-card">
+ *   <div class="umn-card__header">
+ *     <h3 class="umn-card__title">Card Title</h3>
+ *   </div>
+ *
+ *   <div class="umn-card__body">
+ *     Card content...
+ *   </div>
+ *
+ *   <div class="umn-card__footer">
+ *     Optional footer content...
+ *   </div>
+ * </div>
+ *
+ * Modifiers:
+ * - compact
+ * - accent
+ */
+
+.umn-card {
+  --umn-card-background: var(--umn-color-white);
+  --umn-card-border-color: var(--umn-color-border);
+  --umn-card-header-background: var(--umn-color-background-subtle);
+  --umn-card-header-color: var(--umn-color-text);
+  --umn-card-accent-color: #777777;
+
+  overflow: hidden;
+
+  color: var(--umn-color-text);
+  background: var(--umn-card-background);
+
+  border: var(--umn-border-width) solid var(--umn-card-border-color);
+  border-radius: var(--umn-border-radius-md);
+}
+
+
+/* --------------------------------------------------------------------------
+   Card Header
+   -------------------------------------------------------------------------- */
+
+.umn-card__header {
+  padding: 0.75rem var(--umn-space-md);
+
+  color: var(--umn-card-header-color);
+  background: var(--umn-card-header-background);
+
+  border-bottom: var(--umn-border-width) solid var(--umn-card-border-color);
+}
+
+.umn-card__title {
+  margin: 0;
+
+  color: inherit;
+  font-size: 1.125rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+}
+
+
+/* --------------------------------------------------------------------------
+   Card Body
+   -------------------------------------------------------------------------- */
+
+.umn-card__body {
+  padding: var(--umn-space-md);
+}
+
+.umn-card__body > :first-child {
+  margin-top: 0;
+}
+
+.umn-card__body > :last-child {
+  margin-bottom: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Card Footer
+   -------------------------------------------------------------------------- */
+
+.umn-card__footer {
+  padding: 0.75rem var(--umn-space-md);
+
+  background: var(--umn-color-background-subtle);
+
+  border-top: var(--umn-border-width) solid var(--umn-card-border-color);
+}
+
+.umn-card__footer > :first-child {
+  margin-top: 0;
+}
+
+.umn-card__footer > :last-child {
+  margin-bottom: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Card Modifiers
+   -------------------------------------------------------------------------- */
+
+.umn-card--compact .umn-card__header,
+.umn-card--compact .umn-card__body,
+.umn-card--compact .umn-card__footer {
+  padding: var(--umn-space-sm);
+}
+
+.umn-card--accent {
+  border-top: 0.3rem solid var(--umn-card-accent-color);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-card {
+  --umn-card-border-color: #d7c3c7;
+  --umn-card-header-background: #f8eef0;
+  --umn-card-header-color: var(--umn-color-maroon);
+  --umn-card-accent-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-card__title {
+  color: var(--umn-color-maroon);
+}
