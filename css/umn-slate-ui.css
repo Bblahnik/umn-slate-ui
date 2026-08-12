@@ -503,3 +503,134 @@
     transform: none;
   }
 }
+
+/* ==========================================================================
+   5. Alerts
+   ========================================================================== */
+
+/*
+ * Alert / callout component.
+ *
+ * Variants:
+ * - info-primary
+ * - info-secondary
+ * - info-alternate
+ * - warning
+ * - danger
+ *
+ * Optional title:
+ *
+ * <div class="umn-alert umn-alert--info-primary">
+ *   <strong class="umn-alert__title">Important Information</strong>
+ *   <p>Alert content...</p>
+ * </div>
+ */
+
+.umn-alert {
+  --umn-alert-background: var(--umn-color-background-subtle);
+  --umn-alert-border-color: var(--umn-color-border);
+  --umn-alert-accent-color: #777777;
+  --umn-alert-color: var(--umn-color-text);
+
+  padding: var(--umn-space-md);
+  color: var(--umn-alert-color);
+  background: var(--umn-alert-background);
+  border: var(--umn-border-width) solid var(--umn-alert-border-color);
+  border-left: 0.3rem solid var(--umn-alert-accent-color);
+  border-radius: var(--umn-border-radius-sm);
+}
+
+.umn-alert__title {
+  display: block;
+  margin-bottom: var(--umn-space-xs);
+  color: inherit;
+  font-weight: var(--umn-font-weight-bold);
+}
+
+.umn-alert > :first-child {
+  margin-top: 0;
+}
+
+.umn-alert > :last-child {
+  margin-bottom: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Alert Variants
+   -------------------------------------------------------------------------- */
+
+.umn-alert--info-primary {
+  --umn-alert-background: #eef5fb;
+  --umn-alert-border-color: #b9d3e8;
+  --umn-alert-accent-color: #356f9f;
+  --umn-alert-color: #243746;
+}
+
+.umn-alert--info-secondary {
+  --umn-alert-background: #f5f5f5;
+  --umn-alert-border-color: #d5d5d5;
+  --umn-alert-accent-color: #777777;
+  --umn-alert-color: var(--umn-color-text);
+}
+
+.umn-alert--info-alternate {
+  --umn-alert-background: #f2f5f4;
+  --umn-alert-border-color: #c4d6d0;
+  --umn-alert-accent-color: #4d7f71;
+  --umn-alert-color: #29453d;
+}
+
+.umn-alert--warning {
+  --umn-alert-background: #fff8df;
+  --umn-alert-border-color: #ead38a;
+  --umn-alert-accent-color: #c28a00;
+  --umn-alert-color: #4c3b00;
+}
+
+.umn-alert--danger {
+  --umn-alert-background: #fdf0ef;
+  --umn-alert-border-color: #e3b7b3;
+  --umn-alert-accent-color: #b42318;
+  --umn-alert-color: #67140e;
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-alert--info-primary {
+  --umn-alert-background: #f8eef0;
+  --umn-alert-border-color: #d7a8b2;
+  --umn-alert-accent-color: var(--umn-color-maroon);
+  --umn-alert-color: #4b0010;
+}
+
+.umn-theme-public .umn-alert--info-secondary {
+  --umn-alert-background: #f5f5f5;
+  --umn-alert-border-color: var(--umn-color-border);
+  --umn-alert-accent-color: #777777;
+  --umn-alert-color: var(--umn-color-text);
+}
+
+.umn-theme-public .umn-alert--info-alternate {
+  --umn-alert-background: #fff9e6;
+  --umn-alert-border-color: #e6cc72;
+  --umn-alert-accent-color: #a97800;
+  --umn-alert-color: #4d3a00;
+}
+
+.umn-theme-public .umn-alert--warning {
+  --umn-alert-background: #fff4cc;
+  --umn-alert-border-color: #d6ad1f;
+  --umn-alert-accent-color: #8a6500;
+  --umn-alert-color: #3f3000;
+}
+
+.umn-theme-public .umn-alert--danger {
+  --umn-alert-background: #fdf0ef;
+  --umn-alert-border-color: #e3b7b3;
+  --umn-alert-accent-color: #b42318;
+  --umn-alert-color: #67140e;
+}
