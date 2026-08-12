@@ -764,3 +764,190 @@
   --umn-badge-border-color: #e3b7b3;
   --umn-badge-color: #67140e;
 }
+
+/* ==========================================================================
+   7. Record Card
+   ========================================================================== */
+
+/*
+ * Record information card for Slate dashboards and portal views.
+ *
+ * Intended for frequently referenced person or record-level information
+ * such as name, ID, email, photo, status badges, and other key metadata.
+ *
+ * The photo is optional.
+ *
+ * Example:
+ *
+ * <div class="umn-record-card">
+ *   <div class="umn-record-card__photo">
+ *     <img src="..." alt="Jordan Smith">
+ *   </div>
+ *
+ *   <div class="umn-record-card__body">
+ *     <h2 class="umn-record-card__name">Jordan Smith</h2>
+ *
+ *     <div class="umn-record-card__meta">
+ *       <span>Student ID: 1234567</span>
+ *       <span>Email: smith123@umn.edu</span>
+ *     </div>
+ *
+ *     <div class="umn-record-card__badges">
+ *       ...
+ *     </div>
+ *   </div>
+ * </div>
+ */
+
+.umn-record-card {
+  --umn-record-card-background: var(--umn-color-white);
+  --umn-record-card-border-color: var(--umn-color-border);
+  --umn-record-card-accent-color: #777777;
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--umn-space-md);
+
+  padding: var(--umn-space-lg);
+
+  color: var(--umn-color-text);
+  background: var(--umn-record-card-background);
+
+  border: var(--umn-border-width) solid var(--umn-record-card-border-color);
+  border-left: 0.3rem solid var(--umn-record-card-accent-color);
+  border-radius: var(--umn-border-radius-md);
+}
+
+
+/* --------------------------------------------------------------------------
+   Record Card Photo
+   -------------------------------------------------------------------------- */
+
+.umn-record-card__photo {
+  flex: 0 0 auto;
+}
+
+.umn-record-card__photo img {
+  display: block;
+
+  width: 5rem;
+  height: 5rem;
+
+  object-fit: cover;
+
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: var(--umn-border-radius-md);
+}
+
+
+/* --------------------------------------------------------------------------
+   Record Card Body
+   -------------------------------------------------------------------------- */
+
+.umn-record-card__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.umn-record-card__name {
+  margin: 0 0 var(--umn-space-sm);
+
+  color: var(--umn-color-text);
+  font-size: 1.375rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.25;
+}
+
+
+/* --------------------------------------------------------------------------
+   Record Card Metadata
+   -------------------------------------------------------------------------- */
+
+.umn-record-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--umn-space-xs) var(--umn-space-lg);
+
+  margin-bottom: var(--umn-space-md);
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  line-height: 1.5;
+}
+
+.umn-record-card__meta-item {
+  display: inline-block;
+}
+
+.umn-record-card__meta-label {
+  color: var(--umn-color-text);
+  font-weight: var(--umn-font-weight-medium);
+}
+
+
+/* --------------------------------------------------------------------------
+   Record Card Badges
+   -------------------------------------------------------------------------- */
+
+.umn-record-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--umn-space-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Optional Record Card Details
+   -------------------------------------------------------------------------- */
+
+/*
+ * Optional additional content can be placed below the badges.
+ *
+ * This can contain short notes, links, program information, or other
+ * record-level details.
+ */
+
+.umn-record-card__details {
+  margin-top: var(--umn-space-md);
+  padding-top: var(--umn-space-md);
+
+  border-top: var(--umn-border-width) solid var(--umn-color-border);
+
+  font-size: var(--umn-font-size-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-record-card {
+  --umn-record-card-background: var(--umn-color-white);
+  --umn-record-card-border-color: #d7c3c7;
+  --umn-record-card-accent-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-record-card__name {
+  color: var(--umn-color-maroon);
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 36rem) {
+  .umn-record-card {
+    flex-direction: column;
+  }
+
+  .umn-record-card__photo img {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .umn-record-card__meta {
+    flex-direction: column;
+    gap: var(--umn-space-xs);
+  }
+}
