@@ -300,64 +300,206 @@
   }
 }
 
-<h3>Buttons Default</h3>
+/* ==========================================================================
+   4. Buttons
+   ========================================================================== */
 
-<p>
-  <button class="umn-button">Default Button</button>
-  <button class="umn-button umn-button--primary">Primary Button</button>
-  <button class="umn-button umn-button--secondary">Secondary Button</button>
-  <button class="umn-button umn-button--outline">Outline Button</button>
-  <button class="umn-button umn-button--danger">Danger Button</button>
-</p>
+/*
+ * Base button component.
+ *
+ * Can be used with <button>, <a>, and appropriate <input> elements.
+ *
+ * Examples:
+ *
+ * <button class="umn-button">Default Button</button>
+ *
+ * <button class="umn-button umn-button--primary">
+ *   Primary Button
+ * </button>
+ *
+ * <a href="#" class="umn-button umn-button--outline">
+ *   View Details
+ * </a>
+ */
+
+.umn-button {
+  --umn-button-background: #e9e9e9;
+  --umn-button-border-color: #c7c7c7;
+  --umn-button-color: var(--umn-color-text);
+  --umn-button-hover-background: #dddddd;
+  --umn-button-hover-border-color: #b5b5b5;
+  --umn-button-hover-color: var(--umn-color-text);
+  --umn-button-focus-color: var(--umn-color-text);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--umn-space-sm);
+
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+
+  color: var(--umn-button-color);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  background: var(--umn-button-background);
+  border: var(--umn-border-width) solid var(--umn-button-border-color);
+  border-radius: var(--umn-border-radius-sm);
+
+  transition:
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast),
+    color var(--umn-transition-fast);
+}
+
+.umn-button:hover {
+  color: var(--umn-button-hover-color);
+  text-decoration: none;
+  background: var(--umn-button-hover-background);
+  border-color: var(--umn-button-hover-border-color);
+}
+
+.umn-button:focus-visible {
+  outline: 2px solid var(--umn-button-focus-color);
+  outline-offset: 2px;
+}
+
+.umn-button:active {
+  transform: translateY(1px);
+}
 
 
-<h3>Button Sizes</h3>
+/* --------------------------------------------------------------------------
+   Button Variants
+   -------------------------------------------------------------------------- */
 
-<p>
-  <button class="umn-button umn-button--primary umn-button--small">
-    Small Button
-  </button>
+.umn-button--primary {
+  --umn-button-background: #555555;
+  --umn-button-border-color: #555555;
+  --umn-button-color: var(--umn-color-white);
+  --umn-button-hover-background: #444444;
+  --umn-button-hover-border-color: #444444;
+  --umn-button-hover-color: var(--umn-color-white);
+  --umn-button-focus-color: #555555;
+}
 
-  <button class="umn-button umn-button--primary">
-    Default Button
-  </button>
+.umn-button--secondary {
+  --umn-button-background: #e9e9e9;
+  --umn-button-border-color: #c7c7c7;
+  --umn-button-color: var(--umn-color-text);
+  --umn-button-hover-background: #dddddd;
+  --umn-button-hover-border-color: #b5b5b5;
+  --umn-button-hover-color: var(--umn-color-text);
+}
 
-  <button class="umn-button umn-button--primary umn-button--large">
-    Large Button
-  </button>
-</p>
+.umn-button--outline {
+  --umn-button-background: transparent;
+  --umn-button-border-color: #777777;
+  --umn-button-color: var(--umn-color-text);
+  --umn-button-hover-background: var(--umn-color-background-subtle);
+  --umn-button-hover-border-color: #555555;
+  --umn-button-hover-color: var(--umn-color-text);
+}
 
-
-<h3>Button States</h3>
-
-<p>
-  <button class="umn-button umn-button--primary">
-    Enabled Button
-  </button>
-
-  <button class="umn-button umn-button--primary" disabled>
-    Disabled Button
-  </button>
-</p>
-
-
-<h3>Button as Link</h3>
-
-<p>
-  <a href="#" class="umn-button umn-button--primary">
-    Link Styled as Button
-  </a>
-</p>
+.umn-button--danger {
+  --umn-button-background: #b42318;
+  --umn-button-border-color: #b42318;
+  --umn-button-color: var(--umn-color-white);
+  --umn-button-hover-background: #8f1c14;
+  --umn-button-hover-border-color: #8f1c14;
+  --umn-button-hover-color: var(--umn-color-white);
+  --umn-button-focus-color: #b42318;
+}
 
 
-<h3>Buttons Public Theme</h3>
+/* --------------------------------------------------------------------------
+   Button Sizes
+   -------------------------------------------------------------------------- */
 
-<div class="umn-theme-public">
-  <p>
-    <button class="umn-button">Default Button</button>
-    <button class="umn-button umn-button--primary">Primary Button</button>
-    <button class="umn-button umn-button--secondary">Secondary Button</button>
-    <button class="umn-button umn-button--outline">Outline Button</button>
-    <button class="umn-button umn-button--danger">Danger Button</button>
-  </p>
-</div>
+.umn-button--small {
+  min-height: 2rem;
+  padding: 0.375rem 0.75rem;
+  font-size: var(--umn-font-size-sm);
+}
+
+.umn-button--large {
+  min-height: 3rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.125rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Disabled State
+   -------------------------------------------------------------------------- */
+
+.umn-button:disabled,
+.umn-button[disabled],
+.umn-button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.umn-button:disabled:hover,
+.umn-button[disabled]:hover,
+.umn-button[aria-disabled="true"]:hover {
+  background: var(--umn-button-background);
+  border-color: var(--umn-button-border-color);
+  color: var(--umn-button-color);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-button--primary {
+  --umn-button-background: var(--umn-color-maroon);
+  --umn-button-border-color: var(--umn-color-maroon);
+  --umn-button-color: var(--umn-color-white);
+  --umn-button-hover-background: #5b0013;
+  --umn-button-hover-border-color: #5b0013;
+  --umn-button-hover-color: var(--umn-color-white);
+  --umn-button-focus-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-button--secondary {
+  --umn-button-background: var(--umn-color-background-subtle);
+  --umn-button-border-color: var(--umn-color-border);
+  --umn-button-color: var(--umn-color-text);
+  --umn-button-hover-background: #e7e7e7;
+  --umn-button-hover-border-color: #bdbdbd;
+  --umn-button-hover-color: var(--umn-color-text);
+}
+
+.umn-theme-public .umn-button--outline {
+  --umn-button-background: transparent;
+  --umn-button-border-color: var(--umn-color-maroon);
+  --umn-button-color: var(--umn-color-maroon);
+  --umn-button-hover-background: #f8eef0;
+  --umn-button-hover-border-color: var(--umn-color-maroon);
+  --umn-button-hover-color: var(--umn-color-maroon);
+  --umn-button-focus-color: var(--umn-color-maroon);
+}
+
+
+/* ==========================================================================
+   Reduced Motion - Buttons
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .umn-button {
+    transition: none;
+  }
+
+  .umn-button:active {
+    transform: none;
+  }
+}
