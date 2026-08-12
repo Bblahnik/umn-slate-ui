@@ -1058,3 +1058,53 @@ border-top: 0.3rem solid var(--umn-record-card-accent-color);
 .umn-theme-public .umn-card__title {
   color: var(--umn-color-maroon);
 }
+
+/* ==========================================================================
+   9. Stack / Vertical Spacing
+   ========================================================================== */
+
+/*
+ * Simple vertical layout utility.
+ *
+ * Adds consistent spacing between direct child elements.
+ *
+ * Variants:
+ * - small
+ * - default
+ * - large
+ *
+ * Example:
+ *
+ * <div class="umn-stack">
+ *   <h2>Student Information</h2>
+ *   <div class="umn-record-card">...</div>
+ *   <div class="umn-alert">...</div>
+ *   <div class="umn-card">...</div>
+ * </div>
+ */
+
+.umn-stack {
+  --umn-stack-space: var(--umn-space-lg);
+}
+
+.umn-stack > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.umn-stack > * + * {
+  margin-top: var(--umn-stack-space);
+}
+
+
+/* --------------------------------------------------------------------------
+   Stack Variants
+   -------------------------------------------------------------------------- */
+
+.umn-stack--small {
+  --umn-stack-space: var(--umn-space-sm);
+}
+
+.umn-stack--large {
+  --umn-stack-space: var(--umn-space-xl);
+}
