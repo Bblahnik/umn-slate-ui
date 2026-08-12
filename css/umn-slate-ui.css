@@ -55,7 +55,84 @@
 
 
 /* ==========================================================================
-   2. Accordion
+   2. Typography
+   ========================================================================== */
+
+/*
+ * Apply ".umn-content" to a parent element when UMN Slate UI typography
+ * should be used for the content inside it.
+ *
+ * This keeps typography scoped and prevents unintended changes to
+ * Slate-generated interface elements elsewhere on the page.
+ *
+ * Example:
+ *
+ * <div class="umn-content">
+ *   <h1>Page Heading</h1>
+ *   <p>Page content...</p>
+ * </div>
+ */
+
+.umn-content {
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  line-height: 1.6;
+}
+
+.umn-content h1,
+.umn-content h2,
+.umn-content h3,
+.umn-content h4 {
+  margin-top: 0;
+  margin-bottom: var(--umn-space-sm);
+  color: var(--umn-color-text);
+  line-height: 1.25;
+}
+
+.umn-content h1 {
+  font-size: 2rem;
+  font-weight: var(--umn-font-weight-bold);
+}
+
+.umn-content h2 {
+  font-size: 1.5rem;
+  font-weight: var(--umn-font-weight-bold);
+}
+
+.umn-content h3 {
+  font-size: 1.25rem;
+  font-weight: var(--umn-font-weight-medium);
+}
+
+.umn-content h4 {
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-bold);
+}
+
+.umn-content p {
+  margin-top: 0;
+  margin-bottom: var(--umn-space-md);
+}
+
+.umn-content ul,
+.umn-content ol {
+  margin-top: 0;
+  margin-bottom: var(--umn-space-md);
+  padding-left: 1.5rem;
+}
+
+.umn-content a {
+  color: var(--umn-color-maroon);
+  text-decoration: underline;
+}
+
+.umn-content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+
+/* ==========================================================================
+   3. Accordion
    ========================================================================== */
 
 /*
@@ -175,7 +252,7 @@
 
 
 /* ==========================================================================
-   3. Public Theme
+   4. Public Theme
    ========================================================================== */
 
 /*
@@ -188,6 +265,11 @@
  *   <div class="umn-accordion">...</div>
  * </div>
  */
+
+.umn-theme-public .umn-content h1,
+.umn-theme-public .umn-content h2 {
+  color: var(--umn-color-maroon);
+}
 
 .umn-theme-public .umn-accordion {
   --umn-accordion-border-color: var(--umn-color-maroon);
@@ -208,7 +290,7 @@
 
 
 /* ==========================================================================
-   4. Reduced Motion
+   5. Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
