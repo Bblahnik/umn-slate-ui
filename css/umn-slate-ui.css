@@ -793,7 +793,7 @@
   background: var(--umn-record-card-background);
 
   border: var(--umn-border-width) solid var(--umn-record-card-border-color);
-  border-left: 0.3rem solid var(--umn-record-card-accent-color);
+border-top: 0.3rem solid var(--umn-record-card-accent-color);
   border-radius: var(--umn-border-radius-md);
 }
 
