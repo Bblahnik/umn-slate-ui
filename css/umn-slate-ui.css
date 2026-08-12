@@ -299,3 +299,65 @@
     transition: none;
   }
 }
+
+<h3>Buttons Default</h3>
+
+<p>
+  <button class="umn-button">Default Button</button>
+  <button class="umn-button umn-button--primary">Primary Button</button>
+  <button class="umn-button umn-button--secondary">Secondary Button</button>
+  <button class="umn-button umn-button--outline">Outline Button</button>
+  <button class="umn-button umn-button--danger">Danger Button</button>
+</p>
+
+
+<h3>Button Sizes</h3>
+
+<p>
+  <button class="umn-button umn-button--primary umn-button--small">
+    Small Button
+  </button>
+
+  <button class="umn-button umn-button--primary">
+    Default Button
+  </button>
+
+  <button class="umn-button umn-button--primary umn-button--large">
+    Large Button
+  </button>
+</p>
+
+
+<h3>Button States</h3>
+
+<p>
+  <button class="umn-button umn-button--primary">
+    Enabled Button
+  </button>
+
+  <button class="umn-button umn-button--primary" disabled>
+    Disabled Button
+  </button>
+</p>
+
+
+<h3>Button as Link</h3>
+
+<p>
+  <a href="#" class="umn-button umn-button--primary">
+    Link Styled as Button
+  </a>
+</p>
+
+
+<h3>Buttons Public Theme</h3>
+
+<div class="umn-theme-public">
+  <p>
+    <button class="umn-button">Default Button</button>
+    <button class="umn-button umn-button--primary">Primary Button</button>
+    <button class="umn-button umn-button--secondary">Secondary Button</button>
+    <button class="umn-button umn-button--outline">Outline Button</button>
+    <button class="umn-button umn-button--danger">Danger Button</button>
+  </p>
+</div>
