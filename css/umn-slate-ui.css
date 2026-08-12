@@ -776,27 +776,6 @@
  * such as name, ID, email, photo, status badges, and other key metadata.
  *
  * The photo is optional.
- *
- * Example:
- *
- * <div class="umn-record-card">
- *   <div class="umn-record-card__photo">
- *     <img src="..." alt="Jordan Smith">
- *   </div>
- *
- *   <div class="umn-record-card__body">
- *     <h2 class="umn-record-card__name">Jordan Smith</h2>
- *
- *     <div class="umn-record-card__meta">
- *       <span>Student ID: 1234567</span>
- *       <span>Email: smith123@umn.edu</span>
- *     </div>
- *
- *     <div class="umn-record-card__badges">
- *       ...
- *     </div>
- *   </div>
- * </div>
  */
 
 .umn-record-card {
@@ -864,8 +843,8 @@
    -------------------------------------------------------------------------- */
 
 .umn-record-card__meta {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--umn-space-xs) var(--umn-space-lg);
 
   margin-bottom: var(--umn-space-md);
@@ -876,7 +855,7 @@
 }
 
 .umn-record-card__meta-item {
-  display: inline-block;
+  min-width: 0;
 }
 
 .umn-record-card__meta-label {
@@ -899,13 +878,6 @@
 /* --------------------------------------------------------------------------
    Optional Record Card Details
    -------------------------------------------------------------------------- */
-
-/*
- * Optional additional content can be placed below the badges.
- *
- * This can contain short notes, links, program information, or other
- * record-level details.
- */
 
 .umn-record-card__details {
   margin-top: var(--umn-space-md);
@@ -947,7 +919,6 @@
   }
 
   .umn-record-card__meta {
-    flex-direction: column;
-    gap: var(--umn-space-xs);
+    grid-template-columns: 1fr;
   }
 }
