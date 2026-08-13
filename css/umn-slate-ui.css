@@ -2950,7 +2950,160 @@
   border-bottom-color: var(--umn-color-maroon);
 }
 /* ==========================================================================
-   18. Accessibility / Reduced Motion
+   18. Details
+   ========================================================================== */
+
+/*
+ * Compact label/value presentation for record summaries,
+ * metadata, dashboard details, and descriptive information.
+ *
+ * Default layout:
+ * label above value
+ *
+ * Modifiers:
+ * - .umn-details--horizontal
+ * - .umn-details--compact
+ */
+
+.umn-details {
+  margin: 0;
+}
+
+.umn-details__item {
+  margin: 0;
+  padding: var(--umn-space-sm) 0;
+
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-details__item:first-child {
+  padding-top: 0;
+}
+
+.umn-details__item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.umn-details__label {
+  margin: 0 0 var(--umn-space-xs);
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.3;
+}
+
+.umn-details__value {
+  margin: 0;
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  line-height: 1.4;
+}
+
+.umn-details__value a {
+  color: var(--umn-color-maroon);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-details__value a:hover {
+  text-decoration: underline;
+}
+
+.umn-details__value a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Horizontal Layout
+   -------------------------------------------------------------------------- */
+
+/*
+ * Useful for compact dashboard and record-summary displays.
+ */
+
+.umn-details--horizontal .umn-details__item {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+  gap: var(--umn-space-md);
+
+  align-items: start;
+}
+
+.umn-details--horizontal .umn-details__label {
+  margin: 0;
+
+  color: var(--umn-color-text-muted);
+}
+
+.umn-details--horizontal .umn-details__value {
+  min-width: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Compact Modifier
+   -------------------------------------------------------------------------- */
+
+.umn-details--compact .umn-details__item {
+  padding-top: var(--umn-space-xs);
+  padding-bottom: var(--umn-space-xs);
+}
+
+.umn-details--compact .umn-details__label {
+  font-size: var(--umn-font-size-sm);
+}
+
+.umn-details--compact .umn-details__value {
+  font-size: var(--umn-font-size-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-details__item {
+  padding-top: var(--umn-space-md);
+  padding-bottom: var(--umn-space-md);
+}
+
+.umn-theme-public .umn-details__label {
+  color: var(--umn-color-maroon);
+  font-weight: var(--umn-font-weight-bold);
+}
+
+.umn-theme-public .umn-details__value {
+  font-size: var(--umn-font-size-md);
+}
+
+.umn-theme-public
+  .umn-details--compact
+  .umn-details__item {
+  padding-top: var(--umn-space-sm);
+  padding-bottom: var(--umn-space-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 36rem) {
+  .umn-details--horizontal .umn-details__item {
+    display: block;
+  }
+
+  .umn-details--horizontal .umn-details__label {
+    margin-bottom: var(--umn-space-xs);
+  }
+}
+/* ==========================================================================
+   19. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
