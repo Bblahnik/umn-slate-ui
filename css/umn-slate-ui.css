@@ -1252,7 +1252,6 @@
   gap: var(--umn-space-md);
 }
 
-
 /* ==========================================================================
    12. Tables
    ========================================================================== */
@@ -1262,12 +1261,17 @@
  *
  * Modifiers:
  * - striped
- * - hover
  * - bordered
  * - compact
  *
  * Use .umn-table-container around tables that may need horizontal
  * scrolling on smaller screens.
+ *
+ * Table links can be used in any column:
+ *
+ * <a href="..." class="umn-table__link">
+ *   Jordan Smith
+ * </a>
  *
  * Example:
  *
@@ -1376,6 +1380,55 @@
 
 
 /* --------------------------------------------------------------------------
+   Row Hover
+   -------------------------------------------------------------------------- */
+
+/*
+ * Row hover is enabled by default as a scanning aid.
+ *
+ * The row itself is not clickable and does not receive a pointer cursor.
+ * Navigation should be provided through normal links inside cells.
+ */
+
+.umn-table tbody tr {
+  transition: background-color var(--umn-transition-fast);
+}
+
+.umn-table tbody tr:hover {
+  background: #f0f3f5;
+}
+
+
+/* --------------------------------------------------------------------------
+   Table Links
+   -------------------------------------------------------------------------- */
+
+/*
+ * Use table links for navigable values such as student names,
+ * programs, applications, or other related records.
+ *
+ * Multiple cells in the same row may contain links to different
+ * destinations.
+ */
+
+.umn-table__link {
+  color: var(--umn-color-maroon);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-table__link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.umn-table__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
    Striped Table
    -------------------------------------------------------------------------- */
 
@@ -1383,16 +1436,7 @@
   background: var(--umn-color-background-subtle);
 }
 
-
-/* --------------------------------------------------------------------------
-   Hover Table
-   -------------------------------------------------------------------------- */
-
-.umn-table--hover tbody tr {
-  transition: background-color var(--umn-transition-fast);
-}
-
-.umn-table--hover tbody tr:hover {
+.umn-table--striped tbody tr:nth-child(even):hover {
   background: #f0f3f5;
 }
 
@@ -1444,18 +1488,6 @@
    Public Theme
    -------------------------------------------------------------------------- */
 
-.umn-theme-public .umn-table th,
-.umn-theme-public .umn-table td,
-.umn-theme-public .umn-table tbody th {
-  padding: 0.75rem var(--umn-space-md);
-}
-
-.umn-theme-public .umn-table--compact th,
-.umn-theme-public .umn-table--compact td,
-.umn-theme-public .umn-table--compact tbody th {
-  padding: var(--umn-space-sm);
-}
-
 .umn-theme-public .umn-table thead {
   background: var(--umn-color-maroon);
 }
@@ -1465,12 +1497,31 @@
   border-bottom-color: var(--umn-color-maroon);
 }
 
+.umn-theme-public .umn-table tbody tr:hover {
+  background: var(--umn-color-maroon-subtle);
+}
+
 .umn-theme-public .umn-table--striped tbody tr:nth-child(even) {
   background: #faf6f7;
 }
 
-.umn-theme-public .umn-table--hover tbody tr:hover {
+.umn-theme-public .umn-table--striped tbody tr:nth-child(even):hover {
   background: var(--umn-color-maroon-subtle);
+}
+
+.umn-theme-public .umn-table__link {
+  color: var(--umn-color-maroon);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme Sizing
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-table th,
+.umn-theme-public .umn-table td,
+.umn-theme-public .umn-table tbody th {
+  padding: 0.75rem var(--umn-space-md);
 }
 /* ==========================================================================
    13. Accessibility / Reduced Motion
@@ -1480,7 +1531,7 @@
   .umn-accordion__header,
   .umn-accordion__header::after,
   .umn-button,
-  .umn-table--hover tbody tr {
+  .umn-table tbody tr {
     transition: none;
   }
 
