@@ -1761,14 +1761,843 @@
   background: var(--umn-color-maroon-dark);
 }
 /* ==========================================================================
-   14. Accessibility / Reduced Motion
+   14. Forms
+   ========================================================================== */
+
+/*
+ * Slate form adapter.
+ *
+ * Apply "umn-form" to a Slate Form widget or to a wrapper around
+ * an embedded Slate form.
+ *
+ * The styles below target Slate's generated form markup rather than
+ * requiring classes on individual form controls.
+ *
+ * Primary supported field types:
+ * - text
+ * - textarea
+ * - select
+ * - multiselect
+ * - checkbox
+ * - radio
+ * - date
+ * - birthdate
+ * - address
+ * - location
+ * - secret
+ * - material/file upload
+ * - replicate blocks
+ * - Continue / Back / Submit actions
+ *
+ * Special Slate widgets such as calendars, signatures, video,
+ * payments, and interaction selectors are intentionally styled
+ * lightly or left to Slate.
+ */
+
+
+/* --------------------------------------------------------------------------
+   Form Base
+   -------------------------------------------------------------------------- */
+
+.umn-form {
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  line-height: 1.5;
+}
+
+.umn-form .form_question {
+  margin-bottom: var(--umn-space-md);
+}
+
+.umn-form .form_question:last-child {
+  margin-bottom: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Labels
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_label {
+  display: block;
+  margin-bottom: var(--umn-space-xs);
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.35;
+}
+
+
+/* Required indicator */
+
+.umn-form
+  .form_question[data-required="1"]
+  > .form_label::after,
+.umn-form
+  .form_question[data-required="1"]
+  > fieldset
+  > .form_label::after {
+  content: " *";
+  color: var(--umn-color-danger);
+}
+
+
+/* --------------------------------------------------------------------------
+   Form Headings and Instruction Content
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_h1 .form_label {
+  margin: 0 0 var(--umn-space-sm);
+
+  font-size: 1.625rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.2;
+}
+
+.umn-form .form_h2 .form_label {
+  margin: 0 0 var(--umn-space-sm);
+
+  font-size: 1.25rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.25;
+}
+
+.umn-form .form_header .form_label {
+  margin: var(--umn-space-md) 0 var(--umn-space-sm);
+  padding: 0.5rem var(--umn-space-sm);
+
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-bold);
+
+  background: var(--umn-color-background-subtle);
+  border-left: 0.25rem solid var(--umn-color-neutral-accent);
+}
+
+.umn-form .form_p .form_label {
+  margin-bottom: var(--umn-space-md);
+
+  color: var(--umn-color-text);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+
+/* --------------------------------------------------------------------------
+   Standard Text Controls
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_text input[type="text"],
+.umn-form .form_secret input[type="text"],
+.umn-form .form_address input[type="text"],
+.umn-form .form_location input[type="text"] {
+  width: 100%;
+  max-width: 32rem;
+  min-height: 2.125rem;
+
+  padding: 0.375rem 0.5rem;
+
+  color: var(--umn-color-text);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+  line-height: 1.3;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid #b8b8b8;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color var(--umn-transition-fast),
+    box-shadow var(--umn-transition-fast);
+}
+
+
+/* --------------------------------------------------------------------------
+   Textareas
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_textarea textarea {
+  width: 100%;
+  max-width: 40rem;
+  min-height: 7rem;
+
+  padding: 0.5rem;
+
+  color: var(--umn-color-text);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+  line-height: 1.45;
+
+  resize: vertical;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid #b8b8b8;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color var(--umn-transition-fast),
+    box-shadow var(--umn-transition-fast);
+}
+
+
+/* Address street textarea */
+
+.umn-form .form_address textarea {
+  width: 100%;
+  max-width: 32rem;
+  min-height: 4rem;
+
+  padding: 0.5rem;
+
+  color: var(--umn-color-text);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+  line-height: 1.4;
+
+  resize: vertical;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid #b8b8b8;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color var(--umn-transition-fast),
+    box-shadow var(--umn-transition-fast);
+}
+
+
+/* --------------------------------------------------------------------------
+   Select Controls
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_select select,
+.umn-form .form_multiselect select,
+.umn-form .form_address select,
+.umn-form .form_location select {
+  max-width: 32rem;
+
+  padding: 0.375rem 0.5rem;
+
+  color: var(--umn-color-text);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+  line-height: 1.3;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid #b8b8b8;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color var(--umn-transition-fast),
+    box-shadow var(--umn-transition-fast);
+}
+
+.umn-form .form_select select {
+  width: 100%;
+  min-height: 2.125rem;
+}
+
+.umn-form .form_multiselect select {
+  width: 100%;
+  min-height: 7rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Focus States
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_text input[type="text"]:focus,
+.umn-form .form_secret input[type="text"]:focus,
+.umn-form .form_address input[type="text"]:focus,
+.umn-form .form_location input[type="text"]:focus,
+.umn-form .form_textarea textarea:focus,
+.umn-form .form_address textarea:focus,
+.umn-form .form_select select:focus,
+.umn-form .form_multiselect select:focus,
+.umn-form .form_address select:focus,
+.umn-form .form_location select:focus,
+.umn-form .form_date select:focus,
+.umn-form .form_birthdate select:focus {
+  outline: none;
+
+  border-color: #666666;
+  box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.18);
+}
+
+
+/* --------------------------------------------------------------------------
+   Read-Only Fields
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_question[data-readonly="1"] input,
+.umn-form .form_question[data-readonly="1"] textarea,
+.umn-form .form_question[data-readonly="1"] select {
+  cursor: default;
+  background: var(--umn-color-background-subtle);
+}
+
+
+/* --------------------------------------------------------------------------
+   Disabled Fields
+   -------------------------------------------------------------------------- */
+
+.umn-form input:disabled,
+.umn-form textarea:disabled,
+.umn-form select:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+
+/* --------------------------------------------------------------------------
+   Checkbox and Radio Groups
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_checkbox fieldset,
+.umn-form .form_radio fieldset,
+.umn-form .form_likert fieldset,
+.umn-form .form_date fieldset,
+.umn-form .form_birthdate fieldset,
+.umn-form .form_address fieldset,
+.umn-form .form_location fieldset {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+
+/*
+ * Slate already provides a visible .form_label inside these fieldsets.
+ * Keep the semantic legend available to assistive technology without
+ * displaying a duplicate visual label.
+ */
+
+.umn-form .form_checkbox legend,
+.umn-form .form_radio legend,
+.umn-form .form_likert legend,
+.umn-form .form_date legend,
+.umn-form .form_birthdate legend,
+.umn-form .form_address > fieldset > legend,
+.umn-form .form_location > fieldset > legend {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+
+  border: 0;
+}
+
+.umn-form .form_checkbox .form_response,
+.umn-form .form_radio .form_response {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--umn-space-sm);
+
+  margin-bottom: var(--umn-space-xs);
+}
+
+.umn-form .form_checkbox .form_response:last-child,
+.umn-form .form_radio .form_response:last-child {
+  margin-bottom: 0;
+}
+
+.umn-form .form_checkbox input[type="checkbox"],
+.umn-form .form_radio input[type="radio"] {
+  flex: 0 0 auto;
+
+  width: 1rem;
+  height: 1rem;
+  margin: 0.125rem 0 0;
+
+  accent-color: #666666;
+}
+
+.umn-form .form_checkbox .form_response label,
+.umn-form .form_radio .form_response label {
+  margin: 0;
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  font-weight: 400;
+  line-height: 1.4;
+
+  cursor: pointer;
+}
+
+
+/* --------------------------------------------------------------------------
+   Date and Birthdate
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_date .form_responses,
+.umn-form .form_birthdate .form_responses {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-xs);
+}
+
+.umn-form .form_date select,
+.umn-form .form_birthdate select {
+  min-height: 2.125rem;
+
+  padding: 0.375rem 0.5rem;
+
+  color: var(--umn-color-text);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+  line-height: 1.3;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid #b8b8b8;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color var(--umn-transition-fast),
+    box-shadow var(--umn-transition-fast);
+}
+
+
+/* --------------------------------------------------------------------------
+   Address and Location Blocks
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_address > fieldset > div,
+.umn-form .form_location > fieldset > div {
+  margin-bottom: var(--umn-space-sm);
+}
+
+.umn-form .form_address > fieldset > div:last-of-type,
+.umn-form .form_location > fieldset > div:last-of-type {
+  margin-bottom: 0;
+}
+
+
+/*
+ * The first .form_label in an address/location field is the block label.
+ */
+
+.umn-form .form_address > fieldset > .form_label,
+.umn-form .form_location > fieldset > .form_label {
+  margin-bottom: var(--umn-space-sm);
+
+  font-weight: var(--umn-font-weight-bold);
+}
+
+
+/* --------------------------------------------------------------------------
+   File Upload
+   -------------------------------------------------------------------------- */
+
+.umn-form .form_response_material_upload p {
+  margin: 0;
+}
+
+.umn-form .form_response_material_upload input[type="file"] {
+  max-width: 100%;
+
+  color: var(--umn-color-text);
+  font-family: inherit;
+  font-size: var(--umn-font-size-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Top-Level Error Message
+   -------------------------------------------------------------------------- */
+
+.umn-form .error {
+  margin-bottom: var(--umn-space-md);
+  padding: var(--umn-space-sm);
+
+  color: var(--umn-color-danger-text);
+
+  background: var(--umn-color-danger-subtle);
+  border: var(--umn-border-width) solid var(--umn-color-danger-border);
+  border-left: 0.25rem solid var(--umn-color-danger);
+  border-radius: var(--umn-border-radius-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Replicate Blocks
+   -------------------------------------------------------------------------- */
+
+/*
+ * Slate replicate blocks are generated as internal tables.
+ * These are intentionally styled separately from .umn-table.
+ */
+
+.umn-form .form_page[data-replicate="1"] > table.fixed {
+  width: 100%;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: var(--umn-border-radius-sm);
+}
+
+.umn-form
+  .form_page[data-replicate="1"]
+  > table.fixed
+  > tbody
+  > tr.header
+  > td {
+  padding: 0.5rem var(--umn-space-sm);
+
+  color: var(--umn-color-text);
+  font-weight: var(--umn-font-weight-bold);
+
+  background: var(--umn-color-background-subtle);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-form
+  .form_page[data-replicate="1"]
+  .replicate_template
+  > tr.column
+  > th,
+.umn-form
+  .form_page[data-replicate="1"]
+  tbody:not(.replicate_template)
+  > tr.column
+  > th {
+  padding: 0.5rem var(--umn-space-sm);
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  text-align: left;
+
+  background: #fafafa;
+  border-top: var(--umn-border-width) solid var(--umn-color-border);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-form
+  .form_page[data-replicate="1"]
+  > table.fixed
+  td {
+  padding: var(--umn-space-sm);
+}
+
+.umn-form .replicate_delete {
+  color: var(--umn-color-danger);
+  font-size: var(--umn-font-size-sm);
+  text-decoration: none;
+}
+
+.umn-form .replicate_delete:hover {
+  text-decoration: underline;
+}
+
+.umn-form .replicate_insert_container td {
+  padding: var(--umn-space-sm);
+}
+
+.umn-form .replicate_insert {
+  display: inline-block;
+
+  color: var(--umn-color-maroon);
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-form .replicate_insert:hover {
+  text-decoration: underline;
+}
+
+
+/* --------------------------------------------------------------------------
+   Form Actions
+   -------------------------------------------------------------------------- */
+
+.umn-form .action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-sm);
+
+  margin-top: var(--umn-space-lg);
+}
+
+
+/* Shared button presentation */
+
+.umn-form .form_action_continue button,
+.umn-form .form_action_submit button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 2.125rem;
+  padding: 0.375rem 0.75rem;
+
+  color: var(--umn-color-white);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.25;
+  text-align: center;
+
+  cursor: pointer;
+
+  background: #555555;
+  border: var(--umn-border-width) solid #555555;
+  border-radius: var(--umn-border-radius-sm);
+
+  transition:
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast),
+    color var(--umn-transition-fast);
+}
+
+.umn-form .form_action_continue button:hover,
+.umn-form .form_action_submit button:hover {
+  color: var(--umn-color-white);
+  background: #444444;
+  border-color: #444444;
+}
+
+
+/* Back button */
+
+.umn-form .form_action_continue .form_action_back {
+  color: var(--umn-color-text);
+
+  background: var(--umn-color-white);
+  border-color: #666666;
+}
+
+.umn-form .form_action_continue .form_action_back:hover {
+  color: var(--umn-color-text);
+
+  background: var(--umn-color-background-subtle);
+  border-color: #444444;
+}
+
+
+/* Button focus */
+
+.umn-form .form_action_continue button:focus-visible,
+.umn-form .form_action_submit button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Special Slate Controls
+   -------------------------------------------------------------------------- */
+
+/*
+ * Calendar, Likert, Selectable, Signature, Payment, Video,
+ * Interaction Selector, and other Slate/plugin-driven controls
+ * intentionally retain most of Slate's native presentation.
+ *
+ * The surrounding labels and form spacing still inherit .umn-form.
+ */
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-form {
+  font-size: var(--umn-font-size-md);
+}
+
+
+/* Public form headings */
+
+.umn-theme-public .umn-form .form_h1 .form_label {
+  color: var(--umn-color-maroon);
+  font-size: 2rem;
+}
+
+.umn-theme-public .umn-form .form_h2 .form_label {
+  color: var(--umn-color-maroon);
+  font-size: 1.5rem;
+}
+
+.umn-theme-public .umn-form .form_header .form_label {
+  padding: 0.625rem var(--umn-space-md);
+
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-maroon-subtle);
+  border-left-color: var(--umn-color-maroon);
+}
+
+
+/* Public controls */
+
+.umn-theme-public .umn-form .form_text input[type="text"],
+.umn-theme-public .umn-form .form_secret input[type="text"],
+.umn-theme-public .umn-form .form_address input[type="text"],
+.umn-theme-public .umn-form .form_location input[type="text"],
+.umn-theme-public .umn-form .form_select select,
+.umn-theme-public .umn-form .form_multiselect select,
+.umn-theme-public .umn-form .form_address select,
+.umn-theme-public .umn-form .form_location select,
+.umn-theme-public .umn-form .form_date select,
+.umn-theme-public .umn-form .form_birthdate select {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.625rem;
+}
+
+.umn-theme-public .umn-form .form_textarea textarea,
+.umn-theme-public .umn-form .form_address textarea {
+  padding: 0.625rem;
+}
+
+
+/* Public focus */
+
+.umn-theme-public .umn-form .form_text input[type="text"]:focus,
+.umn-theme-public .umn-form .form_secret input[type="text"]:focus,
+.umn-theme-public .umn-form .form_address input[type="text"]:focus,
+.umn-theme-public .umn-form .form_location input[type="text"]:focus,
+.umn-theme-public .umn-form .form_textarea textarea:focus,
+.umn-theme-public .umn-form .form_address textarea:focus,
+.umn-theme-public .umn-form .form_select select:focus,
+.umn-theme-public .umn-form .form_multiselect select:focus,
+.umn-theme-public .umn-form .form_address select:focus,
+.umn-theme-public .umn-form .form_location select:focus,
+.umn-theme-public .umn-form .form_date select:focus,
+.umn-theme-public .umn-form .form_birthdate select:focus {
+  border-color: var(--umn-color-maroon);
+  box-shadow: 0 0 0 2px rgba(122, 0, 25, 0.16);
+}
+
+
+/* Public checkbox/radio */
+
+.umn-theme-public .umn-form .form_checkbox input[type="checkbox"],
+.umn-theme-public .umn-form .form_radio input[type="radio"] {
+  accent-color: var(--umn-color-maroon);
+}
+
+
+/* Public replicate block */
+
+.umn-theme-public
+  .umn-form
+  .form_page[data-replicate="1"]
+  > table.fixed
+  > tbody
+  > tr.header
+  > td {
+  color: var(--umn-color-maroon);
+  background: var(--umn-color-maroon-subtle);
+}
+
+.umn-theme-public .umn-form .replicate_insert {
+  color: var(--umn-color-maroon);
+}
+
+
+/* Public form actions */
+
+.umn-theme-public .umn-form .form_action_continue button,
+.umn-theme-public .umn-form .form_action_submit button {
+  min-height: 2.5rem;
+  padding: 0.5rem var(--umn-space-md);
+
+  background: var(--umn-color-maroon);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-form .form_action_continue button:hover,
+.umn-theme-public .umn-form .form_action_submit button:hover {
+  background: var(--umn-color-maroon-dark);
+  border-color: var(--umn-color-maroon-dark);
+}
+
+.umn-theme-public
+  .umn-form
+  .form_action_continue
+  .form_action_back {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-white);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public
+  .umn-form
+  .form_action_continue
+  .form_action_back:hover {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-maroon-subtle);
+  border-color: var(--umn-color-maroon);
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 36rem) {
+  .umn-form .form_text input[type="text"],
+  .umn-form .form_secret input[type="text"],
+  .umn-form .form_address input[type="text"],
+  .umn-form .form_location input[type="text"],
+  .umn-form .form_textarea textarea,
+  .umn-form .form_address textarea,
+  .umn-form .form_select select,
+  .umn-form .form_multiselect select,
+  .umn-form .form_address select,
+  .umn-form .form_location select {
+    max-width: 100%;
+  }
+
+  .umn-form .form_date .form_responses,
+  .umn-form .form_birthdate .form_responses {
+    align-items: stretch;
+  }
+
+  .umn-form .action {
+    align-items: stretch;
+  }
+}
+/* ==========================================================================
+   15. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .umn-accordion__header,
   .umn-accordion__header::after,
   .umn-button,
-  .umn-table tbody tr, .umn-tabs__link {
+  .umn-table tbody tr,
+  .umn-tabs__link,
+  .umn-form input,
+  .umn-form textarea,
+  .umn-form select,
+  .umn-form .form_action_continue button,
+  .umn-form .form_action_submit button {
     transition: none;
   }
 
