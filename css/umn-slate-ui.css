@@ -2842,7 +2842,115 @@
   border-color: var(--umn-color-maroon);
 }
 /* ==========================================================================
-   17. Accessibility / Reduced Motion
+   17. Navigation
+   ========================================================================== */
+
+/*
+ * Public-facing navigation for related portal sections or destinations.
+ *
+ * Default presentation is vertical.
+ * Use aria-current="page" on the active destination.
+ *
+ * Modifier:
+ * - .umn-nav--horizontal
+ *
+ * This component is intended primarily for public Slate portals rather
+ * than internal Slate interfaces, where native Slate navigation should
+ * generally remain in control.
+ */
+
+
+/* --------------------------------------------------------------------------
+   Base Navigation
+   -------------------------------------------------------------------------- */
+
+.umn-nav {
+  width: 100%;
+}
+
+.umn-nav__list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.umn-nav__item {
+  margin: 0;
+  padding: 0;
+}
+
+.umn-nav__link {
+  display: block;
+
+  padding: 0.625rem var(--umn-space-md);
+
+  color: var(--umn-color-maroon);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.3;
+  text-decoration: none;
+
+  border-left: 0.1875rem solid transparent;
+
+  transition:
+    color var(--umn-transition-fast),
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast);
+}
+
+.umn-nav__link:hover {
+  color: var(--umn-color-maroon-dark);
+
+  background: var(--umn-color-maroon-subtle);
+
+  text-decoration: none;
+}
+
+.umn-nav__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+
+.umn-nav__link[aria-current="page"],
+.umn-nav__item--active .umn-nav__link {
+  color: var(--umn-color-maroon);
+  font-weight: var(--umn-font-weight-bold);
+
+  background: var(--umn-color-maroon-subtle);
+  border-left-color: var(--umn-color-maroon);
+}
+
+
+/* --------------------------------------------------------------------------
+   Horizontal Navigation
+   -------------------------------------------------------------------------- */
+
+.umn-nav--horizontal {
+  overflow-x: auto;
+}
+
+.umn-nav--horizontal .umn-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--umn-space-xs);
+
+  min-width: max-content;
+}
+
+.umn-nav--horizontal .umn-nav__link {
+  border-left: 0;
+  border-bottom: 0.1875rem solid transparent;
+}
+
+.umn-nav--horizontal .umn-nav__link[aria-current="page"],
+.umn-nav--horizontal
+  .umn-nav__item--active
+  .umn-nav__link {
+  border-bottom-color: var(--umn-color-maroon);
+}
+/* ==========================================================================
+   18. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
