@@ -1163,3 +1163,31 @@ border-top: 0.3rem solid var(--umn-record-card-accent-color);
     padding-inline: var(--umn-space-md);
   }
 }
+/* ==========================================================================
+   11. Cluster / Horizontal Grouping
+   ========================================================================== */
+
+/*
+ * Horizontal layout utility for buttons, badges, links, and other
+ * inline components that should wrap naturally.
+ *
+ * Variants:
+ * - small
+ * - default
+ * - large
+ */
+
+.umn-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-sm);
+}
+
+.umn-cluster--small {
+  gap: var(--umn-space-xs);
+}
+
+.umn-cluster--large {
+  gap: var(--umn-space-md);
+}
