@@ -3024,9 +3024,13 @@
 
 /*
  * Useful for compact dashboard and record-summary displays.
+ *
+ * The additional .umn-details class in the selector provides enough
+ * specificity for the layout to remain reliable when nested inside
+ * other components such as cards.
  */
 
-.umn-details--horizontal .umn-details__item {
+.umn-details.umn-details--horizontal .umn-details__item {
   display: grid;
   grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
   gap: var(--umn-space-md);
@@ -3034,13 +3038,13 @@
   align-items: start;
 }
 
-.umn-details--horizontal .umn-details__label {
+.umn-details.umn-details--horizontal .umn-details__label {
   margin: 0;
 
   color: var(--umn-color-text-muted);
 }
 
-.umn-details--horizontal .umn-details__value {
+.umn-details.umn-details--horizontal .umn-details__value {
   min-width: 0;
 }
 
@@ -3094,11 +3098,11 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 36rem) {
-  .umn-details--horizontal .umn-details__item {
+  .umn-details.umn-details--horizontal .umn-details__item {
     display: block;
   }
 
-  .umn-details--horizontal .umn-details__label {
+  .umn-details.umn-details--horizontal .umn-details__label {
     margin-bottom: var(--umn-space-xs);
   }
 }
