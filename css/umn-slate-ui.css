@@ -2622,7 +2622,90 @@
   }
 }
 /* ==========================================================================
-   15. Accessibility / Reduced Motion
+   15. Breadcrumbs
+   ========================================================================== */
+
+/*
+ * Hierarchical navigation showing the user's current location.
+ *
+ * Example:
+ * Home / Students / Applications / Jane Doe
+ */
+
+.umn-breadcrumbs {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.umn-breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  line-height: 1.4;
+}
+
+.umn-breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.umn-breadcrumbs__item:not(:last-child)::after {
+  content: "/";
+  margin: 0 var(--umn-space-xs);
+
+  color: var(--umn-color-text-muted);
+}
+
+.umn-breadcrumbs__link {
+  color: var(--umn-color-text-muted);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-breadcrumbs__link:hover {
+  color: var(--umn-color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.umn-breadcrumbs__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.umn-breadcrumbs__item[aria-current="page"] {
+  color: var(--umn-color-text);
+  font-weight: var(--umn-font-weight-medium);
+}
+
+
+/* Public theme */
+
+.umn-theme-public .umn-breadcrumbs__link {
+  color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-breadcrumbs__link:hover {
+  color: var(--umn-color-maroon-dark);
+}
+
+.umn-theme-public
+  .umn-breadcrumbs__item[aria-current="page"] {
+  color: var(--umn-color-text);
+}
+/* ==========================================================================
+   16. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
