@@ -20,7 +20,18 @@
 :root {
   /* Brand colors */
   --umn-color-maroon: #7a0019;
+  --umn-color-maroon-dark: #5b0013;
+  --umn-color-maroon-subtle: #f8eef0;
+  --umn-color-maroon-border: #d7c3c7;
   --umn-color-gold: #ffcc33;
+
+  /* Semantic and accent colors */
+  --umn-color-neutral-accent: #777777;
+  --umn-color-danger: #b42318;
+  --umn-color-danger-dark: #8f1c14;
+  --umn-color-danger-subtle: #fdf0ef;
+  --umn-color-danger-border: #e3b7b3;
+  --umn-color-danger-text: #67140e;
 
   /* Neutral colors */
   --umn-color-white: #ffffff;
@@ -128,6 +139,14 @@
 
 .umn-content a:hover {
   text-decoration-thickness: 2px;
+}
+
+
+/* Public theme */
+
+.umn-theme-public .umn-content h1,
+.umn-theme-public .umn-content h2 {
+  color: var(--umn-color-maroon);
 }
 
 
@@ -251,31 +270,15 @@
 }
 
 
-/* ==========================================================================
-   4. Public Theme
-   ========================================================================== */
-
-/*
- * Apply ".umn-theme-public" to a parent element to give contained UMN
- * components a more visibly branded public-facing presentation.
- *
- * Example:
- *
- * <div class="umn-theme-public">
- *   <div class="umn-accordion">...</div>
- * </div>
- */
-
-.umn-theme-public .umn-content h1,
-.umn-theme-public .umn-content h2 {
-  color: var(--umn-color-maroon);
-}
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
 
 .umn-theme-public .umn-accordion {
   --umn-accordion-border-color: var(--umn-color-maroon);
   --umn-accordion-header-background: var(--umn-color-maroon);
   --umn-accordion-header-color: var(--umn-color-white);
-  --umn-accordion-header-hover-background: #5b0013;
+  --umn-accordion-header-hover-background: var(--umn-color-maroon-dark);
   --umn-accordion-content-background: var(--umn-color-white);
   --umn-accordion-indicator-color: var(--umn-color-gold);
 }
@@ -288,17 +291,6 @@
   font-weight: var(--umn-font-weight-bold);
 }
 
-
-/* ==========================================================================
-   5. Reduced Motion
-   ========================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .umn-accordion__header,
-  .umn-accordion__header::after {
-    transition: none;
-  }
-}
 
 /* ==========================================================================
    4. Buttons
@@ -409,13 +401,13 @@
 }
 
 .umn-button--danger {
-  --umn-button-background: #b42318;
-  --umn-button-border-color: #b42318;
+  --umn-button-background: var(--umn-color-danger);
+  --umn-button-border-color: var(--umn-color-danger);
   --umn-button-color: var(--umn-color-white);
-  --umn-button-hover-background: #8f1c14;
-  --umn-button-hover-border-color: #8f1c14;
+  --umn-button-hover-background: var(--umn-color-danger-dark);
+  --umn-button-hover-border-color: var(--umn-color-danger-dark);
   --umn-button-hover-color: var(--umn-color-white);
-  --umn-button-focus-color: #b42318;
+  --umn-button-focus-color: var(--umn-color-danger);
 }
 
 
@@ -464,8 +456,8 @@
   --umn-button-background: var(--umn-color-maroon);
   --umn-button-border-color: var(--umn-color-maroon);
   --umn-button-color: var(--umn-color-white);
-  --umn-button-hover-background: #5b0013;
-  --umn-button-hover-border-color: #5b0013;
+  --umn-button-hover-background: var(--umn-color-maroon-dark);
+  --umn-button-hover-border-color: var(--umn-color-maroon-dark);
   --umn-button-hover-color: var(--umn-color-white);
   --umn-button-focus-color: var(--umn-color-maroon);
 }
@@ -483,26 +475,12 @@
   --umn-button-background: transparent;
   --umn-button-border-color: var(--umn-color-maroon);
   --umn-button-color: var(--umn-color-maroon);
-  --umn-button-hover-background: #f8eef0;
+  --umn-button-hover-background: var(--umn-color-maroon-subtle);
   --umn-button-hover-border-color: var(--umn-color-maroon);
   --umn-button-hover-color: var(--umn-color-maroon);
   --umn-button-focus-color: var(--umn-color-maroon);
 }
 
-
-/* ==========================================================================
-   Reduced Motion - Buttons
-   ========================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .umn-button {
-    transition: none;
-  }
-
-  .umn-button:active {
-    transform: none;
-  }
-}
 
 /* ==========================================================================
    5. Alerts
@@ -529,7 +507,7 @@
 .umn-alert {
   --umn-alert-background: var(--umn-color-background-subtle);
   --umn-alert-border-color: var(--umn-color-border);
-  --umn-alert-accent-color: #777777;
+  --umn-alert-accent-color: var(--umn-color-neutral-accent);
   --umn-alert-color: var(--umn-color-text);
 
   padding: var(--umn-space-md);
@@ -570,7 +548,7 @@
 .umn-alert--info-secondary {
   --umn-alert-background: #f5f5f5;
   --umn-alert-border-color: #d5d5d5;
-  --umn-alert-accent-color: #777777;
+  --umn-alert-accent-color: var(--umn-color-neutral-accent);
   --umn-alert-color: var(--umn-color-text);
 }
 
@@ -589,10 +567,10 @@
 }
 
 .umn-alert--danger {
-  --umn-alert-background: #fdf0ef;
-  --umn-alert-border-color: #e3b7b3;
-  --umn-alert-accent-color: #b42318;
-  --umn-alert-color: #67140e;
+  --umn-alert-background: var(--umn-color-danger-subtle);
+  --umn-alert-border-color: var(--umn-color-danger-border);
+  --umn-alert-accent-color: var(--umn-color-danger);
+  --umn-alert-color: var(--umn-color-danger-text);
 }
 
 
@@ -601,7 +579,7 @@
    -------------------------------------------------------------------------- */
 
 .umn-theme-public .umn-alert--info-primary {
-  --umn-alert-background: #f8eef0;
+  --umn-alert-background: var(--umn-color-maroon-subtle);
   --umn-alert-border-color: #d7a8b2;
   --umn-alert-accent-color: var(--umn-color-maroon);
   --umn-alert-color: #4b0010;
@@ -610,7 +588,7 @@
 .umn-theme-public .umn-alert--info-secondary {
   --umn-alert-background: #f5f5f5;
   --umn-alert-border-color: var(--umn-color-border);
-  --umn-alert-accent-color: #777777;
+  --umn-alert-accent-color: var(--umn-color-neutral-accent);
   --umn-alert-color: var(--umn-color-text);
 }
 
@@ -629,10 +607,10 @@
 }
 
 .umn-theme-public .umn-alert--danger {
-  --umn-alert-background: #fdf0ef;
-  --umn-alert-border-color: #e3b7b3;
-  --umn-alert-accent-color: #b42318;
-  --umn-alert-color: #67140e;
+  --umn-alert-background: var(--umn-color-danger-subtle);
+  --umn-alert-border-color: var(--umn-color-danger-border);
+  --umn-alert-accent-color: var(--umn-color-danger);
+  --umn-alert-color: var(--umn-color-danger-text);
 }
 
 /* ==========================================================================
@@ -716,9 +694,9 @@
 }
 
 .umn-badge--danger {
-  --umn-badge-background: #fdf0ef;
-  --umn-badge-border-color: #e3b7b3;
-  --umn-badge-color: #67140e;
+  --umn-badge-background: var(--umn-color-danger-subtle);
+  --umn-badge-border-color: var(--umn-color-danger-border);
+  --umn-badge-color: var(--umn-color-danger-text);
 }
 
 
@@ -736,7 +714,7 @@
    -------------------------------------------------------------------------- */
 
 .umn-theme-public .umn-badge--info-primary {
-  --umn-badge-background: #f8eef0;
+  --umn-badge-background: var(--umn-color-maroon-subtle);
   --umn-badge-border-color: #d7a8b2;
   --umn-badge-color: var(--umn-color-maroon);
 }
@@ -760,9 +738,9 @@
 }
 
 .umn-theme-public .umn-badge--danger {
-  --umn-badge-background: #fdf0ef;
-  --umn-badge-border-color: #e3b7b3;
-  --umn-badge-color: #67140e;
+  --umn-badge-background: var(--umn-color-danger-subtle);
+  --umn-badge-border-color: var(--umn-color-danger-border);
+  --umn-badge-color: var(--umn-color-danger-text);
 }
 
 /* ==========================================================================
@@ -781,7 +759,7 @@
 .umn-record-card {
   --umn-record-card-background: var(--umn-color-white);
   --umn-record-card-border-color: var(--umn-color-border);
-  --umn-record-card-accent-color: #777777;
+  --umn-record-card-accent-color: var(--umn-color-neutral-accent);
 
   display: flex;
   align-items: flex-start;
@@ -793,7 +771,7 @@
   background: var(--umn-record-card-background);
 
   border: var(--umn-border-width) solid var(--umn-record-card-border-color);
-border-top: 0.3rem solid var(--umn-record-card-accent-color);
+  border-top: 0.3rem solid var(--umn-record-card-accent-color);
   border-radius: var(--umn-border-radius-md);
 }
 
@@ -896,7 +874,7 @@ border-top: 0.3rem solid var(--umn-record-card-accent-color);
 
 .umn-theme-public .umn-record-card {
   --umn-record-card-background: var(--umn-color-white);
-  --umn-record-card-border-color: #d7c3c7;
+  --umn-record-card-border-color: var(--umn-color-maroon-border);
   --umn-record-card-accent-color: var(--umn-color-maroon);
 }
 
@@ -956,7 +934,7 @@ border-top: 0.3rem solid var(--umn-record-card-accent-color);
   --umn-card-border-color: var(--umn-color-border);
   --umn-card-header-background: var(--umn-color-background-subtle);
   --umn-card-header-color: var(--umn-color-text);
-  --umn-card-accent-color: #777777;
+  --umn-card-accent-color: var(--umn-color-neutral-accent);
 
   overflow: hidden;
 
@@ -1049,8 +1027,8 @@ border-top: 0.3rem solid var(--umn-record-card-accent-color);
    -------------------------------------------------------------------------- */
 
 .umn-theme-public .umn-card {
-  --umn-card-border-color: #d7c3c7;
-  --umn-card-header-background: #f8eef0;
+  --umn-card-border-color: var(--umn-color-maroon-border);
+  --umn-card-header-background: var(--umn-color-maroon-subtle);
   --umn-card-header-color: var(--umn-color-maroon);
   --umn-card-accent-color: var(--umn-color-maroon);
 }
@@ -1190,4 +1168,20 @@ border-top: 0.3rem solid var(--umn-record-card-accent-color);
 
 .umn-cluster--large {
   gap: var(--umn-space-md);
+}
+
+/* ==========================================================================
+   12. Accessibility / Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .umn-accordion__header,
+  .umn-accordion__header::after,
+  .umn-button {
+    transition: none;
+  }
+
+  .umn-button:active {
+    transform: none;
+  }
 }
