@@ -1170,14 +1170,223 @@
   gap: var(--umn-space-md);
 }
 
+
 /* ==========================================================================
-   12. Accessibility / Reduced Motion
+   12. Tables
+   ========================================================================== */
+
+/*
+ * General-purpose data table for Slate dashboards and portal views.
+ *
+ * Modifiers:
+ * - striped
+ * - hover
+ * - bordered
+ * - compact
+ *
+ * Use .umn-table-container around tables that may need horizontal
+ * scrolling on smaller screens.
+ *
+ * Example:
+ *
+ * <div class="umn-table-container">
+ *   <table class="umn-table">
+ *     ...
+ *   </table>
+ * </div>
+ */
+
+
+/* --------------------------------------------------------------------------
+   Responsive Table Container
+   -------------------------------------------------------------------------- */
+
+.umn-table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* --------------------------------------------------------------------------
+   Base Table
+   -------------------------------------------------------------------------- */
+
+.umn-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  line-height: 1.4;
+
+  background: var(--umn-color-white);
+}
+
+
+/* --------------------------------------------------------------------------
+   Caption
+   -------------------------------------------------------------------------- */
+
+.umn-table caption {
+  padding: 0 0 var(--umn-space-sm);
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-medium);
+  text-align: left;
+}
+
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.umn-table thead {
+  background: var(--umn-color-background-subtle);
+}
+
+.umn-table th {
+  padding: 0.75rem var(--umn-space-md);
+
+  color: var(--umn-color-text);
+  font-weight: var(--umn-font-weight-bold);
+  text-align: left;
+  vertical-align: bottom;
+
+  border-bottom: 2px solid var(--umn-color-border);
+}
+
+
+/* --------------------------------------------------------------------------
+   Body Cells
+   -------------------------------------------------------------------------- */
+
+.umn-table td {
+  padding: 0.75rem var(--umn-space-md);
+
+  text-align: left;
+  vertical-align: top;
+
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-table tbody tr:last-child td,
+.umn-table tbody tr:last-child th {
+  border-bottom: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Row Headers
+   -------------------------------------------------------------------------- */
+
+.umn-table tbody th {
+  padding: 0.75rem var(--umn-space-md);
+
+  font-weight: var(--umn-font-weight-medium);
+  text-align: left;
+  vertical-align: top;
+
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+
+/* --------------------------------------------------------------------------
+   Striped Table
+   -------------------------------------------------------------------------- */
+
+.umn-table--striped tbody tr:nth-child(even) {
+  background: var(--umn-color-background-subtle);
+}
+
+
+/* --------------------------------------------------------------------------
+   Hover Table
+   -------------------------------------------------------------------------- */
+
+.umn-table--hover tbody tr {
+  transition: background-color var(--umn-transition-fast);
+}
+
+.umn-table--hover tbody tr:hover {
+  background: #f0f3f5;
+}
+
+
+/* --------------------------------------------------------------------------
+   Bordered Table
+   -------------------------------------------------------------------------- */
+
+.umn-table--bordered {
+  border: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-table--bordered th,
+.umn-table--bordered td {
+  border: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+
+/* --------------------------------------------------------------------------
+   Compact Table
+   -------------------------------------------------------------------------- */
+
+.umn-table--compact th,
+.umn-table--compact td,
+.umn-table--compact tbody th {
+  padding: var(--umn-space-sm);
+  font-size: var(--umn-font-size-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Table Cell Alignment Helpers
+   -------------------------------------------------------------------------- */
+
+.umn-table .umn-table__cell--center {
+  text-align: center;
+}
+
+.umn-table .umn-table__cell--right {
+  text-align: right;
+}
+
+.umn-table .umn-table__cell--nowrap {
+  white-space: nowrap;
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-table thead {
+  background: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-table thead th {
+  color: var(--umn-color-white);
+  border-bottom-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-table--striped tbody tr:nth-child(even) {
+  background: #faf6f7;
+}
+
+.umn-theme-public .umn-table--hover tbody tr:hover {
+  background: var(--umn-color-maroon-subtle);
+}
+/* ==========================================================================
+   13. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .umn-accordion__header,
   .umn-accordion__header::after,
-  .umn-button {
+  .umn-button,
+  .umn-table--hover tbody tr {
     transition: none;
   }
 
