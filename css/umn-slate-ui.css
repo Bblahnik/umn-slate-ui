@@ -1790,8 +1790,8 @@
  * - Continue / Back / Submit actions
  *
  * Special Slate widgets such as calendars, signatures, video,
- * payments, and interaction selectors are intentionally styled
- * lightly or left to Slate.
+ * payments, interaction selectors, and selectable controls are
+ * intentionally styled lightly or left to Slate.
  */
 
 
@@ -2059,7 +2059,7 @@
 
 
 /* --------------------------------------------------------------------------
-   Checkbox and Radio Groups
+   Checkbox, Radio, and Rating Scale Groups
    -------------------------------------------------------------------------- */
 
 .umn-form .form_checkbox fieldset,
@@ -2118,14 +2118,18 @@
 }
 
 .umn-form .form_checkbox input[type="checkbox"],
+.umn-form .form_radio input[type="radio"],
+.umn-form .form_likert input[type="radio"] {
+  accent-color: #666666;
+}
+
+.umn-form .form_checkbox input[type="checkbox"],
 .umn-form .form_radio input[type="radio"] {
   flex: 0 0 auto;
 
   width: 1rem;
   height: 1rem;
   margin: 0.125rem 0 0;
-
-  accent-color: #666666;
 }
 
 .umn-form .form_checkbox .form_response label,
@@ -2343,7 +2347,7 @@
 }
 
 
-/* Shared button presentation */
+/* Shared primary button presentation */
 
 .umn-form .form_action_continue button,
 .umn-form .form_action_submit button {
@@ -2383,18 +2387,35 @@
 
 /* Back button */
 
-.umn-form .form_action_continue .form_action_back {
+.umn-form .form_action_continue .form_action_back,
+.umn-form .form_action_submit .form_action_back {
   color: var(--umn-color-text);
 
   background: var(--umn-color-white);
   border-color: #666666;
 }
 
-.umn-form .form_action_continue .form_action_back:hover {
+.umn-form .form_action_continue .form_action_back:hover,
+.umn-form .form_action_submit .form_action_back:hover {
   color: var(--umn-color-text);
 
   background: var(--umn-color-background-subtle);
   border-color: #444444;
+}
+
+
+/*
+ * Slate places Submit before Back in the DOM on the final page.
+ * Visually display Back before Submit without changing Slate's
+ * generated markup or JavaScript behavior.
+ */
+
+.umn-form .form_action_submit .form_action_back {
+  order: 1;
+}
+
+.umn-form .form_action_submit .form_button_submit {
+  order: 2;
 }
 
 
@@ -2412,9 +2433,12 @@
    -------------------------------------------------------------------------- */
 
 /*
- * Calendar, Likert, Selectable, Signature, Payment, Video,
+ * Calendar, Selectable, Signature, Payment, Video,
  * Interaction Selector, and other Slate/plugin-driven controls
  * intentionally retain most of Slate's native presentation.
+ *
+ * Likert/rating scale layout is also retained, but its native
+ * radio selection color is matched to the rest of the form.
  *
  * The surrounding labels and form spacing still inherit .umn-form.
  */
@@ -2492,10 +2516,11 @@
 }
 
 
-/* Public checkbox/radio */
+/* Public checkbox, radio, and rating scale */
 
 .umn-theme-public .umn-form .form_checkbox input[type="checkbox"],
-.umn-theme-public .umn-form .form_radio input[type="radio"] {
+.umn-theme-public .umn-form .form_radio input[type="radio"],
+.umn-theme-public .umn-form .form_likert input[type="radio"] {
   accent-color: var(--umn-color-maroon);
 }
 
@@ -2531,13 +2556,22 @@
 
 .umn-theme-public .umn-form .form_action_continue button:hover,
 .umn-theme-public .umn-form .form_action_submit button:hover {
+  color: var(--umn-color-white);
+
   background: var(--umn-color-maroon-dark);
   border-color: var(--umn-color-maroon-dark);
 }
 
+
+/* Public Back button */
+
 .umn-theme-public
   .umn-form
   .form_action_continue
+  .form_action_back,
+.umn-theme-public
+  .umn-form
+  .form_action_submit
   .form_action_back {
   color: var(--umn-color-maroon);
 
@@ -2548,6 +2582,10 @@
 .umn-theme-public
   .umn-form
   .form_action_continue
+  .form_action_back:hover,
+.umn-theme-public
+  .umn-form
+  .form_action_submit
   .form_action_back:hover {
   color: var(--umn-color-maroon);
 
