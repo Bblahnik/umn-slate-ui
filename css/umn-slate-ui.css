@@ -2765,6 +2765,11 @@
   color: var(--umn-color-text-muted);
 }
 
+
+/* --------------------------------------------------------------------------
+   Breadcrumb Links
+   -------------------------------------------------------------------------- */
+
 .umn-breadcrumbs__link {
   color: var(--umn-color-text-muted);
   font-weight: var(--umn-font-weight-medium);
@@ -2773,6 +2778,7 @@
 
 .umn-breadcrumbs__link:hover {
   color: var(--umn-color-text);
+
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
@@ -2782,13 +2788,20 @@
   outline-offset: 2px;
 }
 
+
+/* --------------------------------------------------------------------------
+   Current Page
+   -------------------------------------------------------------------------- */
+
 .umn-breadcrumbs__item[aria-current="page"] {
   color: var(--umn-color-text);
-  font-weight: var(--umn-font-weight-medium);
+  font-weight: var(--umn-font-weight-bold);
 }
 
 
-/* Public theme */
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
 
 .umn-theme-public .umn-breadcrumbs__link {
   color: var(--umn-color-maroon);
