@@ -2957,6 +2957,8 @@
  * Compact label/value presentation for record summaries,
  * metadata, dashboard details, and descriptive information.
  *
+ * Slate-safe markup uses direct <dt> and <dd> children inside <dl>.
+ *
  * Default layout:
  * label above value
  *
@@ -2965,28 +2967,19 @@
  * - .umn-details--compact
  */
 
+
+/* --------------------------------------------------------------------------
+   Base Details
+   -------------------------------------------------------------------------- */
+
 .umn-details {
   margin: 0;
-}
-
-.umn-details__item {
-  margin: 0;
-  padding: var(--umn-space-sm) 0;
-
-  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
-}
-
-.umn-details__item:first-child {
-  padding-top: 0;
-}
-
-.umn-details__item:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
+  padding: 0;
 }
 
 .umn-details__label {
-  margin: 0 0 var(--umn-space-xs);
+  margin: 0;
+  padding-top: var(--umn-space-sm);
 
   color: var(--umn-color-text-muted);
   font-size: var(--umn-font-size-sm);
@@ -2994,13 +2987,31 @@
   line-height: 1.3;
 }
 
+.umn-details__label:first-child {
+  padding-top: 0;
+}
+
 .umn-details__value {
   margin: 0;
+  padding-top: var(--umn-space-xs);
+  padding-bottom: var(--umn-space-sm);
 
   color: var(--umn-color-text);
   font-size: var(--umn-font-size-md);
   line-height: 1.4;
+
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
+
+.umn-details__value:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
 
 .umn-details__value a {
   color: var(--umn-color-maroon);
@@ -3023,29 +3034,50 @@
    -------------------------------------------------------------------------- */
 
 /*
- * Useful for compact dashboard and record-summary displays.
+ * Places labels and values into two columns.
  *
- * The additional .umn-details class in the selector provides enough
- * specificity for the layout to remain reliable when nested inside
- * other components such as cards.
+ * Each <dt> and <dd> becomes a grid item:
+ *
+ * Program    Montpellier Liberal Arts
+ * Term       Fall 2026
+ * Status     Enrolled
  */
 
-.umn-details.umn-details--horizontal .umn-details__item {
+.umn-details--horizontal {
   display: grid;
   grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
-  gap: var(--umn-space-md);
-
-  align-items: start;
+  column-gap: var(--umn-space-md);
 }
 
-.umn-details.umn-details--horizontal .umn-details__label {
+.umn-details--horizontal .umn-details__label,
+.umn-details--horizontal .umn-details__value {
+  padding-top: var(--umn-space-sm);
+  padding-bottom: var(--umn-space-sm);
+
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-details--horizontal .umn-details__label {
   margin: 0;
 
   color: var(--umn-color-text-muted);
 }
 
-.umn-details.umn-details--horizontal .umn-details__value {
+.umn-details--horizontal .umn-details__value {
   min-width: 0;
+  margin: 0;
+}
+
+.umn-details--horizontal .umn-details__label:first-child,
+.umn-details--horizontal .umn-details__label:first-child
+  + .umn-details__value {
+  padding-top: 0;
+}
+
+.umn-details--horizontal .umn-details__label:nth-last-child(2),
+.umn-details--horizontal .umn-details__value:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 
@@ -3053,28 +3085,53 @@
    Compact Modifier
    -------------------------------------------------------------------------- */
 
-.umn-details--compact .umn-details__item {
+.umn-details--compact .umn-details__label,
+.umn-details--compact .umn-details__value {
+  font-size: var(--umn-font-size-sm);
+}
+
+.umn-details--compact .umn-details__label {
+  padding-top: var(--umn-space-xs);
+}
+
+.umn-details--compact .umn-details__value {
   padding-top: var(--umn-space-xs);
   padding-bottom: var(--umn-space-xs);
 }
 
-.umn-details--compact .umn-details__label {
-  font-size: var(--umn-font-size-sm);
+
+/*
+ * Compact horizontal details keep each label/value row tight while
+ * preserving alignment and row separators.
+ */
+
+.umn-details--horizontal.umn-details--compact
+  .umn-details__label,
+.umn-details--horizontal.umn-details--compact
+  .umn-details__value {
+  padding-top: var(--umn-space-xs);
+  padding-bottom: var(--umn-space-xs);
 }
 
-.umn-details--compact .umn-details__value {
-  font-size: var(--umn-font-size-sm);
+.umn-details--horizontal.umn-details--compact
+  .umn-details__label:first-child,
+.umn-details--horizontal.umn-details--compact
+  .umn-details__label:first-child
+  + .umn-details__value {
+  padding-top: 0;
+}
+
+.umn-details--horizontal.umn-details--compact
+  .umn-details__label:nth-last-child(2),
+.umn-details--horizontal.umn-details--compact
+  .umn-details__value:last-child {
+  padding-bottom: 0;
 }
 
 
 /* --------------------------------------------------------------------------
    Public Theme
    -------------------------------------------------------------------------- */
-
-.umn-theme-public .umn-details__item {
-  padding-top: var(--umn-space-md);
-  padding-bottom: var(--umn-space-md);
-}
 
 .umn-theme-public .umn-details__label {
   color: var(--umn-color-maroon);
@@ -3086,8 +3143,33 @@
 }
 
 .umn-theme-public
+  .umn-details--horizontal
+  .umn-details__label,
+.umn-theme-public
+  .umn-details--horizontal
+  .umn-details__value {
+  padding-top: var(--umn-space-md);
+  padding-bottom: var(--umn-space-md);
+}
+
+
+/*
+ * Compact remains meaningfully compact in the public theme,
+ * while retaining slightly more breathing room than internal Slate.
+ */
+
+.umn-theme-public
   .umn-details--compact
-  .umn-details__item {
+  .umn-details__label,
+.umn-theme-public
+  .umn-details--compact
+  .umn-details__value,
+.umn-theme-public
+  .umn-details--horizontal.umn-details--compact
+  .umn-details__label,
+.umn-theme-public
+  .umn-details--horizontal.umn-details--compact
+  .umn-details__value {
   padding-top: var(--umn-space-sm);
   padding-bottom: var(--umn-space-sm);
 }
@@ -3098,12 +3180,27 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 36rem) {
-  .umn-details.umn-details--horizontal .umn-details__item {
+  .umn-details--horizontal {
     display: block;
   }
 
-  .umn-details.umn-details--horizontal .umn-details__label {
-    margin-bottom: var(--umn-space-xs);
+  .umn-details--horizontal .umn-details__label {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .umn-details--horizontal .umn-details__value {
+    padding-top: var(--umn-space-xs);
+  }
+
+  .umn-details--horizontal
+    .umn-details__label:nth-last-child(2) {
+    padding-bottom: 0;
+  }
+
+  .umn-details--horizontal.umn-details--compact
+    .umn-details__label {
+    padding-bottom: 0;
   }
 }
 /* ==========================================================================
