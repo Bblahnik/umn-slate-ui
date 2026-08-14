@@ -12,7 +12,31 @@
  * - Native HTML/CSS behavior is preferred over JavaScript.
  * - Avoid !important unless a demonstrated Slate-specific conflict requires it.
  */
+/* ==========================================================================
+   Code Blocks
+   ========================================================================== */
 
+.umn-code-block {
+  margin: 0;
+  padding: var(--umn-space-md);
+
+  overflow-x: auto;
+
+  color: var(--umn-color-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: var(--umn-font-size-sm);
+  line-height: 1.5;
+
+  background: var(--umn-color-background-subtle);
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: var(--umn-border-radius-sm);
+}
+
+.umn-code-block code {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}
 /* ==========================================================================
    1. Design Tokens
    ========================================================================== */
