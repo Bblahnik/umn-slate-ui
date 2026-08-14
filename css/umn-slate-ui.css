@@ -221,7 +221,26 @@
 .umn-content a:hover {
   text-decoration-thickness: 2px;
 }
+/* Inline code */
 
+.umn-content :not(pre) > code {
+  padding: 0.1em 0.3em;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+  font-size: 0.9em;
+
+  background: var(--umn-color-background-subtle);
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: var(--umn-border-radius-sm);
+}
 
 /* Public theme */
 
