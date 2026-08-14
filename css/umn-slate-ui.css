@@ -3359,7 +3359,226 @@
   font-size: var(--umn-font-size-sm);
 }
 /* ==========================================================================
-   20. Accessibility / Reduced Motion
+   20. Progress / Status Steps
+   ========================================================================== */
+
+/*
+ * Progress and status steps for multi-stage processes.
+ *
+ * Typical uses:
+ * - Application progress
+ * - Review workflows
+ * - Enrollment status
+ * - Request processing
+ *
+ * States:
+ * - default = upcoming
+ * - .umn-steps__item--complete
+ * - .umn-steps__item--current
+ */
+
+
+/* --------------------------------------------------------------------------
+   Base Steps
+   -------------------------------------------------------------------------- */
+
+.umn-steps {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.umn-steps__item {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  column-gap: var(--umn-space-sm);
+
+  margin: 0;
+  padding: 0 0 var(--umn-space-md);
+
+  color: var(--umn-color-text-muted);
+}
+
+.umn-steps__item:last-child {
+  padding-bottom: 0;
+}
+
+
+/* Connecting line */
+
+.umn-steps__item::before {
+  content: "";
+
+  position: absolute;
+  top: 1.5rem;
+  bottom: 0;
+  left: 0.6875rem;
+
+  width: 2px;
+
+  background: var(--umn-color-border);
+}
+
+.umn-steps__item:last-child::before {
+  display: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   Marker
+   -------------------------------------------------------------------------- */
+
+.umn-steps__marker {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  color: var(--umn-color-text-muted);
+  font-size: 0.6875rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1;
+
+  background: var(--umn-color-white);
+  border: 2px solid var(--umn-color-border);
+  border-radius: 50%;
+
+  box-sizing: border-box;
+}
+
+
+/* --------------------------------------------------------------------------
+   Step Content
+   -------------------------------------------------------------------------- */
+
+.umn-steps__content {
+  min-width: 0;
+}
+
+.umn-steps__label {
+  margin: 0;
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.3;
+}
+
+.umn-steps__description {
+  margin: var(--umn-space-xs) 0 0;
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  line-height: 1.4;
+}
+
+
+/* --------------------------------------------------------------------------
+   Completed Step
+   -------------------------------------------------------------------------- */
+
+.umn-steps__item--complete {
+  color: var(--umn-color-text);
+}
+
+.umn-steps__item--complete::before {
+  background: var(--umn-color-neutral-accent);
+}
+
+.umn-steps__item--complete .umn-steps__marker {
+  color: var(--umn-color-white);
+
+  background: var(--umn-color-neutral-accent);
+  border-color: var(--umn-color-neutral-accent);
+}
+
+.umn-steps__item--complete .umn-steps__label {
+  color: var(--umn-color-text);
+}
+
+
+/* --------------------------------------------------------------------------
+   Current Step
+   -------------------------------------------------------------------------- */
+
+.umn-steps__item--current {
+  color: var(--umn-color-text);
+}
+
+.umn-steps__item--current .umn-steps__marker {
+  color: var(--umn-color-white);
+
+  background: #555555;
+  border-color: #555555;
+}
+
+.umn-steps__item--current .umn-steps__label {
+  color: var(--umn-color-text);
+  font-weight: var(--umn-font-weight-bold);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-steps__item {
+  padding-bottom: var(--umn-space-lg);
+}
+
+.umn-theme-public .umn-steps__marker {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.umn-theme-public .umn-steps__item::before {
+  top: 1.75rem;
+  left: 0.8125rem;
+}
+
+.umn-theme-public .umn-steps__item--complete::before {
+  background: var(--umn-color-maroon);
+}
+
+.umn-theme-public
+  .umn-steps__item--complete
+  .umn-steps__marker {
+  color: var(--umn-color-white);
+
+  background: var(--umn-color-maroon);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public
+  .umn-steps__item--current
+  .umn-steps__marker {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-gold);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public
+  .umn-steps__item--current
+  .umn-steps__label {
+  color: var(--umn-color-maroon);
+}
+
+.umn-theme-public
+  .umn-steps__item--complete
+  .umn-steps__label {
+  color: var(--umn-color-maroon);
+}
+/* ==========================================================================
+   21. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
