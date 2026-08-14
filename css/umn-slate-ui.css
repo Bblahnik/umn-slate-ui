@@ -3046,7 +3046,7 @@
 .umn-details--horizontal {
   display: grid;
   grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
-  column-gap: var(--umn-space-md);
+  column-gap: 0;
 }
 
 .umn-details--horizontal .umn-details__label,
@@ -3057,6 +3057,9 @@
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
 
+.umn-details--horizontal .umn-details__label {
+  padding-right: var(--umn-space-md);
+}
 .umn-details--horizontal .umn-details__label {
   margin: 0;
 
