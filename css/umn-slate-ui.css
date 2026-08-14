@@ -16,26 +16,65 @@
    Code Blocks
    ========================================================================== */
 
+/*
+ * Source-code display for examples, documentation, and technical content.
+ *
+ * Slate may remove classes from <pre> elements, so the component class
+ * is applied to a wrapper around the native <pre><code> structure.
+ *
+ * Example:
+ *
+ * <div class="umn-code-block">
+ *   <pre><code>...</code></pre>
+ * </div>
+ */
+
 .umn-code-block {
+  width: 100%;
+  margin: 0;
+
+  overflow: hidden;
+
+  background: var(--umn-color-background-subtle);
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: var(--umn-border-radius-md);
+
+  box-sizing: border-box;
+}
+
+.umn-code-block pre {
   margin: 0;
   padding: var(--umn-space-md);
 
   overflow-x: auto;
 
   color: var(--umn-color-text);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
   font-size: var(--umn-font-size-sm);
-  line-height: 1.5;
+  line-height: 1.55;
+  white-space: pre;
 
-  background: var(--umn-color-background-subtle);
-  border: var(--umn-border-width) solid var(--umn-color-border);
-  border-radius: var(--umn-border-radius-sm);
+  background: transparent;
+  border: 0;
 }
 
 .umn-code-block code {
-  font: inherit;
+  padding: 0;
+
   color: inherit;
+  font: inherit;
+  white-space: inherit;
+
   background: transparent;
+  border: 0;
 }
 /* ==========================================================================
    1. Design Tokens
