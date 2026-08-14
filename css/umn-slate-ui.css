@@ -3743,6 +3743,9 @@
 /*
  * Chronological activity history for records, workflows, and portals.
  *
+ * Recommended chronology:
+ * oldest first, newest last
+ *
  * Typical uses:
  * - Application history
  * - Review activity
@@ -3750,8 +3753,9 @@
  * - Approval history
  * - Student milestones
  *
- * Modifier:
+ * Modifiers:
  * - .umn-timeline--compact
+ * - .umn-timeline--horizontal
  *
  * Optional emphasized item:
  * - .umn-timeline__item--highlight
@@ -3872,7 +3876,7 @@
    -------------------------------------------------------------------------- */
 
 /*
- * Optional emphasis for a particularly important or most recent event.
+ * Optional emphasis for an important or most recent event.
  */
 
 .umn-timeline__item--highlight .umn-timeline__marker {
@@ -3900,6 +3904,68 @@
 
 .umn-timeline--compact .umn-timeline__title {
   font-size: var(--umn-font-size-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Horizontal Timeline
+   -------------------------------------------------------------------------- */
+
+/*
+ * Horizontal presentation for shorter histories or milestones.
+ *
+ * Add:
+ * .umn-timeline--horizontal
+ */
+
+.umn-timeline--horizontal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0;
+
+  width: 100%;
+}
+
+.umn-timeline--horizontal .umn-timeline__item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.25rem auto;
+  justify-items: center;
+
+  padding: 0 var(--umn-space-sm);
+
+  text-align: center;
+}
+
+.umn-timeline--horizontal .umn-timeline__item::before {
+  top: 0.5625rem;
+  right: -50%;
+  bottom: auto;
+  left: 50%;
+
+  width: 100%;
+  height: 2px;
+}
+
+.umn-timeline--horizontal .umn-timeline__item:last-child::before {
+  display: none;
+}
+
+.umn-timeline--horizontal .umn-timeline__marker {
+  grid-row: 1;
+
+  margin-top: 0.1875rem;
+  margin-left: 0;
+}
+
+.umn-timeline--horizontal .umn-timeline__content {
+  grid-row: 2;
+
+  margin-top: var(--umn-space-sm);
+}
+
+.umn-timeline--horizontal .umn-timeline__text {
+  max-width: 16rem;
 }
 
 
@@ -3940,8 +4006,95 @@
   .umn-timeline__item {
   padding-bottom: var(--umn-space-lg);
 }
+
+
+/* --------------------------------------------------------------------------
+   Horizontal Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public
+  .umn-timeline--horizontal
+  .umn-timeline__item {
+  padding-bottom: 0;
+}
+
+.umn-theme-public
+  .umn-timeline--horizontal
+  .umn-timeline__item::before {
+  top: 0.5625rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 48rem) {
+  .umn-timeline--horizontal {
+    display: block;
+  }
+
+  .umn-timeline--horizontal .umn-timeline__item {
+    display: grid;
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    grid-template-rows: auto;
+    column-gap: var(--umn-space-sm);
+
+    justify-items: stretch;
+
+    padding: 0 0 var(--umn-space-lg);
+
+    text-align: left;
+  }
+
+  .umn-timeline--horizontal .umn-timeline__item:last-child {
+    padding-bottom: 0;
+  }
+
+  .umn-timeline--horizontal .umn-timeline__item::before {
+    top: 1.25rem;
+    right: auto;
+    bottom: 0;
+    left: 0.5625rem;
+
+    width: 2px;
+    height: auto;
+  }
+
+  .umn-timeline--horizontal .umn-timeline__marker {
+    grid-row: auto;
+
+    margin-top: 0.25rem;
+    margin-left: 0.25rem;
+  }
+
+  .umn-timeline--horizontal .umn-timeline__content {
+    grid-row: auto;
+
+    margin-top: 0;
+  }
+
+  .umn-timeline--horizontal .umn-timeline__text {
+    max-width: none;
+  }
+
+
+  /* Public theme */
+
+  .umn-theme-public
+    .umn-timeline--horizontal
+    .umn-timeline__item {
+    padding-bottom: var(--umn-space-xl);
+  }
+
+  .umn-theme-public
+    .umn-timeline--horizontal
+    .umn-timeline__item:last-child {
+    padding-bottom: 0;
+  }
+}
 /* ==========================================================================
-   23. Accessibility / Reduced Motion
+   22. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
