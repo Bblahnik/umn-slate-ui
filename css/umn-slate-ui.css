@@ -390,6 +390,22 @@
     color var(--umn-transition-fast);
 }
 
+/*
+ * Buttons rendered as links should retain button styling when placed
+ * inside .umn-content. This prevents the scoped content-link styles
+ * from overriding button color and text decoration.
+ */
+
+.umn-content a.umn-button {
+  color: var(--umn-button-color);
+  text-decoration: none;
+}
+
+.umn-content a.umn-button:hover {
+  color: var(--umn-button-hover-color);
+  text-decoration: none;
+}
+
 .umn-button:hover {
   color: var(--umn-button-hover-color);
   text-decoration: none;
