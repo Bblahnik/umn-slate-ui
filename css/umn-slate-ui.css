@@ -3737,7 +3737,211 @@
   }
 }
 /* ==========================================================================
-   21. Accessibility / Reduced Motion
+   21. Timeline / Activity History
+   ========================================================================== */
+
+/*
+ * Chronological activity history for records, workflows, and portals.
+ *
+ * Typical uses:
+ * - Application history
+ * - Review activity
+ * - Document processing
+ * - Approval history
+ * - Student milestones
+ *
+ * Modifier:
+ * - .umn-timeline--compact
+ *
+ * Optional emphasized item:
+ * - .umn-timeline__item--highlight
+ */
+
+
+/* --------------------------------------------------------------------------
+   Base Timeline
+   -------------------------------------------------------------------------- */
+
+.umn-timeline {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.umn-timeline__item {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  column-gap: var(--umn-space-sm);
+
+  margin: 0;
+  padding: 0 0 var(--umn-space-lg);
+
+  color: var(--umn-color-text);
+}
+
+.umn-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+
+/* Connecting line */
+
+.umn-timeline__item::before {
+  content: "";
+
+  position: absolute;
+  top: 1.25rem;
+  bottom: 0;
+  left: 0.5625rem;
+
+  width: 2px;
+
+  background: var(--umn-color-border);
+}
+
+.umn-timeline__item:last-child::before {
+  display: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   Marker
+   -------------------------------------------------------------------------- */
+
+.umn-timeline__marker {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.25rem;
+  margin-left: 0.25rem;
+
+  background: var(--umn-color-white);
+  border: 2px solid var(--umn-color-neutral-accent);
+  border-radius: 50%;
+
+  box-sizing: border-box;
+}
+
+
+/* --------------------------------------------------------------------------
+   Timeline Content
+   -------------------------------------------------------------------------- */
+
+.umn-timeline__content {
+  min-width: 0;
+}
+
+.umn-timeline__date {
+  display: block;
+
+  margin: 0 0 var(--umn-space-xs);
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.3;
+}
+
+.umn-timeline__title {
+  margin: 0;
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+}
+
+.umn-timeline__text {
+  margin: var(--umn-space-xs) 0 0;
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  line-height: 1.45;
+}
+
+
+/* --------------------------------------------------------------------------
+   Highlighted Item
+   -------------------------------------------------------------------------- */
+
+/*
+ * Optional emphasis for a particularly important or most recent event.
+ */
+
+.umn-timeline__item--highlight .umn-timeline__marker {
+  background: #555555;
+  border-color: #555555;
+}
+
+.umn-timeline__item--highlight .umn-timeline__title {
+  color: var(--umn-color-text);
+}
+
+
+/* --------------------------------------------------------------------------
+   Compact Modifier
+   -------------------------------------------------------------------------- */
+
+.umn-timeline--compact .umn-timeline__item {
+  padding-bottom: var(--umn-space-md);
+}
+
+.umn-timeline--compact .umn-timeline__date,
+.umn-timeline--compact .umn-timeline__text {
+  font-size: var(--umn-font-size-sm);
+}
+
+.umn-timeline--compact .umn-timeline__title {
+  font-size: var(--umn-font-size-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-timeline__item {
+  padding-bottom: var(--umn-space-xl);
+}
+
+.umn-theme-public .umn-timeline__item::before {
+  background: var(--umn-color-maroon-border);
+}
+
+.umn-theme-public .umn-timeline__marker {
+  background: var(--umn-color-white);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-timeline__date {
+  color: var(--umn-color-text-muted);
+}
+
+.umn-theme-public .umn-timeline__title {
+  color: var(--umn-color-maroon);
+}
+
+.umn-theme-public
+  .umn-timeline__item--highlight
+  .umn-timeline__marker {
+  background: var(--umn-color-gold);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-theme-public
+  .umn-timeline--compact
+  .umn-timeline__item {
+  padding-bottom: var(--umn-space-lg);
+}
+/* ==========================================================================
+   23. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
