@@ -3252,7 +3252,20 @@
   padding-top: var(--umn-space-md);
   padding-bottom: var(--umn-space-md);
 }
+/*
+ * Keep the first horizontal label/value pair aligned with the top
+ * edge after the public theme increases row spacing.
+ */
 
+.umn-theme-public
+  .umn-details--horizontal
+  .umn-details__label:first-child,
+.umn-theme-public
+  .umn-details--horizontal
+  .umn-details__label:first-child
+  + .umn-details__value {
+  padding-top: 0;
+}
 
 /*
  * Compact remains meaningfully compact in the public theme,
