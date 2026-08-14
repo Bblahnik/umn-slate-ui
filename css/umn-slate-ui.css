@@ -4463,7 +4463,137 @@
   border-top-color: var(--umn-color-maroon);
 }
 /* ==========================================================================
-   24. Accessibility / Reduced Motion
+   24. Action / Link List
+   ========================================================================== */
+
+/*
+ * Structured list of related links or actions.
+ *
+ * Typical uses:
+ * - Related record destinations
+ * - Dashboard action lists
+ * - Resource links
+ * - Card navigation
+ *
+ * Required:
+ * - .umn-action-list
+ * - .umn-action-list__item
+ * - .umn-action-list__link
+ *
+ * Optional:
+ * - .umn-action-list__description
+ * - .umn-action-list--compact
+ */
+
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+.umn-action-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  border-top: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-action-list__item {
+  margin: 0;
+  padding: 0;
+
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+
+/* --------------------------------------------------------------------------
+   Link
+   -------------------------------------------------------------------------- */
+
+.umn-action-list__link {
+  display: block;
+
+  padding: var(--umn-space-sm) 0;
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.35;
+  text-decoration: none;
+
+  transition:
+    color var(--umn-transition-fast),
+    background-color var(--umn-transition-fast);
+}
+
+.umn-action-list__link:hover {
+  color: var(--umn-color-text);
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.umn-action-list__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Description
+   -------------------------------------------------------------------------- */
+
+.umn-action-list__description {
+  display: block;
+
+  margin-top: var(--umn-space-xs);
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+
+/* --------------------------------------------------------------------------
+   Compact Modifier
+   -------------------------------------------------------------------------- */
+
+.umn-action-list--compact .umn-action-list__link {
+  padding: var(--umn-space-xs) 0;
+
+  font-size: var(--umn-font-size-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-action-list {
+  border-top-color: var(--umn-color-maroon-border);
+}
+
+.umn-theme-public .umn-action-list__item {
+  border-bottom-color: var(--umn-color-maroon-border);
+}
+
+.umn-theme-public .umn-action-list__link {
+  padding: var(--umn-space-md) 0;
+
+  color: var(--umn-color-maroon);
+}
+
+.umn-theme-public .umn-action-list__link:hover {
+  color: var(--umn-color-maroon-dark);
+}
+
+.umn-theme-public .umn-action-list--compact .umn-action-list__link {
+  padding: var(--umn-space-sm) 0;
+}
+/* ==========================================================================
+   25. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
