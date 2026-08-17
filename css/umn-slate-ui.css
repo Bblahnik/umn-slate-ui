@@ -131,13 +131,9 @@
    ========================================================================== */
 
 /*
- * Slate applies dark-family themes through:
- * - html.darkmode
- * - html[data-theme^="twilight"]
- *
- * Reuse Slate's own dashboard color variables so UMN Slate UI
- * follows the active Slate theme rather than maintaining a separate
- * hard-coded dark palette.
+ * Slate owns the dark page background.
+ * UMN Slate UI uses Slate's raised surface and border colors so
+ * components remain visually distinct from the surrounding interface.
  */
 
 html.darkmode,
@@ -145,12 +141,22 @@ html[data-theme^="twilight"] {
   --umn-color-text: var(--dashboard-primaryFont);
   --umn-color-text-muted: var(--dashboard-secondaryFont);
 
-  --umn-color-background: var(--dashboard-primaryBackground);
-  --umn-color-background-subtle: var(--dashboard-secondaryBackground);
+  /* Component surfaces */
+  --umn-color-background: var(--dashboard-primaryAccent);
+  --umn-color-background-subtle: var(--dashboard-secondaryAccent);
   --umn-color-white: var(--dashboard-primaryAccent);
 
+  /* Dividers and accents */
   --umn-color-border: var(--dashboard-primaryBorder);
   --umn-color-neutral-accent: var(--dashboard-secondaryBorder);
+}
+
+html.darkmode .umn-card,
+html[data-theme^="twilight"] .umn-card {
+  --umn-card-background: var(--dashboard-primaryAccent);
+  --umn-card-border-color: var(--dashboard-primaryBorder);
+  --umn-card-header-background: var(--dashboard-secondaryBackground);
+  --umn-card-header-color: var(--dashboard-primaryTitle);
 }
 
 /*
