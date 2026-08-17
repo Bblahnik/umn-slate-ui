@@ -4261,7 +4261,7 @@
   min-width: 0;
 }
 
-.umn-section-header .umn-section-header__title {
+.umn-content .umn-section-header .umn-section-header__title {
   margin: 0;
 
   color: var(--umn-color-text);
