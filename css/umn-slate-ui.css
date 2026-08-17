@@ -4261,13 +4261,25 @@
   min-width: 0;
 }
 
-.umn-content .umn-section-header .umn-section-header__title {
+.umn-section-header__title {
   margin: 0;
 
   color: var(--umn-color-text);
   font-size: 1.25rem;
   font-weight: var(--umn-font-weight-bold);
   line-height: 1.25;
+}
+
+/*
+ * Slate's internal interface applies heading styles through #content h2,
+ * which are more specific than the standard component selector.
+ * Reinforce the section-header title inside Slate dashboards.
+ */
+
+#content .umn-section-header__title {
+  color: var(--umn-color-text);
+  font-size: 1.25rem;
+  font-weight: var(--umn-font-weight-bold);
 }
 
 .umn-section-header__description {
