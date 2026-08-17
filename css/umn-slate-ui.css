@@ -131,32 +131,22 @@
    ========================================================================== */
 
 /*
- * Slate owns the dark page background.
- * UMN Slate UI uses Slate's raised surface and border colors so
- * components remain visually distinct from the surrounding interface.
+ * Slate dark-family themes use a black application canvas.
+ * UMN Slate UI uses slightly elevated dark surfaces so cards,
+ * tables, and other components remain visually distinct.
  */
 
 html.darkmode,
 html[data-theme^="twilight"] {
-  --umn-color-text: var(--dashboard-primaryFont);
-  --umn-color-text-muted: var(--dashboard-secondaryFont);
+  --umn-color-text: #d1d1d1;
+  --umn-color-text-muted: #d1d1d1;
 
-  /* Component surfaces */
-  --umn-color-background: var(--dashboard-primaryAccent);
-  --umn-color-background-subtle: var(--dashboard-secondaryAccent);
-  --umn-color-white: var(--dashboard-primaryAccent);
+  --umn-color-background: #131313;
+  --umn-color-background-subtle: #070707;
+  --umn-color-white: #131313;
 
-  /* Dividers and accents */
-  --umn-color-border: var(--dashboard-primaryBorder);
-  --umn-color-neutral-accent: var(--dashboard-secondaryBorder);
-}
-
-html.darkmode .umn-card,
-html[data-theme^="twilight"] .umn-card {
-  --umn-card-background: var(--dashboard-primaryAccent);
-  --umn-card-border-color: var(--dashboard-primaryBorder);
-  --umn-card-header-background: var(--dashboard-secondaryBackground);
-  --umn-card-header-color: var(--dashboard-primaryTitle);
+  --umn-color-border: #908e8a;
+  --umn-color-neutral-accent: #c69d6c;
 }
 
 /*
