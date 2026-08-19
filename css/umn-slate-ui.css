@@ -276,14 +276,21 @@ html[data-theme^="twilight"] .umn-tooltip::after {
    ========================================================================== */
 
 /*
- * Slate dark-family themes use a black application canvas.
- * UMN Slate UI uses slightly elevated dark surfaces so cards,
- * tables, and other components remain visually distinct.
+ * The Courses Abroad Express Portal is rendered inside an iframe.
+ * Slate applies its theme to the parent page, so a small script in the
+ * portal adds the class ".umn-theme-dark" to the iframe's <html> element
+ * when the parent Slate theme belongs to the dark family.
+ *
+ * Dark-family Slate themes currently include:
+ * - darkmode
+ * - twilight
+ * - twilight-hc
+ *
+ * UMN Slate UI intentionally uses the same component palette for all
+ * dark-family Slate themes.
  */
 
-html.darkmode,
-html[data-theme="darkmode"],
-html[data-theme^="twilight"] {
+html.umn-theme-dark {
   --umn-color-text: #d1d1d1;
   --umn-color-text-muted: #d1d1d1;
 
@@ -295,10 +302,11 @@ html[data-theme^="twilight"] {
   --umn-color-neutral-accent: #c69d6c;
 }
 
+
 /*
  * Public portals use a roomier presentation than Slate's internal interface.
- * These values restore the original public-facing scale while allowing the
- * default component styles to sit more naturally beside Slate UI elements.
+ * These values restore the public-facing scale while allowing the default
+ * component styles to sit naturally beside Slate UI elements.
  */
 
 .umn-theme-public {
