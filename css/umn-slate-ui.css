@@ -207,6 +207,7 @@
    -------------------------------------------------------------------------- */
 
 html.darkmode .umn-tooltip::after,
+html[data-theme="darkmode"] .umn-tooltip::after,
 html[data-theme^="twilight"] .umn-tooltip::after {
   color: #131313;
   background: #e8e8e8;
@@ -281,6 +282,7 @@ html[data-theme^="twilight"] .umn-tooltip::after {
  */
 
 html.darkmode,
+html[data-theme="darkmode"],
 html[data-theme^="twilight"] {
   --umn-color-text: #d1d1d1;
   --umn-color-text-muted: #d1d1d1;
