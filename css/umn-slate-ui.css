@@ -86,9 +86,10 @@
  * Intended for use beside headings, labels, table headers, and other
  * compact interface text.
  *
- * The visible trigger is a small superscript-style "i" so it remains
- * unobtrusive while still signaling that additional information is
- * available.
+ * The trigger is a small circled superscript-style "i".
+ *
+ * Tooltips open below the trigger by default. This prevents them from
+ * being clipped by components such as .umn-card that use overflow:hidden.
  *
  * Example:
  *
@@ -112,8 +113,8 @@
   align-items: center;
   justify-content: center;
 
-  min-width: 0.75rem;
-  height: 0.75rem;
+  width: 0.875rem;
+  height: 0.875rem;
   margin-left: 0.2rem;
 
   color: var(--umn-color-text-muted);
@@ -127,8 +128,11 @@
 
   cursor: help;
 
-  border: 0;
-  border-radius: 999rem;
+  background: transparent;
+  border: var(--umn-border-width) solid var(--umn-color-text-muted);
+  border-radius: 50%;
+
+  box-sizing: border-box;
 }
 
 
@@ -142,7 +146,7 @@
   position: absolute;
   z-index: 100;
 
-  bottom: calc(100% + 0.5rem);
+  top: calc(100% + 0.5rem);
   left: 50%;
 
   width: max-content;
@@ -164,7 +168,7 @@
   opacity: 0;
   visibility: hidden;
 
-  transform: translateX(-50%) translateY(0.25rem);
+  transform: translateX(-50%) translateY(-0.25rem);
 
   transition:
     opacity var(--umn-transition-fast),
@@ -202,11 +206,6 @@
    Dark Theme
    -------------------------------------------------------------------------- */
 
-/*
- * Keep the tooltip bubble visually distinct against Slate's dark-family
- * themes while preserving the same compact interaction pattern.
- */
-
 html.darkmode .umn-tooltip::after,
 html[data-theme^="twilight"] .umn-tooltip::after {
   color: #131313;
@@ -217,11 +216,6 @@ html[data-theme^="twilight"] .umn-tooltip::after {
 /* --------------------------------------------------------------------------
    Public Theme
    -------------------------------------------------------------------------- */
-
-/*
- * Public portals retain the same interaction but use slightly larger
- * tooltip text to match the public-facing typographic scale.
- */
 
 .umn-theme-public .umn-tooltip::after {
   font-size: var(--umn-font-size-sm);
