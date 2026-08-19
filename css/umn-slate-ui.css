@@ -222,6 +222,60 @@ html[data-theme^="twilight"] .umn-tooltip::after {
   font-size: var(--umn-font-size-sm);
 }
 /* ==========================================================================
+   Slate Dark Theme Adaptation
+   ========================================================================== */
+
+/*
+ * Slate applies theme state to the document's <html> element.
+ *
+ * In standard Slate pages, UMN Slate UI can read that theme directly.
+ *
+ * In Express Portal views rendered inside an iframe, a small JavaScript
+ * bridge copies the parent page's data-theme value onto the iframe's
+ * <html> element so the same CSS selectors continue to work.
+ *
+ * Dark-family Slate themes currently include:
+ * - darkmode
+ * - twilight
+ * - twilight-hc
+ *
+ * UMN Slate UI intentionally uses the same component palette for all
+ * dark-family Slate themes.
+ */
+
+html.darkmode,
+html[data-theme="darkmode"],
+html[data-theme^="twilight"] {
+  --umn-color-text: #d1d1d1;
+  --umn-color-text-muted: #d1d1d1;
+
+  --umn-color-background: #131313;
+  --umn-color-background-subtle: #070707;
+  --umn-color-white: #131313;
+
+  --umn-color-border: #908e8a;
+  --umn-color-neutral-accent: #c69d6c;
+}
+
+
+/*
+ * Public portals use a roomier presentation than Slate's internal interface.
+ * These values restore the public-facing scale while allowing the default
+ * component styles to sit naturally beside Slate UI elements.
+ */
+
+.umn-theme-public {
+  --umn-space-xs: 0.25rem;
+  --umn-space-sm: 0.5rem;
+  --umn-space-md: 1rem;
+  --umn-space-lg: 1.5rem;
+  --umn-space-xl: 2rem;
+
+  --umn-font-size-sm: 0.875rem;
+  --umn-font-size-md: 1rem;
+}
+
+/* ==========================================================================
    1. Design Tokens
    ========================================================================== */
 
@@ -270,54 +324,6 @@ html[data-theme^="twilight"] .umn-tooltip::after {
 
   /* Motion */
   --umn-transition-fast: 150ms ease;
-}
-/* ==========================================================================
-   Slate Dark Theme Adaptation
-   ========================================================================== */
-
-/*
- * The Courses Abroad Express Portal is rendered inside an iframe.
- * Slate applies its theme to the parent page, so a small script in the
- * portal adds the class ".umn-theme-dark" to the iframe's <html> element
- * when the parent Slate theme belongs to the dark family.
- *
- * Dark-family Slate themes currently include:
- * - darkmode
- * - twilight
- * - twilight-hc
- *
- * UMN Slate UI intentionally uses the same component palette for all
- * dark-family Slate themes.
- */
-
-html.umn-theme-dark {
-  --umn-color-text: #d1d1d1;
-  --umn-color-text-muted: #d1d1d1;
-
-  --umn-color-background: #131313;
-  --umn-color-background-subtle: #070707;
-  --umn-color-white: #131313;
-
-  --umn-color-border: #908e8a;
-  --umn-color-neutral-accent: #c69d6c;
-}
-
-
-/*
- * Public portals use a roomier presentation than Slate's internal interface.
- * These values restore the public-facing scale while allowing the default
- * component styles to sit naturally beside Slate UI elements.
- */
-
-.umn-theme-public {
-  --umn-space-xs: 0.25rem;
-  --umn-space-sm: 0.5rem;
-  --umn-space-md: 1rem;
-  --umn-space-lg: 1.5rem;
-  --umn-space-xl: 2rem;
-
-  --umn-font-size-sm: 0.875rem;
-  --umn-font-size-md: 1rem;
 }
 
 
