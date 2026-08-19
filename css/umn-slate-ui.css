@@ -208,7 +208,8 @@
 
 html.darkmode .umn-tooltip::after,
 html[data-theme="darkmode"] .umn-tooltip::after,
-html[data-theme^="twilight"] .umn-tooltip::after {
+html[data-theme^="twilight"] .umn-tooltip::after,
+html[data-umn-theme="dark"] .umn-tooltip::after {
   color: #131313;
   background: #e8e8e8;
 }
@@ -226,26 +227,24 @@ html[data-theme^="twilight"] .umn-tooltip::after {
    ========================================================================== */
 
 /*
- * Slate applies theme state to the document's <html> element.
+ * Normal Slate pages can expose Slate's theme directly through the
+ * document's class or data-theme attribute.
  *
- * In standard Slate pages, UMN Slate UI can read that theme directly.
+ * Express Portal views are rendered inside an iframe. In that environment,
+ * a small JavaScript bridge reads the parent Slate theme and sets:
  *
- * In Express Portal views rendered inside an iframe, a small JavaScript
- * bridge copies the parent page's data-theme value onto the iframe's
- * <html> element so the same CSS selectors continue to work.
+ *   data-umn-theme="dark"
  *
- * Dark-family Slate themes currently include:
- * - darkmode
- * - twilight
- * - twilight-hc
+ * on the iframe document.
  *
- * UMN Slate UI intentionally uses the same component palette for all
- * dark-family Slate themes.
+ * The custom attribute prevents Slate's own theme-specific CSS from being
+ * activated inside the iframe while still allowing UMN Slate UI to adapt.
  */
 
 html.darkmode,
 html[data-theme="darkmode"],
-html[data-theme^="twilight"] {
+html[data-theme^="twilight"],
+html[data-umn-theme="dark"] {
   --umn-color-text: #d1d1d1;
   --umn-color-text-muted: #d1d1d1;
 
@@ -260,8 +259,6 @@ html[data-theme^="twilight"] {
 
 /*
  * Public portals use a roomier presentation than Slate's internal interface.
- * These values restore the public-facing scale while allowing the default
- * component styles to sit naturally beside Slate UI elements.
  */
 
 .umn-theme-public {
