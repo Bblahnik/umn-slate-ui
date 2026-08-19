@@ -77,7 +77,7 @@
   border: 0;
 }
 /* ==========================================================================
-   Tooltips
+   Tooltip
    ========================================================================== */
 
 /*
@@ -86,6 +86,10 @@
  * Intended for use beside headings, labels, table headers, and other
  * compact interface text.
  *
+ * The visible trigger is a small superscript-style "i" so it remains
+ * unobtrusive while still signaling that additional information is
+ * available.
+ *
  * Example:
  *
  * <span
@@ -93,8 +97,13 @@
  *   tabindex="0"
  *   data-tooltip="Additional explanatory text."
  *   aria-label="More information"
- * >?</span>
+ * >i</span>
  */
+
+
+/* --------------------------------------------------------------------------
+   Trigger
+   -------------------------------------------------------------------------- */
 
 .umn-tooltip {
   position: relative;
@@ -103,20 +112,29 @@
   align-items: center;
   justify-content: center;
 
-  width: 1rem;
-  height: 1rem;
-  margin-left: var(--umn-space-xs);
+  min-width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.2rem;
 
   color: var(--umn-color-text-muted);
-  font-size: 0.6875rem;
+
+  font-size: 0.625rem;
   font-weight: var(--umn-font-weight-bold);
+  font-style: normal;
   line-height: 1;
+
+  vertical-align: super;
 
   cursor: help;
 
-  border: var(--umn-border-width) solid var(--umn-color-border);
-  border-radius: 50%;
+  border: 0;
+  border-radius: 999rem;
 }
+
+
+/* --------------------------------------------------------------------------
+   Tooltip Bubble
+   -------------------------------------------------------------------------- */
 
 .umn-tooltip::after {
   content: attr(data-tooltip);
@@ -132,8 +150,10 @@
   padding: var(--umn-space-sm);
 
   color: #ffffff;
+
   font-size: var(--umn-font-size-sm);
   font-weight: 400;
+  font-style: normal;
   line-height: 1.4;
   text-align: left;
   white-space: normal;
@@ -154,6 +174,11 @@
   pointer-events: none;
 }
 
+
+/* --------------------------------------------------------------------------
+   Visible State
+   -------------------------------------------------------------------------- */
+
 .umn-tooltip:hover::after,
 .umn-tooltip:focus-visible::after {
   opacity: 1;
@@ -162,9 +187,44 @@
   transform: translateX(-50%) translateY(0);
 }
 
+
+/* --------------------------------------------------------------------------
+   Keyboard Focus
+   -------------------------------------------------------------------------- */
+
 .umn-tooltip:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Dark Theme
+   -------------------------------------------------------------------------- */
+
+/*
+ * Keep the tooltip bubble visually distinct against Slate's dark-family
+ * themes while preserving the same compact interaction pattern.
+ */
+
+html.darkmode .umn-tooltip::after,
+html[data-theme^="twilight"] .umn-tooltip::after {
+  color: #131313;
+  background: #e8e8e8;
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+/*
+ * Public portals retain the same interaction but use slightly larger
+ * tooltip text to match the public-facing typographic scale.
+ */
+
+.umn-theme-public .umn-tooltip::after {
+  font-size: var(--umn-font-size-sm);
 }
 /* ==========================================================================
    1. Design Tokens
