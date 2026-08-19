@@ -77,6 +77,96 @@
   border: 0;
 }
 /* ==========================================================================
+   Tooltips
+   ========================================================================== */
+
+/*
+ * Lightweight CSS-only tooltip for short explanatory text.
+ *
+ * Intended for use beside headings, labels, table headers, and other
+ * compact interface text.
+ *
+ * Example:
+ *
+ * <span
+ *   class="umn-tooltip"
+ *   tabindex="0"
+ *   data-tooltip="Additional explanatory text."
+ *   aria-label="More information"
+ * >?</span>
+ */
+
+.umn-tooltip {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1rem;
+  height: 1rem;
+  margin-left: var(--umn-space-xs);
+
+  color: var(--umn-color-text-muted);
+  font-size: 0.6875rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1;
+
+  cursor: help;
+
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: 50%;
+}
+
+.umn-tooltip::after {
+  content: attr(data-tooltip);
+
+  position: absolute;
+  z-index: 100;
+
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+
+  width: max-content;
+  max-width: 18rem;
+  padding: var(--umn-space-sm);
+
+  color: #ffffff;
+  font-size: var(--umn-font-size-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  white-space: normal;
+
+  background: #333333;
+  border-radius: var(--umn-border-radius-sm);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(-50%) translateY(0.25rem);
+
+  transition:
+    opacity var(--umn-transition-fast),
+    transform var(--umn-transition-fast),
+    visibility var(--umn-transition-fast);
+
+  pointer-events: none;
+}
+
+.umn-tooltip:hover::after,
+.umn-tooltip:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.umn-tooltip:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+/* ==========================================================================
    1. Design Tokens
    ========================================================================== */
 
