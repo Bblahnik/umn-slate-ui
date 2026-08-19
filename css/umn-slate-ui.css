@@ -117,11 +117,11 @@
   --umn-border-radius-sm: 0.25rem;
   --umn-border-radius-md: 0.5rem;
 
-  /* Typography - restrained for Slate's internal interface */
-  --umn-font-size-sm: 0.8125rem;
-  --umn-font-size-md: 0.9375rem;
-  --umn-font-weight-medium: 600;
-  --umn-font-weight-bold: 700;
+/* Typography - compact for Slate's internal interface */
+--umn-font-size-sm: 0.75rem;   /* 12px */
+--umn-font-size-md: 0.8125rem; /* 13px */
+--umn-font-weight-medium: 600;
+--umn-font-weight-bold: 700;
 
   /* Motion */
   --umn-transition-fast: 150ms ease;
@@ -175,8 +175,8 @@ html[data-theme^="twilight"] {
  * Apply ".umn-content" to a parent element when UMN Slate UI typography
  * should be used for the content inside it.
  *
- * This keeps typography scoped and prevents unintended changes to
- * Slate-generated interface elements elsewhere on the page.
+ * Internal Slate typography is intentionally compact so custom components
+ * sit naturally beside Slate's native interface.
  *
  * Example:
  *
@@ -192,35 +192,46 @@ html[data-theme^="twilight"] {
   line-height: 1.5;
 }
 
+
+/* --------------------------------------------------------------------------
+   Headings
+   -------------------------------------------------------------------------- */
+
 .umn-content h1,
 .umn-content h2,
 .umn-content h3,
 .umn-content h4 {
   margin-top: 0;
   margin-bottom: var(--umn-space-sm);
+
   color: var(--umn-color-text);
   line-height: 1.25;
 }
 
 .umn-content h1 {
-  font-size: 1.75rem;
+  font-size: 1.375rem; /* 22px */
   font-weight: var(--umn-font-weight-bold);
 }
 
 .umn-content h2 {
-  font-size: 1.375rem;
+  font-size: 1.125rem; /* 18px */
   font-weight: var(--umn-font-weight-bold);
 }
 
 .umn-content h3 {
-  font-size: 1.125rem;
+  font-size: 0.9375rem; /* 15px */
   font-weight: var(--umn-font-weight-medium);
 }
 
 .umn-content h4 {
-  font-size: 0.9375rem;
+  font-size: var(--umn-font-size-md); /* 13px */
   font-weight: var(--umn-font-weight-bold);
 }
+
+
+/* --------------------------------------------------------------------------
+   Paragraphs and Lists
+   -------------------------------------------------------------------------- */
 
 .umn-content p {
   margin-top: 0;
@@ -231,8 +242,14 @@ html[data-theme^="twilight"] {
 .umn-content ol {
   margin-top: 0;
   margin-bottom: var(--umn-space-md);
+
   padding-left: 1.5rem;
 }
+
+
+/* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
 
 .umn-content a {
   color: var(--umn-color-maroon);
@@ -242,10 +259,21 @@ html[data-theme^="twilight"] {
 .umn-content a:hover {
   text-decoration-thickness: 2px;
 }
-/* Inline code */
+
+.umn-content a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Inline Code
+   -------------------------------------------------------------------------- */
 
 .umn-content :not(pre) > code {
   padding: 0.1em 0.3em;
+
+  color: inherit;
 
   font-family:
     ui-monospace,
@@ -256,6 +284,7 @@ html[data-theme^="twilight"] {
     "Liberation Mono",
     "Courier New",
     monospace;
+
   font-size: 0.9em;
 
   background: var(--umn-color-background-subtle);
@@ -263,7 +292,15 @@ html[data-theme^="twilight"] {
   border-radius: var(--umn-border-radius-sm);
 }
 
-/* Public theme */
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+/*
+ * Public portals intentionally use a larger, more content-oriented
+ * typographic scale than Slate's internal interface.
+ */
 
 .umn-theme-public .umn-content {
   line-height: 1.6;
