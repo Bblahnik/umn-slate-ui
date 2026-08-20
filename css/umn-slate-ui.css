@@ -2176,15 +2176,34 @@ html[data-umn-theme="dark"] {
   line-height: 1.25;
 }
 
-.umn-form .form_header .form_label {
-  margin: var(--umn-space-md) 0 var(--umn-space-sm);
-  padding: 0.5rem var(--umn-space-sm);
 
+/*
+ * Slate Header Rows act as internal section headings within a form.
+ * Use a simple divider treatment so they read as structure rather
+ * than as alerts or callouts.
+ */
+
+.umn-form .form_header .form_label {
+  margin: var(--umn-space-lg) 0 var(--umn-space-sm);
+  padding: 0 0 var(--umn-space-xs);
+
+  color: var(--umn-color-text);
   font-size: var(--umn-font-size-md);
   font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
 
-  background: var(--umn-color-background-subtle);
-  border-left: 0.25rem solid var(--umn-color-neutral-accent);
+  background: transparent;
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+
+/*
+ * Avoid unnecessary top spacing when a Header Row is the first
+ * element in a form.
+ */
+
+.umn-form .form_header:first-child .form_label {
+  margin-top: 0;
 }
 
 .umn-form .form_p .form_label {
@@ -2822,13 +2841,19 @@ html[data-umn-theme="dark"] {
   font-size: 1.5rem;
 }
 
+
+/*
+ * Public Header Rows retain the same structural divider treatment
+ * as internal forms, with UMN maroon used for emphasis.
+ */
+
 .umn-theme-public .umn-form .form_header .form_label {
-  padding: 0.625rem var(--umn-space-md);
+  padding: 0 0 var(--umn-space-sm);
 
   color: var(--umn-color-maroon);
 
-  background: var(--umn-color-maroon-subtle);
-  border-left-color: var(--umn-color-maroon);
+  background: transparent;
+  border-bottom-color: var(--umn-color-maroon-border);
 }
 
 
