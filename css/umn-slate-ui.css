@@ -2818,7 +2818,47 @@ html[data-umn-theme="dark"] {
 .umn-form--card .action:last-child {
   margin-bottom: 0;
 }
+/* --------------------------------------------------------------------------
+   Contained Form Header Rows
+   -------------------------------------------------------------------------- */
 
+/*
+ * Inside a contained form, Slate Header Rows use the same visual
+ * language as card headers.
+ *
+ * The negative horizontal margins allow the header background to span
+ * the full interior width of the form card rather than being inset by
+ * the card's padding.
+ */
+
+.umn-form--card .form_question.form_header .form_label {
+  margin:
+    var(--umn-space-lg)
+    calc(var(--umn-space-md) * -1)
+    var(--umn-space-md);
+
+  padding: 0.625rem var(--umn-space-md);
+
+  color: var(--umn-color-text);
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+
+  background: var(--umn-color-background-subtle);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+
+/*
+ * When a Header Row is the first item in a contained form, pull it
+ * upward to meet the top edge of the card.
+ */
+
+.umn-form--card
+  .form_question.form_header:first-child
+  .form_label {
+  margin-top: calc(var(--umn-space-md) * -1);
+}
 
 /* --------------------------------------------------------------------------
    Public Theme
