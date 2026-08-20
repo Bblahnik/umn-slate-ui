@@ -2826,9 +2826,8 @@ html[data-umn-theme="dark"] {
  * Inside a contained form, Slate Header Rows use the same visual
  * language as card headers.
  *
- * The negative horizontal margins allow the header background to span
- * the full interior width of the form card rather than being inset by
- * the card's padding.
+ * Negative horizontal margins allow the header background to span
+ * the full interior width of the form card.
  */
 
 .umn-form--card .form_question.form_header .form_label {
@@ -2850,14 +2849,22 @@ html[data-umn-theme="dark"] {
 
 
 /*
- * When a Header Row is the first item in a contained form, pull it
- * upward to meet the top edge of the card.
+ * When a Header Row is the first question on a form page,
+ * remove the form card's top inset so the header meets the
+ * top edge of the container like a standard card header.
  */
 
 .umn-form--card
-  .form_question.form_header:first-child
+  .form_page
+  > .form_header:first-child
   .form_label {
   margin-top: calc(var(--umn-space-md) * -1);
+
+  border-radius:
+    var(--umn-border-radius-md)
+    var(--umn-border-radius-md)
+    0
+    0;
 }
 
 /* --------------------------------------------------------------------------
