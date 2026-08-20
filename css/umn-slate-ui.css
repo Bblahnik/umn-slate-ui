@@ -2878,6 +2878,15 @@ html[data-umn-theme="dark"] {
     0
     0;
 }
+/*
+ * Slate adds top margin to the embedded form container.
+ * Remove it inside contained forms so a leading Header Row
+ * can sit flush against the top edge of the card.
+ */
+
+.umn-form--card > .form_container {
+  margin-top: 0;
+}
 
 /* --------------------------------------------------------------------------
    Public Theme
