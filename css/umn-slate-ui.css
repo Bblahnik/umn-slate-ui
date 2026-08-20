@@ -2756,6 +2756,50 @@ html[data-umn-theme="dark"] {
  * The surrounding labels and form spacing still inherit .umn-form.
  */
 
+/* --------------------------------------------------------------------------
+   Contained / Card Form
+   -------------------------------------------------------------------------- */
+
+/*
+ * Optional contained presentation for forms that appear as standalone
+ * dashboard or portal sections.
+ *
+ * Useful in Slate Express Portals where the Form element itself is the
+ * only element that can receive custom CSS classes.
+ *
+ * Apply:
+ *
+ *   umn-form umn-form--card
+ *
+ * The base .umn-form remains uncontained so it can still be placed
+ * naturally inside cards, page content, or other layout components.
+ */
+
+.umn-form--card {
+  padding: var(--umn-space-md);
+
+  color: var(--umn-color-text);
+  background: var(--umn-color-white);
+
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: var(--umn-border-radius-md);
+
+  box-sizing: border-box;
+}
+
+
+/*
+ * Prevent unnecessary extra space at the top and bottom of a contained form.
+ */
+
+.umn-form--card .form_question:first-child {
+  margin-top: 0;
+}
+
+.umn-form--card .action:last-child {
+  margin-bottom: 0;
+}
+
 
 /* --------------------------------------------------------------------------
    Public Theme
