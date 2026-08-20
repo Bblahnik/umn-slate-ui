@@ -2849,16 +2849,28 @@ html[data-umn-theme="dark"] {
 
 
 /*
- * When a Header Row is the first question on a form page,
- * remove the form card's top inset so the header meets the
- * top edge of the container like a standard card header.
+ * When the first question on a contained form is a Slate Header Row,
+ * remove the card's top padding so the header sits flush against
+ * the top edge of the container.
+ */
+
+.umn-form--card:has(
+  .form_page > .form_header:first-child
+) {
+  padding-top: 0;
+}
+
+
+/*
+ * The first Header Row becomes the visual header for the contained
+ * form and occupies the card's upper corners.
  */
 
 .umn-form--card
   .form_page
   > .form_header:first-child
   .form_label {
-  margin-top: calc(var(--umn-space-md) * -1);
+  margin-top: 0;
 
   border-radius:
     var(--umn-border-radius-md)
