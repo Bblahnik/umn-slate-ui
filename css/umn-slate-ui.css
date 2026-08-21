@@ -3384,8 +3384,18 @@ html[data-umn-theme="dark"] {
     background-color var(--umn-transition-fast),
     border-color var(--umn-transition-fast);
 }
+/*
+ * Pagination links should retain component styling inside .umn-content.
+ * This prevents the scoped content-link styles from overriding pagination
+ * color and text decoration.
+ */
 
-.umn-pagination__link:hover {
+.umn-content a.umn-pagination__link {
+  color: var(--umn-color-text);
+  text-decoration: none;
+}
+.umn-pagination__link:hover,
+.umn-content a.umn-pagination__link:hover {
   color: var(--umn-color-text);
 
   background: var(--umn-color-background-subtle);
@@ -3438,13 +3448,13 @@ html[data-umn-theme="dark"] {
   font-size: var(--umn-font-size-md);
 }
 
-.umn-theme-public .umn-pagination__link {
+.umn-theme-public a.umn-pagination__link {
   color: var(--umn-color-maroon);
 
   border-color: var(--umn-color-maroon-border);
 }
 
-.umn-theme-public .umn-pagination__link:hover {
+.umn-theme-public a.umn-pagination__link:hover {
   color: var(--umn-color-maroon);
 
   background: var(--umn-color-maroon-subtle);
