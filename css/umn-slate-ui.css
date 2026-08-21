@@ -13,266 +13,6 @@
  * - Avoid !important unless a demonstrated Slate-specific conflict requires it.
  */
 /* ==========================================================================
-   Code Blocks
-   ========================================================================== */
-
-/*
- * Source-code display for examples, documentation, and technical content.
- *
- * Slate may remove classes from <pre> elements, so the component class
- * is applied to a wrapper around the native <pre><code> structure.
- *
- * Example:
- *
- * <div class="umn-code-block">
- *   <pre><code>...</code></pre>
- * </div>
- */
-
-.umn-code-block {
-  width: 100%;
-  margin: var(--umn-space-sm) 0;
-
-  overflow: hidden;
-
-  background: #f8f8f8;
-  border: var(--umn-border-width) solid var(--umn-color-border);
-  border-radius: var(--umn-border-radius-md);
-
-  box-sizing: border-box;
-}
-
-.umn-code-block pre {
-  margin: 0;
-  padding: var(--umn-space-md);
-
-  overflow-x: auto;
-
-  color: var(--umn-color-text);
-  font-family:
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    "Liberation Mono",
-    "Courier New",
-    monospace;
-  font-size: var(--umn-font-size-sm);
-  line-height: 1.55;
-  white-space: pre;
-
-  background: transparent;
-  border: 0;
-}
-
-.umn-code-block code {
-  padding: 0;
-
-  color: inherit;
-  font: inherit;
-  white-space: inherit;
-
-  background: transparent;
-  border: 0;
-}
-/* ==========================================================================
-   Tooltip
-   ========================================================================== */
-
-/*
- * Lightweight CSS-only tooltip for short explanatory text.
- *
- * Intended for use beside headings, labels, table headers, and other
- * compact interface text.
- *
- * The trigger is a small circled superscript-style "i".
- *
- * Tooltips open below the trigger by default. This prevents them from
- * being clipped by components such as .umn-card that use overflow:hidden.
- *
- * Example:
- *
- * <span
- *   class="umn-tooltip"
- *   tabindex="0"
- *   data-tooltip="Additional explanatory text."
- *   aria-label="More information"
- * >i</span>
- */
-
-
-/* --------------------------------------------------------------------------
-   Trigger
-   -------------------------------------------------------------------------- */
-
-.umn-tooltip {
-  position: relative;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 0.875rem;
-  height: 0.875rem;
-  margin-left: 0.2rem;
-
-  color: var(--umn-color-text-muted);
-
-  font-size: 0.625rem;
-  font-weight: var(--umn-font-weight-bold);
-  font-style: normal;
-  line-height: 1;
-
-  vertical-align: super;
-
-  cursor: help;
-
-  background: transparent;
-  border: var(--umn-border-width) solid var(--umn-color-text-muted);
-  border-radius: 50%;
-
-  box-sizing: border-box;
-}
-
-
-/* --------------------------------------------------------------------------
-   Tooltip Bubble
-   -------------------------------------------------------------------------- */
-
-.umn-tooltip::after {
-  content: attr(data-tooltip);
-
-  position: absolute;
-  z-index: 100;
-
-  top: calc(100% + 0.5rem);
-  left: 50%;
-
-  width: max-content;
-  max-width: 18rem;
-  padding: var(--umn-space-sm);
-
-  color: #ffffff;
-
-  font-size: var(--umn-font-size-sm);
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.4;
-  text-align: left;
-  white-space: normal;
-
-  background: #333333;
-  border-radius: var(--umn-border-radius-sm);
-
-  opacity: 0;
-  visibility: hidden;
-
-  transform: translateX(-50%) translateY(-0.25rem);
-
-  transition:
-    opacity var(--umn-transition-fast),
-    transform var(--umn-transition-fast),
-    visibility var(--umn-transition-fast);
-
-  pointer-events: none;
-}
-
-
-/* --------------------------------------------------------------------------
-   Visible State
-   -------------------------------------------------------------------------- */
-
-.umn-tooltip:hover::after,
-.umn-tooltip:focus-visible::after {
-  opacity: 1;
-  visibility: visible;
-
-  transform: translateX(-50%) translateY(0);
-}
-
-
-/* --------------------------------------------------------------------------
-   Keyboard Focus
-   -------------------------------------------------------------------------- */
-
-.umn-tooltip:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
-
-
-/* --------------------------------------------------------------------------
-   Dark Theme
-   -------------------------------------------------------------------------- */
-
-html.darkmode .umn-tooltip::after,
-html[data-theme="darkmode"] .umn-tooltip::after,
-html[data-theme^="twilight"] .umn-tooltip::after,
-html[data-umn-theme="dark"] .umn-tooltip::after {
-  color: #131313;
-  background: #e8e8e8;
-}
-
-
-/* --------------------------------------------------------------------------
-   Public Theme
-   -------------------------------------------------------------------------- */
-
-.umn-theme-public .umn-tooltip::after {
-  font-size: var(--umn-font-size-sm);
-}
-/* ==========================================================================
-   Slate Dark Theme Adaptation
-   ========================================================================== */
-
-/*
- * Normal Slate pages can expose Slate's theme directly through the
- * document's class or data-theme attribute.
- *
- * Express Portal views are rendered inside an iframe. In that environment,
- * a small JavaScript bridge reads the parent Slate theme and sets:
- *
- *   data-umn-theme="dark"
- *
- * on the iframe document.
- *
- * The custom attribute prevents Slate's own theme-specific CSS from being
- * activated inside the iframe while still allowing UMN Slate UI to adapt.
- */
-
-html.darkmode,
-html[data-theme="darkmode"],
-html[data-theme^="twilight"],
-html[data-umn-theme="dark"] {
-  --umn-color-text: #d1d1d1;
-  --umn-color-text-muted: #d1d1d1;
-
-  --umn-color-background: #131313;
-  --umn-color-background-subtle: #070707;
-  --umn-color-white: #131313;
-
-  --umn-color-border: #908e8a;
-  --umn-color-neutral-accent: #c69d6c;
-}
-
-
-/*
- * Public portals use a roomier presentation than Slate's internal interface.
- */
-
-.umn-theme-public {
-  --umn-space-xs: 0.25rem;
-  --umn-space-sm: 0.5rem;
-  --umn-space-md: 1rem;
-  --umn-space-lg: 1.5rem;
-  --umn-space-xl: 2rem;
-
-  --umn-font-size-sm: 0.875rem;
-  --umn-font-size-md: 1rem;
-}
-
-/* ==========================================================================
    1. Design Tokens
    ========================================================================== */
 
@@ -300,6 +40,7 @@ html[data-umn-theme="dark"] {
   --umn-color-background: #ffffff;
   --umn-color-background-subtle: #f5f5f5;
   --umn-color-border: #d5d5d5;
+   --umn-color-background-code: #f8f8f8;
 
   /* Spacing - restrained for Slate's internal interface */
   --umn-space-xs: 0.25rem;
@@ -5148,8 +4889,268 @@ html[data-umn-theme="dark"] {
 .umn-theme-public .umn-action-list--compact .umn-action-list__link {
   padding: var(--umn-space-sm) 0;
 }
+
 /* ==========================================================================
-   25. Accessibility / Reduced Motion
+   25. Code Blocks
+   ========================================================================== */
+
+/*
+ * Source-code display for examples, documentation, and technical content.
+ *
+ * Slate may remove classes from <pre> elements, so the component class
+ * is applied to a wrapper around the native <pre><code> structure.
+ *
+ * Example:
+ *
+ * <div class="umn-code-block">
+ *   <pre><code>...</code></pre>
+ * </div>
+ */
+
+.umn-code-block {
+  width: 100%;
+  margin: var(--umn-space-sm) 0;
+
+  overflow: hidden;
+
+  background: var(--umn-color-background-code);
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: var(--umn-border-radius-md);
+
+  box-sizing: border-box;
+}
+
+.umn-code-block pre {
+  margin: 0;
+  padding: var(--umn-space-md);
+
+  overflow-x: auto;
+
+  color: var(--umn-color-text);
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+  font-size: var(--umn-font-size-sm);
+  line-height: 1.55;
+  white-space: pre;
+
+  background: transparent;
+  border: 0;
+}
+
+.umn-code-block code {
+  padding: 0;
+
+  color: inherit;
+  font: inherit;
+  white-space: inherit;
+
+  background: transparent;
+  border: 0;
+}
+/* ==========================================================================
+   26. Tooltip
+   ========================================================================== */
+
+/*
+ * Lightweight CSS-only tooltip for short explanatory text.
+ *
+ * Intended for use beside headings, labels, table headers, and other
+ * compact interface text.
+ *
+ * The trigger is a small circled superscript-style "i".
+ *
+ * Tooltips open below the trigger by default. This prevents them from
+ * being clipped by components such as .umn-card that use overflow:hidden.
+ *
+ * Example:
+ *
+ * <span
+ *   class="umn-tooltip"
+ *   tabindex="0"
+ *   data-tooltip="Additional explanatory text."
+ *   aria-label="More information"
+ * >i</span>
+ */
+
+
+/* --------------------------------------------------------------------------
+   Trigger
+   -------------------------------------------------------------------------- */
+
+.umn-tooltip {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-left: 0.2rem;
+
+  color: var(--umn-color-text-muted);
+
+  font-size: 0.625rem;
+  font-weight: var(--umn-font-weight-bold);
+  font-style: normal;
+  line-height: 1;
+
+  vertical-align: super;
+
+  cursor: help;
+
+  background: transparent;
+  border: var(--umn-border-width) solid var(--umn-color-text-muted);
+  border-radius: 50%;
+
+  box-sizing: border-box;
+}
+
+
+/* --------------------------------------------------------------------------
+   Tooltip Bubble
+   -------------------------------------------------------------------------- */
+
+.umn-tooltip::after {
+  content: attr(data-tooltip);
+
+  position: absolute;
+  z-index: 100;
+
+  top: calc(100% + 0.5rem);
+  left: 50%;
+
+  width: max-content;
+  max-width: 18rem;
+  padding: var(--umn-space-sm);
+
+  color: #ffffff;
+
+  font-size: var(--umn-font-size-sm);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.4;
+  text-align: left;
+  white-space: normal;
+
+  background: #333333;
+  border-radius: var(--umn-border-radius-sm);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(-50%) translateY(-0.25rem);
+
+  transition:
+    opacity var(--umn-transition-fast),
+    transform var(--umn-transition-fast),
+    visibility var(--umn-transition-fast);
+
+  pointer-events: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   Visible State
+   -------------------------------------------------------------------------- */
+
+.umn-tooltip:hover::after,
+.umn-tooltip:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+
+/* --------------------------------------------------------------------------
+   Keyboard Focus
+   -------------------------------------------------------------------------- */
+
+.umn-tooltip:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Dark Theme
+   -------------------------------------------------------------------------- */
+
+html.darkmode .umn-tooltip::after,
+html[data-theme="darkmode"] .umn-tooltip::after,
+html[data-theme^="twilight"] .umn-tooltip::after,
+html[data-umn-theme="dark"] .umn-tooltip::after {
+  color: #131313;
+  background: #e8e8e8;
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-tooltip::after {
+  font-size: var(--umn-font-size-sm);
+}
+/* ==========================================================================
+   27. Slate Dark Theme Adaptation
+   ========================================================================== */
+
+/*
+ * Normal Slate pages can expose Slate's theme directly through the
+ * document's class or data-theme attribute.
+ *
+ * Express Portal views are rendered inside an iframe. In that environment,
+ * a small JavaScript bridge reads the parent Slate theme and sets:
+ *
+ *   data-umn-theme="dark"
+ *
+ * on the iframe document.
+ *
+ * The custom attribute prevents Slate's own theme-specific CSS from being
+ * activated inside the iframe while still allowing UMN Slate UI to adapt.
+ */
+
+html.darkmode,
+html[data-theme="darkmode"],
+html[data-theme^="twilight"],
+html[data-umn-theme="dark"] {
+  --umn-color-text: #d1d1d1;
+  --umn-color-text-muted: #d1d1d1;
+
+  --umn-color-background: #131313;
+  --umn-color-background-subtle: #070707;
+  --umn-color-white: #131313;
+
+  --umn-color-border: #908e8a;
+  --umn-color-neutral-accent: #c69d6c;
+}
+
+
+/*
+ * Public portals use a roomier presentation than Slate's internal interface.
+ */
+
+.umn-theme-public {
+  --umn-space-xs: 0.25rem;
+  --umn-space-sm: 0.5rem;
+  --umn-space-md: 1rem;
+  --umn-space-lg: 1.5rem;
+  --umn-space-xl: 2rem;
+
+  --umn-font-size-sm: 0.875rem;
+  --umn-font-size-md: 1rem;
+}
+/* ==========================================================================
+   28. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
