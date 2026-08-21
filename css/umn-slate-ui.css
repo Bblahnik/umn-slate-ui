@@ -1677,6 +1677,78 @@ html[data-umn-theme="dark"] {
     margin-left: 0 !important;
   }
 }
+/* --------------------------------------------------------------------------
+   Slate Table View Pagination Enhancement
+   -------------------------------------------------------------------------- */
+
+/*
+ * Slate Table View widgets generate Prev/Next links with class="fetch"
+ * and load subsequent result pages through FW.Lazy.Fetch().
+ *
+ * Scope these styles to Slate results containers so unrelated .fetch
+ * links elsewhere in a portal are not affected.
+ */
+
+.umn-content [id$="_results"] a.fetch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.5rem;
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-radius: var(--umn-border-radius-sm);
+
+  transition:
+    color var(--umn-transition-fast),
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast);
+}
+
+.umn-content [id$="_results"] a.fetch:hover {
+  color: var(--umn-color-text);
+  text-decoration: none;
+
+  background: var(--umn-color-background-subtle);
+  border-color: #999999;
+}
+
+.umn-content [id$="_results"] a.fetch:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* Public theme */
+
+.umn-theme-public .umn-content [id$="_results"] a.fetch {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+
+  padding: 0.375rem 0.625rem;
+
+  color: var(--umn-color-maroon);
+  font-size: var(--umn-font-size-md);
+
+  border-color: var(--umn-color-maroon-border);
+}
+
+.umn-theme-public .umn-content [id$="_results"] a.fetch:hover {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-maroon-subtle);
+  border-color: var(--umn-color-maroon);
+}
 
 /* --------------------------------------------------------------------------
    Responsive Table Container
