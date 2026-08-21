@@ -1470,6 +1470,34 @@ html[data-umn-theme="dark"] {
 }
 
 
+/*
+ * When Stack is combined with .umn-content, reinforce the layout
+ * spacing so scoped typography margins do not override the utility.
+ */
+
+.umn-content.umn-stack > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.umn-content.umn-stack > * + * {
+  margin-top: var(--umn-stack-space);
+}
+
+
+/*
+ * Also support Stack nested inside a content region.
+ */
+
+.umn-content .umn-stack > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.umn-content .umn-stack > * + * {
+  margin-top: var(--umn-stack-space);
+}
+
 /* --------------------------------------------------------------------------
    Stack Variants
    -------------------------------------------------------------------------- */
