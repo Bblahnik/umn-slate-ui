@@ -35,7 +35,7 @@
 
   overflow: hidden;
 
-  background: var(--umn-color-background-subtle);
+  background: #f8f8f8;
   border: var(--umn-border-width) solid var(--umn-color-border);
   border-radius: var(--umn-border-radius-md);
 
