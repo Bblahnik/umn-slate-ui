@@ -5119,6 +5119,7 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
  * - .umn-status--awaiting
  * - .umn-status--received
  * - .umn-status--waived
+ * - .umn-status--overdue
  *
  * The icon supplements the visible text and should use
  * aria-hidden="true" in the markup.
@@ -5182,6 +5183,18 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
    Awaiting
    -------------------------------------------------------------------------- */
 
+.umn-status--awaiting {
+  --umn-status-icon-background: #eeeeee;
+  --umn-status-icon-color: #666666;
+}
+
+
+/*
+ * Awaiting uses a small square inside the circular marker.
+ * The square is CSS-generated so its appearance is independent
+ * of the active font.
+ */
+
 .umn-status--awaiting .umn-status__icon::before {
   content: "";
 
@@ -5212,6 +5225,48 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   --umn-status-icon-color: var(--umn-color-text-muted);
 
   color: var(--umn-color-text-muted);
+}
+
+
+/* --------------------------------------------------------------------------
+   Overdue
+   -------------------------------------------------------------------------- */
+
+/*
+ * Overdue is a presentation state applied when an underlying
+ * Awaiting checklist item has passed its due date.
+ *
+ * The underlying checklist status remains Awaiting.
+ */
+
+.umn-status--overdue {
+  --umn-status-icon-background: var(--umn-color-danger-subtle);
+  --umn-status-icon-color: var(--umn-color-danger);
+
+  color: var(--umn-color-danger-text);
+}
+
+.umn-status--overdue .umn-status__icon::before {
+  content: "!";
+
+  font-size: 0.75rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1;
+}
+
+
+/* --------------------------------------------------------------------------
+   Overdue Due Date
+   -------------------------------------------------------------------------- */
+
+/*
+ * Use alongside .umn-status--overdue to reinforce the deadline
+ * without applying warning styling to the entire table row.
+ */
+
+.umn-table__due-date--overdue {
+  color: var(--umn-color-danger);
+  font-weight: var(--umn-font-weight-bold);
 }
 
 
@@ -5257,6 +5312,23 @@ html[data-theme^="twilight"] .umn-status--waived,
 html[data-umn-theme="dark"] .umn-status--waived {
   --umn-status-icon-background: #333333;
   --umn-status-icon-color: #b8b8b8;
+}
+
+html.darkmode .umn-status--overdue,
+html[data-theme="darkmode"] .umn-status--overdue,
+html[data-theme^="twilight"] .umn-status--overdue,
+html[data-umn-theme="dark"] .umn-status--overdue {
+  --umn-status-icon-background: #3d1d1a;
+  --umn-status-icon-color: #f3a59d;
+
+  color: #f3a59d;
+}
+
+html.darkmode .umn-table__due-date--overdue,
+html[data-theme="darkmode"] .umn-table__due-date--overdue,
+html[data-theme^="twilight"] .umn-table__due-date--overdue,
+html[data-umn-theme="dark"] .umn-table__due-date--overdue {
+  color: #f3a59d;
 }
 /* ==========================================================================
    28. Slate Dark Theme Adaptation
