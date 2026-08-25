@@ -5201,8 +5201,11 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   width: 0.375rem;
   height: 0.375rem;
 
-  background: currentColor;
+  background: transparent;
+  border: 1px solid currentColor;
   border-radius: 0.0625rem;
+
+  box-sizing: border-box;
 }
 
 
