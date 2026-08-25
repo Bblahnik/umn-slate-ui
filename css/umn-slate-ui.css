@@ -5100,8 +5100,161 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
 .umn-theme-public .umn-tooltip::after {
   font-size: var(--umn-font-size-sm);
 }
+
 /* ==========================================================================
-   27. Slate Dark Theme Adaptation
+   27. Status
+   ========================================================================== */
+
+/*
+ * Compact semantic status indicator for tables, lists, cards,
+ * and other interface elements.
+ *
+ * Typical uses:
+ * - Checklist status
+ * - Document status
+ * - Requirement completion
+ * - Workflow state
+ *
+ * Variants:
+ * - .umn-status--awaiting
+ * - .umn-status--received
+ * - .umn-status--waived
+ *
+ * The icon supplements the visible text and should use
+ * aria-hidden="true" in the markup.
+ *
+ * Example:
+ *
+ * <span class="umn-status umn-status--received">
+ *   <span class="umn-status__icon" aria-hidden="true">✓</span>
+ *   Received
+ * </span>
+ */
+
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+.umn-status {
+  --umn-status-icon-background: var(--umn-color-background-subtle);
+  --umn-status-icon-color: var(--umn-color-text-muted);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--umn-space-xs);
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.25;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+
+/* --------------------------------------------------------------------------
+   Icon
+   -------------------------------------------------------------------------- */
+
+.umn-status__icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.25rem;
+  height: 1.25rem;
+
+  color: var(--umn-status-icon-color);
+  font-size: 0.75rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1;
+
+  background: var(--umn-status-icon-background);
+  border-radius: 50%;
+
+  box-sizing: border-box;
+}
+
+
+/* --------------------------------------------------------------------------
+   Awaiting
+   -------------------------------------------------------------------------- */
+
+.umn-status--awaiting {
+  --umn-status-icon-background: #eeeeee;
+  --umn-status-icon-color: #666666;
+}
+
+
+/* --------------------------------------------------------------------------
+   Received
+   -------------------------------------------------------------------------- */
+
+.umn-status--received {
+  --umn-status-icon-background: #e6f4ea;
+  --umn-status-icon-color: #1f6f3e;
+}
+
+
+/* --------------------------------------------------------------------------
+   Waived
+   -------------------------------------------------------------------------- */
+
+.umn-status--waived {
+  --umn-status-icon-background: #eeeeee;
+  --umn-status-icon-color: var(--umn-color-text-muted);
+
+  color: var(--umn-color-text-muted);
+}
+
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-status {
+  font-size: var(--umn-font-size-md);
+}
+
+.umn-theme-public .umn-status__icon {
+  width: 1.375rem;
+  height: 1.375rem;
+
+  font-size: 0.8125rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Dark Theme
+   -------------------------------------------------------------------------- */
+
+html.darkmode .umn-status--awaiting,
+html[data-theme="darkmode"] .umn-status--awaiting,
+html[data-theme^="twilight"] .umn-status--awaiting,
+html[data-umn-theme="dark"] .umn-status--awaiting {
+  --umn-status-icon-background: #333333;
+  --umn-status-icon-color: #d1d1d1;
+}
+
+html.darkmode .umn-status--received,
+html[data-theme="darkmode"] .umn-status--received,
+html[data-theme^="twilight"] .umn-status--received,
+html[data-umn-theme="dark"] .umn-status--received {
+  --umn-status-icon-background: #193524;
+  --umn-status-icon-color: #9bd5ad;
+}
+
+html.darkmode .umn-status--waived,
+html[data-theme="darkmode"] .umn-status--waived,
+html[data-theme^="twilight"] .umn-status--waived,
+html[data-umn-theme="dark"] .umn-status--waived {
+  --umn-status-icon-background: #333333;
+  --umn-status-icon-color: #b8b8b8;
+}
+/* ==========================================================================
+   28. Slate Dark Theme Adaptation
    ========================================================================== */
 
 /*
@@ -5150,7 +5303,7 @@ html[data-umn-theme="dark"] {
   --umn-font-size-md: 1rem;
 }
 /* ==========================================================================
-   28. Accessibility / Reduced Motion
+   29. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
