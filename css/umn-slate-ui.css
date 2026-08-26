@@ -5400,7 +5400,47 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
 .umn-checklist-accordion__title {
   min-width: 0;
 
+  color: inherit;
   font-weight: var(--umn-font-weight-bold);
+}
+
+
+/* --------------------------------------------------------------------------
+   Checklist Accordion Status
+   -------------------------------------------------------------------------- */
+
+/*
+ * Status indicators normally appear on light backgrounds.
+ * When used inside the public accordion header, adapt them to
+ * the maroon header while retaining their status icons.
+ */
+
+.umn-accordion__header .umn-checklist-accordion__header .umn-status {
+  color: var(--umn-color-white);
+}
+
+
+/* Items Remaining */
+
+.umn-accordion__header
+  .umn-checklist-accordion__header
+  .umn-status--awaiting {
+  --umn-status-icon-background: rgba(255, 255, 255, 0.18);
+  --umn-status-icon-color: var(--umn-color-white);
+
+  color: var(--umn-color-white);
+}
+
+
+/* Complete */
+
+.umn-accordion__header
+  .umn-checklist-accordion__header
+  .umn-status--received {
+  --umn-status-icon-background: var(--umn-color-gold);
+  --umn-status-icon-color: var(--umn-color-maroon);
+
+  color: var(--umn-color-white);
 }
 
 
@@ -5416,19 +5456,6 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
 
     padding-right: var(--umn-space-lg);
   }
-}
-/* --------------------------------------------------------------------------
-   Public Theme
-   -------------------------------------------------------------------------- */
-
-.umn-theme-public .umn-checklist__title {
-  color: var(--umn-color-text);
-  font-size: 1.625rem;
-}
-
-.umn-theme-public .umn-checklist__description {
-  font-size: var(--umn-font-size-md);
-  line-height: 1.6;
 }
 /* ==========================================================================
    29. Slate Dark Theme Adaptation
