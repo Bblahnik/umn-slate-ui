@@ -5374,7 +5374,49 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
   line-height: 1.5;
 }
 
+/* --------------------------------------------------------------------------
+   Checklist Accordion Header
+   -------------------------------------------------------------------------- */
 
+/*
+ * Layout helper for checklist status displayed inside an accordion header.
+ *
+ * Keeps the section title on the left and its overall completion state
+ * aligned to the right while leaving room for the accordion chevron.
+ */
+
+.umn-checklist-accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--umn-space-md);
+
+  width: 100%;
+  padding-right: var(--umn-space-lg);
+
+  box-sizing: border-box;
+}
+
+.umn-checklist-accordion__title {
+  min-width: 0;
+
+  font-weight: var(--umn-font-weight-bold);
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 36rem) {
+  .umn-checklist-accordion__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--umn-space-xs);
+
+    padding-right: var(--umn-space-lg);
+  }
+}
 /* --------------------------------------------------------------------------
    Public Theme
    -------------------------------------------------------------------------- */
