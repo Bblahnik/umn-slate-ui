@@ -5380,8 +5380,8 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
    -------------------------------------------------------------------------- */
 
 .umn-theme-public .umn-checklist__title {
-  color: var(--umn-color-maroon);
-  font-size: 1.5rem;
+  color: var(--umn-color-text);
+  font-size: 1.625rem;
 }
 
 .umn-theme-public .umn-checklist__description {
