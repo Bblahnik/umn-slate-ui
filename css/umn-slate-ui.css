@@ -5399,7 +5399,8 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
    -------------------------------------------------------------------------- */
 
 .umn-checklist__description {
-  max-width: 48rem;
+  width: 100%;
+  max-width: none;
 
   margin: 0 0 var(--umn-space-md);
 
