@@ -1345,6 +1345,7 @@
  * - striped
  * - bordered
  * - compact
+ * - subtle-header
  *
  * Use .umn-table-container around tables that may need horizontal
  * scrolling on smaller screens.
@@ -1733,6 +1734,7 @@
 
 .umn-table.umn-table--subtle-header thead th {
   color: var(--umn-color-text);
+  background: var(--umn-color-background-subtle);
   border-bottom-color: var(--umn-color-border);
 }
 
@@ -1750,8 +1752,8 @@
   thead
   th {
   color: var(--umn-color-text);
+  background: #eeeeee;
   border-bottom-color: var(--umn-color-border);
-}
 }
 
 /* --------------------------------------------------------------------------
@@ -1764,6 +1766,7 @@
 
 .umn-theme-public .umn-table thead th {
   color: var(--umn-color-white);
+  background: var(--umn-color-maroon);
   border-bottom-color: var(--umn-color-maroon);
 }
 
