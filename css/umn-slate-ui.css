@@ -1725,16 +1725,13 @@
 /*
  * Alternative table header treatment for tables nested inside
  * visually strong components such as public accordions and cards.
- *
- * Keeps the table structure clear without repeating a full branded
- * header treatment.
  */
 
-.umn-table--subtle-header thead {
+.umn-table.umn-table--subtle-header thead {
   background: var(--umn-color-background-subtle);
 }
 
-.umn-table--subtle-header thead th {
+.umn-table.umn-table--subtle-header thead th {
   color: var(--umn-color-text);
   border-bottom-color: var(--umn-color-border);
 }
@@ -1742,13 +1739,19 @@
 
 /* Public theme */
 
-.umn-theme-public .umn-table--subtle-header thead {
+.umn-theme-public
+  .umn-table.umn-table--subtle-header
+  thead {
   background: #eeeeee;
 }
 
-.umn-theme-public .umn-table--subtle-header thead th {
+.umn-theme-public
+  .umn-table.umn-table--subtle-header
+  thead
+  th {
   color: var(--umn-color-text);
   border-bottom-color: var(--umn-color-border);
+}
 }
 
 /* --------------------------------------------------------------------------
