@@ -1401,6 +1401,16 @@
 .umn-table.table tbody tr:nth-child(even) > td {
   background: transparent;
 }
+
+/*
+ * Restore the standard UMN row hover treatment.
+ */
+
+.umn-table.table tbody tr:hover,
+.umn-table.table tbody tr:hover > th,
+.umn-table.table tbody tr:hover > td {
+  background: #f0f3f5;
+}
 /* --------------------------------------------------------------------------
    Slate Searchable Table Enhancement
    -------------------------------------------------------------------------- */
@@ -1807,7 +1817,9 @@
   border-bottom-color: var(--umn-color-maroon);
 }
 
-.umn-theme-public .umn-table tbody tr:hover {
+.umn-theme-public .umn-table.table tbody tr:hover,
+.umn-theme-public .umn-table.table tbody tr:hover > th,
+.umn-theme-public .umn-table.table tbody tr:hover > td {
   background: var(--umn-color-maroon-subtle);
 }
 
