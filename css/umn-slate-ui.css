@@ -1365,6 +1365,43 @@
  * </div>
  */
 /* --------------------------------------------------------------------------
+   Slate Table Class Compatibility
+   -------------------------------------------------------------------------- */
+
+/*
+ * Slate's native "table" class is required for built-in searchable and
+ * sortable behavior, but it also carries visual table styling.
+ *
+ * When "table" is used together with ".umn-table", UMN Slate UI owns
+ * the presentation while Slate continues to provide its table behaviors.
+ */
+
+.umn-table.table {
+  background: var(--umn-color-white);
+}
+
+/*
+ * Neutralize Slate's native row banding.
+ *
+ * UMN tables remain unstriped by default. Use .umn-table--striped
+ * when alternating rows are desired.
+ */
+
+.umn-table.table tbody tr,
+.umn-table.table tbody tr:nth-child(odd),
+.umn-table.table tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+.umn-table.table tbody tr > th,
+.umn-table.table tbody tr > td,
+.umn-table.table tbody tr:nth-child(odd) > th,
+.umn-table.table tbody tr:nth-child(odd) > td,
+.umn-table.table tbody tr:nth-child(even) > th,
+.umn-table.table tbody tr:nth-child(even) > td {
+  background: transparent;
+}
+/* --------------------------------------------------------------------------
    Slate Searchable Table Enhancement
    -------------------------------------------------------------------------- */
 
