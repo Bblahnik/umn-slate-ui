@@ -2594,7 +2594,10 @@
 .umn-site-main #content ul.subtabs li a,
 .umn-site-main #content ul.subtabs li a:link,
 .umn-site-main #content ul.subtabs li a:visited {
+  height: 30px;
+
   color: var(--umn-color-maroon) !important;
+  font-size: 14px;
   text-decoration: none;
 }
 
