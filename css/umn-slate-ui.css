@@ -5928,7 +5928,7 @@ font-weight: var(--umn-font-weight-regular);
 
   color: var(--umn-color-text-muted);
   font-size: var(--umn-font-size-sm);
-  font-weight: 400;
+  font-weight: var(--umn-font-weight-regular);
   line-height: 1.4;
 }
 
@@ -6114,8 +6114,8 @@ font-weight: var(--umn-font-weight-regular);
   color: #ffffff;
 
   font-size: var(--umn-font-size-sm);
-  font-weight: 400;
-  font-style: normal;
+  font-weight: var(--umn-font-weight-regular);
+   font-style: normal;
   line-height: 1.4;
   text-align: left;
   white-space: normal;
