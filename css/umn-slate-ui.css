@@ -1,6 +1,5 @@
 /*!
  * UMN Slate UI
- * Version: 0.1.0
  *
  * Reusable UI components for Technolutions Slate dashboards and portals.
  *
@@ -6539,10 +6538,29 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
   }
 }
 /* ==========================================================================
-   29. Slate Dark Theme Adaptation
+   29. Public Theme Tokens
    ========================================================================== */
 
 /*
+ * Public portals use a roomier presentation than Slate's internal interface.
+ */
+
+.umn-theme-public {
+  --umn-space-xs: 0.25rem;
+  --umn-space-sm: 0.5rem;
+  --umn-space-md: 1rem;
+  --umn-space-lg: 1.5rem;
+  --umn-space-xl: 2rem;
+
+  --umn-font-size-sm: 0.875rem;
+  --umn-font-size-md: 1rem;
+}
+
+
+/* ==========================================================================
+   30. Slate Dark Theme Adaptation
+   ========================================================================== */
+
  * Normal Slate pages can expose Slate's theme directly through the
  * document's class or data-theme attribute.
  *
@@ -6572,23 +6590,8 @@ html[data-umn-theme="dark"] {
   --umn-color-neutral-accent: #c69d6c;
 }
 
-
-/*
- * Public portals use a roomier presentation than Slate's internal interface.
- */
-
-.umn-theme-public {
-  --umn-space-xs: 0.25rem;
-  --umn-space-sm: 0.5rem;
-  --umn-space-md: 1rem;
-  --umn-space-lg: 1.5rem;
-  --umn-space-xl: 2rem;
-
-  --umn-font-size-sm: 0.875rem;
-  --umn-font-size-md: 1rem;
-}
 /* ==========================================================================
-   30. Accessibility / Reduced Motion
+   31. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
