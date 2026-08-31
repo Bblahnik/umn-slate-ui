@@ -143,8 +143,9 @@
 }
 
 /*
- * Use deliberately stronger selectors because the legacy build.css
- * applies broad link colors after UMN Slate UI is loaded.
+ * Use explicit header-scoped selectors so University utility links
+ * retain their required reversed presentation regardless of surrounding
+ * content-link styles.
  */
 
 .umn-site-header .umn-site-header__links a,
@@ -4535,10 +4536,8 @@
 }
 
 .umn-details--horizontal .umn-details__label {
-  padding-right: var(--umn-space-md);
-}
-.umn-details--horizontal .umn-details__label {
   margin: 0;
+  padding-right: var(--umn-space-md);
 
   color: var(--umn-color-text-muted);
 }
