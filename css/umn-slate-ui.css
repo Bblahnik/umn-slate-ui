@@ -2949,8 +2949,8 @@
   margin-bottom: var(--umn-space-md);
 
   color: var(--umn-color-text);
-  font-weight: 400;
-  line-height: 1.6;
+font-weight: var(--umn-font-weight-regular);
+   line-height: 1.6;
 }
 
 
@@ -3209,8 +3209,8 @@
 
   color: var(--umn-color-text);
   font-size: var(--umn-font-size-md);
-  font-weight: 400;
-  line-height: 1.4;
+font-weight: var(--umn-font-weight-regular);
+   line-height: 1.4;
 
   cursor: pointer;
 }
