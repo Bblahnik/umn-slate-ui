@@ -359,6 +359,148 @@
   }
 }
 /* ==========================================================================
+   Site Footer
+   ========================================================================== */
+
+/*
+ * University of Minnesota required public-facing footer.
+ *
+ * Intended for Slate pages rendered through the institutional
+ * build.xslt branding shell.
+ *
+ * Required content:
+ * - Copyright statement
+ * - Equal opportunity statement
+ * - Privacy Statement
+ * - Report Web Accessibility Issues
+ *
+ * One Stop and MyU are repeated here for small screens, where the
+ * University web requirements move those links out of the header.
+ */
+
+.umn-site-footer {
+  width: 100%;
+
+  color: var(--umn-color-text);
+  background: var(--umn-color-white);
+
+  border-top: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-site-footer__inner {
+  padding-block: var(--umn-space-lg);
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile University Links
+   -------------------------------------------------------------------------- */
+
+.umn-site-footer__utility {
+  display: none;
+
+  margin: 0 0 var(--umn-space-md);
+  padding: 0;
+
+  list-style: none;
+}
+
+.umn-site-footer__utility li {
+  margin: 0;
+  padding: 0;
+}
+
+.umn-site-footer__utility a,
+.umn-site-footer__utility a:link,
+.umn-site-footer__utility a:visited {
+  color: var(--umn-color-maroon);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+
+  border-bottom: 0;
+}
+
+.umn-site-footer__utility a:hover,
+.umn-site-footer__utility a:active {
+  color: var(--umn-color-maroon-dark);
+  text-decoration: underline;
+}
+
+.umn-site-footer__utility a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Legal / Required Information
+   -------------------------------------------------------------------------- */
+
+.umn-site-footer__legal {
+  margin: 0;
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.umn-site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--umn-space-xs) var(--umn-space-sm);
+
+  margin-top: var(--umn-space-xs);
+}
+
+.umn-site-footer__links a,
+.umn-site-footer__links a:link,
+.umn-site-footer__links a:visited {
+  color: var(--umn-color-maroon);
+  text-decoration: none;
+
+  border-bottom: 0;
+}
+
+.umn-site-footer__links a:hover,
+.umn-site-footer__links a:active {
+  color: var(--umn-color-maroon-dark);
+  text-decoration: underline;
+}
+
+.umn-site-footer__links a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Small Screens
+   -------------------------------------------------------------------------- */
+
+/*
+ * UMN web requirements move One Stop and MyU from the header
+ * to the bottom of the page below 520px.
+ */
+
+@media (max-width: 32.5rem) {
+  .umn-site-header__links {
+    display: none;
+  }
+
+  .umn-site-footer__utility {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--umn-space-lg);
+  }
+
+  .umn-site-footer__inner {
+    padding-block: var(--umn-space-md);
+  }
+}
+/* ==========================================================================
    1. Design Tokens
    ========================================================================== */
 
