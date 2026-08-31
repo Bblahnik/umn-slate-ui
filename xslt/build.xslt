@@ -1,5 +1,5 @@
-<?xml version="1.0.0" encoding="utf-8" ?>
-<xsl:stylesheet version="1.0.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:fw="http://technolutions.com/framework" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xhtml">
+<?xml version="1.0" encoding="utf-8" ?>
+<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:fw="http://technolutions.com/framework" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xhtml">
   <xsl:template match="/">
     <html xmlns="http://www.w3.org/1999/xhtml">
       <template path="/shared/base.xslt" xmlns="http://technolutions.com/framework" />
