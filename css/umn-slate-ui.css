@@ -303,6 +303,62 @@
   }
 }
 /* ==========================================================================
+   Site Main
+   ========================================================================== */
+
+/*
+ * Main content wrapper for Slate pages rendered through build.xslt.
+ *
+ * The surrounding .umn-container provides the shared horizontal
+ * alignment used by the site header and page content.
+ */
+
+.umn-site-main {
+  padding-top: 4rem;
+  padding-bottom: var(--umn-space-xl);
+}
+
+
+/* --------------------------------------------------------------------------
+   Slate Global / Account Links
+   -------------------------------------------------------------------------- */
+
+/*
+ * Slate populates #global with account-level links such as the
+ * current user's name and Logout.
+ *
+ * Preserve Slate's generated markup while giving the region
+ * predictable spacing above the page content.
+ */
+
+.umn-site-main #global {
+  float: right;
+
+  margin: 0 0 var(--umn-space-lg);
+}
+
+
+/* --------------------------------------------------------------------------
+   Slate Page Content
+   -------------------------------------------------------------------------- */
+
+.umn-site-main #content {
+  clear: both;
+
+  padding: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 36rem) {
+  .umn-site-main {
+    padding-top: var(--umn-space-xl);
+  }
+}
+/* ==========================================================================
    1. Design Tokens
    ========================================================================== */
 
