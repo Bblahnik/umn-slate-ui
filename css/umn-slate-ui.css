@@ -2583,9 +2583,9 @@
  * Slate-generated application/status pages use native .tabs and .subtabs
  * markup rather than the UMN tab component.
  *
- * These selectors are intentionally strong enough to override both
- * Slate's native link presentation and the generic public content-link
- * adapter.
+ * Slate's base.css applies native tab text colors with !important.
+ * These narrowly scoped !important declarations are therefore required
+ * so branded public pages can use the UMN link colors.
  */
 
 .umn-site-main #content ul.tabs li a,
@@ -2594,7 +2594,7 @@
 .umn-site-main #content ul.subtabs li a,
 .umn-site-main #content ul.subtabs li a:link,
 .umn-site-main #content ul.subtabs li a:visited {
-  color: var(--umn-color-maroon);
+  color: var(--umn-color-maroon) !important;
   text-decoration: none;
 }
 
@@ -2602,13 +2602,13 @@
 .umn-site-main #content ul.tabs li a:active,
 .umn-site-main #content ul.subtabs li a:hover,
 .umn-site-main #content ul.subtabs li a:active {
-  color: var(--umn-color-maroon-dark);
+  color: var(--umn-color-maroon-dark) !important;
   text-decoration: none;
 }
 
 .umn-site-main #content ul.tabs li a:focus-visible,
 .umn-site-main #content ul.subtabs li a:focus-visible {
-  color: var(--umn-color-maroon);
+  color: var(--umn-color-maroon) !important;
   text-decoration: none;
 
   outline: 2px solid currentColor;
