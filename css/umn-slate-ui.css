@@ -501,6 +501,26 @@
   }
 }
 /* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+/*
+ * Open Sans is the University of Minnesota's primary body typeface.
+ *
+ * The variable font is self-hosted with the UMN Slate UI library.
+ * It supports both weight and width variation. The design system uses
+ * the normal width and weights from 300 through 700.
+ */
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url("../fonts/open-sans-variable.woff2") format("woff2");
+}
+/* ==========================================================================
    1. Design Tokens
    ========================================================================== */
 
@@ -542,11 +562,17 @@
   --umn-border-radius-sm: 0.25rem;
   --umn-border-radius-md: 0.5rem;
 
-/* Typography - compact for Slate's internal interface */
---umn-font-size-sm: 0.75rem;   /* 12px */
---umn-font-size-md: 0.8125rem; /* 13px */
---umn-font-weight-medium: 600;
---umn-font-weight-bold: 700;
+  /* Typography - compact for Slate's internal interface */
+  --umn-font-family-body: "Open Sans", Arial, sans-serif;
+  --umn-font-family-heading: "Open Sans", Arial, sans-serif;
+
+  --umn-font-size-sm: 0.75rem;   /* 12px */
+  --umn-font-size-md: 0.8125rem; /* 13px */
+
+  --umn-font-weight-light: 300;
+  --umn-font-weight-regular: 400;
+  --umn-font-weight-medium: 600;
+  --umn-font-weight-bold: 700;
 
   /* Motion */
   --umn-transition-fast: 150ms ease;
@@ -574,7 +600,10 @@
 
 .umn-content {
   color: var(--umn-color-text);
+
+  font-family: var(--umn-font-family-body);
   font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-regular);
   line-height: 1.5;
 }
 
@@ -591,6 +620,8 @@
   margin-bottom: var(--umn-space-sm);
 
   color: var(--umn-color-text);
+
+  font-family: var(--umn-font-family-heading);
   line-height: 1.25;
 }
 
