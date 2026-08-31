@@ -460,14 +460,18 @@
    -------------------------------------------------------------------------- */
 
 /*
- * Slate populates #content and #global with native links.
+ * Slate-generated content commonly contains ordinary unclassed links.
  *
- * :where() deliberately keeps selector specificity low so individual
- * UMN components can provide their own link presentation when needed.
+ * Give those links the standard UMN maroon presentation while allowing
+ * links belonging to UMN Slate UI components to retain their own styles.
  */
 
-:where(.umn-site-main #content a),
-:where(.umn-site-main #global a) {
+.umn-site-main #content a:where(:not([class])),
+.umn-site-main #global a:where(:not([class])),
+.umn-site-main #content a:where(:not([class])):link,
+.umn-site-main #content a:where(:not([class])):visited,
+.umn-site-main #global a:where(:not([class])):link,
+.umn-site-main #global a:where(:not([class])):visited {
   color: var(--umn-color-maroon);
 
   line-height: inherit;
@@ -478,15 +482,15 @@
   cursor: pointer;
 }
 
-:where(.umn-site-main #content a:hover),
-:where(.umn-site-main #global a:hover) {
+.umn-site-main #content a:where(:not([class])):hover,
+.umn-site-main #global a:where(:not([class])):hover {
   color: var(--umn-color-maroon-dark);
 
   text-decoration-thickness: 2px;
 }
 
-:where(.umn-site-main #content a:focus-visible),
-:where(.umn-site-main #global a:focus-visible) {
+.umn-site-main #content a:where(:not([class])):focus-visible,
+.umn-site-main #global a:where(:not([class])):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
