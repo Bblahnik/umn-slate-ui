@@ -462,14 +462,14 @@
 /*
  * Slate-generated content commonly contains ordinary unclassed links.
  *
- * Give those links the standard UMN maroon presentation while allowing
- * links belonging to UMN Slate UI components to retain their own styles.
+ * Give those links the standard UMN maroon presentation while excluding
+ * native Slate components such as tabs that provide their own link styling.
  */
 
-.umn-site-main #content a:where(:not([class])),
+.umn-site-main #content a:where(:not([class])):not(.tabs a):not(.subtabs a),
 .umn-site-main #global a:where(:not([class])),
-.umn-site-main #content a:where(:not([class])):link,
-.umn-site-main #content a:where(:not([class])):visited,
+.umn-site-main #content a:where(:not([class])):not(.tabs a):not(.subtabs a):link,
+.umn-site-main #content a:where(:not([class])):not(.tabs a):not(.subtabs a):visited,
 .umn-site-main #global a:where(:not([class])):link,
 .umn-site-main #global a:where(:not([class])):visited {
   color: var(--umn-color-maroon);
@@ -482,14 +482,14 @@
   cursor: pointer;
 }
 
-.umn-site-main #content a:where(:not([class])):hover,
+.umn-site-main #content a:where(:not([class])):not(.tabs a):not(.subtabs a):hover,
 .umn-site-main #global a:where(:not([class])):hover {
   color: var(--umn-color-maroon-dark);
 
   text-decoration-thickness: 2px;
 }
 
-.umn-site-main #content a:where(:not([class])):focus-visible,
+.umn-site-main #content a:where(:not([class])):not(.tabs a):not(.subtabs a):focus-visible,
 .umn-site-main #global a:where(:not([class])):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
