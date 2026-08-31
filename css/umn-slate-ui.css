@@ -1,6 +1,6 @@
 /*!
  * UMN Slate UI
- * v1.0.1
+ * v1.0.2
  * Reusable UI components for Technolutions Slate dashboards and portals.
  *
  * Design principles:
@@ -652,8 +652,7 @@
   font-weight: 300 700;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url("https://bblahnik.github.io/umn-slate-ui/fonts/open-sans-variable.woff2")
-    format("woff2");
+  src: url("../fonts/open-sans-variable.woff2") format("woff2");
 }
 /* ==========================================================================
    1. Design Tokens
