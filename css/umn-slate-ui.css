@@ -316,8 +316,17 @@
 .umn-site-main {
   padding-top: 4rem;
   padding-bottom: var(--umn-space-xl);
-}
 
+  font-family: var(--umn-font-family-body);
+}
+.umn-site-main h1,
+.umn-site-main h2,
+.umn-site-main h3,
+.umn-site-main h4,
+.umn-site-main h5,
+.umn-site-main h6 {
+  font-family: var(--umn-font-family-heading);
+}
 
 /* --------------------------------------------------------------------------
    Slate Global / Account Links
