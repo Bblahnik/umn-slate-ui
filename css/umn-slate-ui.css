@@ -6589,9 +6589,38 @@ html[data-umn-theme="dark"] {
   --umn-color-border: #908e8a;
   --umn-color-neutral-accent: #c69d6c;
 }
+/* ==========================================================================
+   31. Print
+   ========================================================================== */
+
+@media print {
+  html,
+  body {
+    font-size: 12px;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}
+
 
 /* ==========================================================================
-   31. Accessibility / Reduced Motion
+   32. Accessibility / Reduced Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
