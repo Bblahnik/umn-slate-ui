@@ -28,25 +28,22 @@
           })(window,document,'script','dataLayer','GTM-5GH89JC');
         </script>
         <!-- End Google Tag Manager -->
-        <!-- Slate branding stylesheet references github hosted css-->
+        <!-- Slate branding stylesheet -->
         <link href="/shared/build.css?v=1.0.0" rel="stylesheet" />
-        <!-- Temporary legacy rules still needed by Slate-generated #global -->
+        <!-- Normalize Slate-generated account navigation -->
         <style>
-          
-
-          #global ul,
-          #global li {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-          }
-        </style>
+  #global ul,
+  #global li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <xsl:apply-templates select="xhtml:html/xhtml:head/node()" />
       </head>
       <body>
         <xsl:copy-of select="xhtml:html/xhtml:body/@*" />
-        <!-- UMN TEST: mobile-global removed -->
         <div id="page">
           <!-- ==============================================================
                Skip Navigation
