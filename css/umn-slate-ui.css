@@ -3419,10 +3419,10 @@
 
 /* Button focus */
 
-.umn-form .form_action_continue button:focus-visible,
-.umn-form .form_action_submit button:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+.umn-site-main .form_action_continue button:focus-visible,
+.umn-site-main .form_action_submit button:focus-visible {
+  outline: 3px solid var(--umn-color-maroon);
+  outline-offset: 3px;
 }
 
 
@@ -3909,10 +3909,16 @@
 
 /* Keyboard focus */
 
+.umn-form .form_action_continue button:focus-visible,
+.umn-form .form_action_submit button:focus-visible {
+  outline: 3px solid var(--umn-color-maroon);
+  outline-offset: 3px;
+}
+
 .umn-site-main .form_action_continue button:focus-visible,
 .umn-site-main .form_action_submit button:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+  outline: 3px solid var(--umn-color-maroon);
+  outline-offset: 3px;
 }
 
 
