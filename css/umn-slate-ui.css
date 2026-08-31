@@ -81,7 +81,6 @@
   padding-block: var(--umn-space-md);
 }
 
-
 /* --------------------------------------------------------------------------
    Brand
    -------------------------------------------------------------------------- */
@@ -107,7 +106,6 @@
   outline-offset: 4px;
 }
 
-
 /* --------------------------------------------------------------------------
    Utility Area
    -------------------------------------------------------------------------- */
@@ -119,7 +117,6 @@
   align-items: flex-end;
   gap: var(--umn-space-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Utility Links
@@ -174,7 +171,6 @@
   outline: 2px solid var(--umn-color-gold);
   outline-offset: 3px;
 }
-
 
 /* --------------------------------------------------------------------------
    Search
@@ -246,10 +242,7 @@
   border-radius: var(--umn-border-radius-sm) 0 0 var(--umn-border-radius-sm) !important;
 }
 
-.umn-site-header__search
-  .gsc-search-box-tools
-  .gsc-search-box
-  .gsc-input {
+.umn-site-header__search .gsc-search-box-tools .gsc-search-box .gsc-input {
   height: 2rem !important;
 
   margin: 0 !important;
@@ -302,7 +295,6 @@
   width: 0.875rem !important;
   height: 0.875rem !important;
 }
-
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
@@ -445,7 +437,6 @@
   margin: 0 0 var(--umn-space-lg);
 }
 
-
 /* --------------------------------------------------------------------------
    Slate Page Content
    -------------------------------------------------------------------------- */
@@ -537,7 +528,6 @@
   padding-block: var(--umn-space-lg);
 }
 
-
 /* --------------------------------------------------------------------------
    Mobile University Links
    -------------------------------------------------------------------------- */
@@ -576,7 +566,6 @@
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
-
 
 /* --------------------------------------------------------------------------
    Legal / Required Information
@@ -619,7 +608,6 @@
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
-
 
 /* --------------------------------------------------------------------------
    Small Screens
@@ -712,7 +700,7 @@
   --umn-font-family-body: "Open Sans", Arial, sans-serif;
   --umn-font-family-heading: "Open Sans", Arial, sans-serif;
 
-  --umn-font-size-sm: 0.75rem;   /* 12px */
+  --umn-font-size-sm: 0.75rem; /* 12px */
   --umn-font-size-md: 0.8125rem; /* 13px */
 
   --umn-font-weight-light: 300;
@@ -778,7 +766,6 @@
   line-height: 1.5;
 }
 
-
 /* --------------------------------------------------------------------------
    Headings
    -------------------------------------------------------------------------- */
@@ -816,7 +803,6 @@
   font-weight: var(--umn-font-weight-bold);
 }
 
-
 /* --------------------------------------------------------------------------
    Paragraphs and Lists
    -------------------------------------------------------------------------- */
@@ -833,7 +819,6 @@
 
   padding-left: 1.5rem;
 }
-
 
 /* --------------------------------------------------------------------------
    Links
@@ -853,7 +838,6 @@
   outline-offset: 2px;
 }
 
-
 /* --------------------------------------------------------------------------
    Inline Code
    -------------------------------------------------------------------------- */
@@ -864,14 +848,8 @@
   color: inherit;
 
   font-family:
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    "Liberation Mono",
-    "Courier New",
-    monospace;
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 
   font-size: 0.9em;
 
@@ -879,7 +857,6 @@
   border: var(--umn-border-width) solid var(--umn-color-border);
   border-radius: var(--umn-border-radius-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -914,7 +891,6 @@
 .umn-theme-public .umn-content h4 {
   font-size: 1rem;
 }
-
 
 /* ==========================================================================
    3. Accordion
@@ -1035,7 +1011,6 @@
   margin-bottom: 0;
 }
 
-
 /* --------------------------------------------------------------------------
    Public Theme
    -------------------------------------------------------------------------- */
@@ -1057,7 +1032,6 @@
   padding: 0.75rem 2.75rem 0.75rem var(--umn-space-md);
   font-weight: var(--umn-font-weight-bold);
 }
-
 
 /* ==========================================================================
    4. Buttons
@@ -1150,7 +1124,6 @@
   transform: translateY(1px);
 }
 
-
 /* --------------------------------------------------------------------------
    Button Variants
    -------------------------------------------------------------------------- */
@@ -1193,7 +1166,6 @@
   --umn-button-focus-color: var(--umn-color-danger);
 }
 
-
 /* --------------------------------------------------------------------------
    Button Sizes
    -------------------------------------------------------------------------- */
@@ -1209,7 +1181,6 @@
   padding: 0.625rem 1.125rem;
   font-size: 1.0625rem;
 }
-
 
 /* --------------------------------------------------------------------------
    Disabled State
@@ -1229,7 +1200,6 @@
   border-color: var(--umn-button-border-color);
   color: var(--umn-button-color);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -1279,7 +1249,6 @@
   --umn-button-hover-color: var(--umn-color-maroon);
   --umn-button-focus-color: var(--umn-color-maroon);
 }
-
 
 /* ==========================================================================
    5. Alerts
@@ -1332,7 +1301,6 @@
   margin-bottom: 0;
 }
 
-
 /* --------------------------------------------------------------------------
    Alert Variants
    -------------------------------------------------------------------------- */
@@ -1371,7 +1339,6 @@
   --umn-alert-accent-color: var(--umn-color-danger);
   --umn-alert-color: var(--umn-color-danger-text);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -1463,7 +1430,6 @@
   border-radius: var(--umn-border-radius-sm);
 }
 
-
 /* --------------------------------------------------------------------------
    Badge Variants
    -------------------------------------------------------------------------- */
@@ -1498,7 +1464,6 @@
   --umn-badge-color: var(--umn-color-danger-text);
 }
 
-
 /* --------------------------------------------------------------------------
    Badge Shape
    -------------------------------------------------------------------------- */
@@ -1506,7 +1471,6 @@
 .umn-badge--pill {
   border-radius: 999rem;
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -1578,7 +1542,6 @@
   border-radius: var(--umn-border-radius-md);
 }
 
-
 /* --------------------------------------------------------------------------
    Record Card Photo
    -------------------------------------------------------------------------- */
@@ -1599,7 +1562,6 @@
   border-radius: var(--umn-border-radius-md);
 }
 
-
 /* --------------------------------------------------------------------------
    Record Card Body
    -------------------------------------------------------------------------- */
@@ -1617,7 +1579,6 @@
   font-weight: var(--umn-font-weight-bold);
   line-height: 1.25;
 }
-
 
 /* --------------------------------------------------------------------------
    Record Card Metadata
@@ -1645,7 +1606,6 @@
   font-weight: var(--umn-font-weight-medium);
 }
 
-
 /* --------------------------------------------------------------------------
    Record Card Badges
    -------------------------------------------------------------------------- */
@@ -1655,7 +1615,6 @@
   flex-wrap: wrap;
   gap: var(--umn-space-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Optional Record Card Details
@@ -1669,7 +1628,6 @@
 
   font-size: var(--umn-font-size-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -1690,7 +1648,6 @@
   color: var(--umn-color-maroon);
   font-size: 1.375rem;
 }
-
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
@@ -1759,7 +1716,6 @@
   border-radius: var(--umn-border-radius-md);
 }
 
-
 /* --------------------------------------------------------------------------
    Card Header
    -------------------------------------------------------------------------- */
@@ -1782,7 +1738,6 @@
   line-height: 1.3;
 }
 
-
 /* --------------------------------------------------------------------------
    Card Body
    -------------------------------------------------------------------------- */
@@ -1798,7 +1753,6 @@
 .umn-card__body > :last-child {
   margin-bottom: 0;
 }
-
 
 /* --------------------------------------------------------------------------
    Card Footer
@@ -1820,7 +1774,6 @@
   margin-bottom: 0;
 }
 
-
 /* --------------------------------------------------------------------------
    Card Modifiers
    -------------------------------------------------------------------------- */
@@ -1834,7 +1787,6 @@
 .umn-card--accent {
   border-top: 0.3rem solid var(--umn-card-accent-color);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -1900,7 +1852,6 @@
   margin-top: var(--umn-stack-space);
 }
 
-
 /*
  * When Stack is combined with .umn-content, reinforce the layout
  * spacing so scoped typography margins do not override the utility.
@@ -1914,7 +1865,6 @@
 .umn-content.umn-stack > * + * {
   margin-top: var(--umn-stack-space);
 }
-
 
 /*
  * Also support Stack nested inside a content region.
@@ -1972,7 +1922,6 @@
   box-sizing: border-box;
 }
 
-
 /* --------------------------------------------------------------------------
    Container Variants
    -------------------------------------------------------------------------- */
@@ -1984,7 +1933,6 @@
 .umn-container--wide {
   max-width: 96rem;
 }
-
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
@@ -2152,7 +2100,6 @@
   color: var(--umn-color-text-muted);
 }
 
-
 /* Focus */
 
 .umn-content .searchBox:focus {
@@ -2161,7 +2108,6 @@
   border-color: #666666;
   box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.18);
 }
-
 
 /* Public theme */
 
@@ -2174,7 +2120,6 @@
   border-color: var(--umn-color-maroon);
   box-shadow: 0 0 0 2px rgba(122, 0, 25, 0.16);
 }
-
 
 /* Responsive behavior */
 
@@ -2235,7 +2180,6 @@
   outline-offset: 2px;
 }
 
-
 /* Public theme */
 
 .umn-theme-public .umn-content [id$="_results"] a.fetch {
@@ -2267,7 +2211,6 @@
   -webkit-overflow-scrolling: touch;
 }
 
-
 /* --------------------------------------------------------------------------
    Base Table
    -------------------------------------------------------------------------- */
@@ -2284,7 +2227,6 @@
   background: var(--umn-color-white);
 }
 
-
 /* --------------------------------------------------------------------------
    Caption
    -------------------------------------------------------------------------- */
@@ -2297,7 +2239,6 @@
   font-weight: var(--umn-font-weight-medium);
   text-align: left;
 }
-
 
 /* --------------------------------------------------------------------------
    Header
@@ -2318,7 +2259,6 @@
   border-bottom: 2px solid var(--umn-color-border);
 }
 
-
 /* --------------------------------------------------------------------------
    Body Cells
    -------------------------------------------------------------------------- */
@@ -2337,7 +2277,6 @@
   border-bottom: 0;
 }
 
-
 /* --------------------------------------------------------------------------
    Row Headers
    -------------------------------------------------------------------------- */
@@ -2351,7 +2290,6 @@
 
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
-
 
 /* --------------------------------------------------------------------------
    Row Hover
@@ -2371,7 +2309,6 @@
 .umn-table tbody tr:hover {
   background: #f0f3f5;
 }
-
 
 /* --------------------------------------------------------------------------
    Table Links
@@ -2401,7 +2338,6 @@
   outline-offset: 2px;
 }
 
-
 /* --------------------------------------------------------------------------
    Striped Table
    -------------------------------------------------------------------------- */
@@ -2413,7 +2349,6 @@
 .umn-table--striped tbody tr:nth-child(even):hover {
   background: #f0f3f5;
 }
-
 
 /* --------------------------------------------------------------------------
    Bordered Table
@@ -2428,7 +2363,6 @@
   border: var(--umn-border-width) solid var(--umn-color-border);
 }
 
-
 /* --------------------------------------------------------------------------
    Compact Table
    -------------------------------------------------------------------------- */
@@ -2439,7 +2373,6 @@
   padding: var(--umn-space-sm);
   font-size: var(--umn-font-size-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Table Cell Alignment Helpers
@@ -2475,19 +2408,13 @@
   border-bottom-color: var(--umn-color-border);
 }
 
-
 /* Public theme */
 
-.umn-theme-public
-  .umn-table.umn-table--subtle-header
-  thead {
+.umn-theme-public .umn-table.umn-table--subtle-header thead {
   background: #eeeeee;
 }
 
-.umn-theme-public
-  .umn-table.umn-table--subtle-header
-  thead
-  th {
+.umn-theme-public .umn-table.umn-table--subtle-header thead th {
   color: var(--umn-color-text);
   background: #eeeeee;
   border-bottom-color: var(--umn-color-border);
@@ -2524,7 +2451,6 @@
 .umn-theme-public .umn-table__link {
   color: var(--umn-color-maroon);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme Sizing
@@ -2684,7 +2610,6 @@
   border-bottom-color: var(--umn-color-neutral-accent);
 }
 
-
 /* --------------------------------------------------------------------------
    Boxed Tabs
    -------------------------------------------------------------------------- */
@@ -2696,24 +2621,14 @@
 .umn-tabs--boxed .umn-tabs__link {
   margin-bottom: -1px;
 
-  border:
-    var(--umn-border-width)
-    solid
-    transparent;
+  border: var(--umn-border-width) solid transparent;
 
   border-bottom-color: transparent;
-  border-radius:
-    var(--umn-border-radius-sm)
-    var(--umn-border-radius-sm)
-    0
-    0;
+  border-radius: var(--umn-border-radius-sm) var(--umn-border-radius-sm) 0 0;
 }
 
 .umn-tabs--boxed .umn-tabs__link:hover {
-  border-color:
-    var(--umn-color-border)
-    var(--umn-color-border)
-    transparent;
+  border-color: var(--umn-color-border) var(--umn-color-border) transparent;
 }
 
 .umn-tabs--boxed .umn-tabs__item--active .umn-tabs__link,
@@ -2721,12 +2636,9 @@
   color: var(--umn-color-text);
   background: var(--umn-color-white);
 
-  border-color:
-    var(--umn-color-border)
-    var(--umn-color-border)
+  border-color: var(--umn-color-border) var(--umn-color-border)
     var(--umn-color-white);
 }
-
 
 /* --------------------------------------------------------------------------
    Pill Tabs
@@ -2750,7 +2662,6 @@
   background: var(--umn-color-neutral-accent);
 }
 
-
 /* --------------------------------------------------------------------------
    Public Theme
    -------------------------------------------------------------------------- */
@@ -2765,35 +2676,21 @@
   border-bottom-color: var(--umn-color-maroon);
 }
 
-
 /* Public Boxed Tabs */
 
-.umn-theme-public
-  .umn-tabs--boxed
-  .umn-tabs__item--active
-  .umn-tabs__link,
-.umn-theme-public
-  .umn-tabs--boxed
-  .umn-tabs__link[aria-current="page"] {
+.umn-theme-public .umn-tabs--boxed .umn-tabs__item--active .umn-tabs__link,
+.umn-theme-public .umn-tabs--boxed .umn-tabs__link[aria-current="page"] {
   color: var(--umn-color-maroon);
   background: var(--umn-color-white);
 
-  border-color:
-    var(--umn-color-maroon-border)
-    var(--umn-color-maroon-border)
+  border-color: var(--umn-color-maroon-border) var(--umn-color-maroon-border)
     var(--umn-color-white);
 }
 
-
 /* Public Pill Tabs */
 
-.umn-theme-public
-  .umn-tabs--pills
-  .umn-tabs__item--active
-  .umn-tabs__link,
-.umn-theme-public
-  .umn-tabs--pills
-  .umn-tabs__link[aria-current="page"] {
+.umn-theme-public .umn-tabs--pills .umn-tabs__item--active .umn-tabs__link,
+.umn-theme-public .umn-tabs--pills .umn-tabs__link[aria-current="page"] {
   color: var(--umn-color-white);
   background: var(--umn-color-maroon);
   border-bottom-color: transparent;
@@ -2808,9 +2705,7 @@
   .umn-tabs--pills
   .umn-tabs__item--active
   .umn-tabs__link:hover,
-.umn-theme-public
-  .umn-tabs--pills
-  .umn-tabs__link[aria-current="page"]:hover {
+.umn-theme-public .umn-tabs--pills .umn-tabs__link[aria-current="page"]:hover {
   color: var(--umn-color-white);
   background: var(--umn-color-maroon-dark);
 }
@@ -2848,7 +2743,6 @@
  * intentionally styled lightly or left to Slate.
  */
 
-
 /* --------------------------------------------------------------------------
    Form Base
    -------------------------------------------------------------------------- */
@@ -2867,7 +2761,6 @@
   margin-bottom: 0;
 }
 
-
 /* --------------------------------------------------------------------------
    Labels
    -------------------------------------------------------------------------- */
@@ -2882,20 +2775,13 @@
   line-height: 1.35;
 }
 
-
 /* Required indicator */
 
-.umn-form
-  .form_question[data-required="1"]
-  > .form_label::after,
-.umn-form
-  .form_question[data-required="1"]
-  > fieldset
-  > .form_label::after {
+.umn-form .form_question[data-required="1"] > .form_label::after,
+.umn-form .form_question[data-required="1"] > fieldset > .form_label::after {
   content: " *";
   color: var(--umn-color-danger);
 }
-
 
 /* --------------------------------------------------------------------------
    Form Headings and Instruction Content
@@ -2917,7 +2803,6 @@
   line-height: 1.25;
 }
 
-
 /*
  * Slate Header Rows act as internal section headings within a form.
  * Use a simple divider treatment so they read as structure rather
@@ -2937,7 +2822,6 @@
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
 
-
 /*
  * Avoid unnecessary top spacing when a Header Row is the first
  * element in a form.
@@ -2951,10 +2835,9 @@
   margin-bottom: var(--umn-space-md);
 
   color: var(--umn-color-text);
-font-weight: var(--umn-font-weight-regular);
-   line-height: 1.6;
+  font-weight: var(--umn-font-weight-regular);
+  line-height: 1.6;
 }
-
 
 /* --------------------------------------------------------------------------
    Standard Text Controls
@@ -2986,7 +2869,6 @@ font-weight: var(--umn-font-weight-regular);
     box-shadow var(--umn-transition-fast);
 }
 
-
 /* --------------------------------------------------------------------------
    Textareas
    -------------------------------------------------------------------------- */
@@ -3016,7 +2898,6 @@ font-weight: var(--umn-font-weight-regular);
     box-shadow var(--umn-transition-fast);
 }
 
-
 /* Address street textarea */
 
 .umn-form .form_address textarea {
@@ -3043,7 +2924,6 @@ font-weight: var(--umn-font-weight-regular);
     border-color var(--umn-transition-fast),
     box-shadow var(--umn-transition-fast);
 }
-
 
 /* --------------------------------------------------------------------------
    Select Controls
@@ -3083,7 +2963,6 @@ font-weight: var(--umn-font-weight-regular);
   min-height: 7rem;
 }
 
-
 /* --------------------------------------------------------------------------
    Focus States
    -------------------------------------------------------------------------- */
@@ -3106,7 +2985,6 @@ font-weight: var(--umn-font-weight-regular);
   box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.18);
 }
 
-
 /* --------------------------------------------------------------------------
    Read-Only Fields
    -------------------------------------------------------------------------- */
@@ -3118,7 +2996,6 @@ font-weight: var(--umn-font-weight-regular);
   background: var(--umn-color-background-subtle);
 }
 
-
 /* --------------------------------------------------------------------------
    Disabled Fields
    -------------------------------------------------------------------------- */
@@ -3129,7 +3006,6 @@ font-weight: var(--umn-font-weight-regular);
   cursor: not-allowed;
   opacity: 0.65;
 }
-
 
 /* --------------------------------------------------------------------------
    Checkbox, Radio, and Rating Scale Groups
@@ -3147,7 +3023,6 @@ font-weight: var(--umn-font-weight-regular);
 
   border: 0;
 }
-
 
 /*
  * Slate already provides a visible .form_label inside these fieldsets.
@@ -3211,12 +3086,11 @@ font-weight: var(--umn-font-weight-regular);
 
   color: var(--umn-color-text);
   font-size: var(--umn-font-size-md);
-font-weight: var(--umn-font-weight-regular);
-   line-height: 1.4;
+  font-weight: var(--umn-font-weight-regular);
+  line-height: 1.4;
 
   cursor: pointer;
 }
-
 
 /* --------------------------------------------------------------------------
    Date and Birthdate
@@ -3252,7 +3126,6 @@ font-weight: var(--umn-font-weight-regular);
     box-shadow var(--umn-transition-fast);
 }
 
-
 /* --------------------------------------------------------------------------
    Address and Location Blocks
    -------------------------------------------------------------------------- */
@@ -3266,7 +3139,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-form .form_location > fieldset > div:last-of-type {
   margin-bottom: 0;
 }
-
 
 /*
  * The first .form_label in an address/location field is the block label.
@@ -3296,7 +3168,6 @@ font-weight: var(--umn-font-weight-regular);
   font-family: inherit;
   font-size: var(--umn-font-size-md);
 }
-
 
 /* Native file-picker button */
 
@@ -3353,7 +3224,6 @@ font-weight: var(--umn-font-weight-regular);
   border-radius: var(--umn-border-radius-sm);
 }
 
-
 /* --------------------------------------------------------------------------
    Replicate Blocks
    -------------------------------------------------------------------------- */
@@ -3389,11 +3259,7 @@ font-weight: var(--umn-font-weight-regular);
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
 
-.umn-form
-  .form_page[data-replicate="1"]
-  .replicate_template
-  > tr.column
-  > th,
+.umn-form .form_page[data-replicate="1"] .replicate_template > tr.column > th,
 .umn-form
   .form_page[data-replicate="1"]
   tbody:not(.replicate_template)
@@ -3411,10 +3277,7 @@ font-weight: var(--umn-font-weight-regular);
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
 
-.umn-form
-  .form_page[data-replicate="1"]
-  > table.fixed
-  td {
+.umn-form .form_page[data-replicate="1"] > table.fixed td {
   padding: var(--umn-space-sm);
 }
 
@@ -3445,7 +3308,6 @@ font-weight: var(--umn-font-weight-regular);
   text-decoration: underline;
 }
 
-
 /* --------------------------------------------------------------------------
    Form Actions
    -------------------------------------------------------------------------- */
@@ -3458,7 +3320,6 @@ font-weight: var(--umn-font-weight-regular);
 
   margin-top: var(--umn-space-lg);
 }
-
 
 /* Shared primary button presentation */
 
@@ -3497,7 +3358,6 @@ font-weight: var(--umn-font-weight-regular);
   border-color: #444444;
 }
 
-
 /* Back button */
 
 .umn-form .form_action_continue .form_action_back,
@@ -3516,7 +3376,6 @@ font-weight: var(--umn-font-weight-regular);
   border-color: #444444;
 }
 
-
 /*
  * Slate places Submit before Back in the DOM on the final page.
  * Visually display Back before Submit without changing Slate's
@@ -3530,7 +3389,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-form .form_action_submit .form_button_submit {
   order: 2;
 }
-
 
 /* --------------------------------------------------------------------------
    Special Slate Controls
@@ -3578,7 +3436,6 @@ font-weight: var(--umn-font-weight-regular);
   box-sizing: border-box;
 }
 
-
 /*
  * Prevent unnecessary extra space at the top and bottom of a contained form.
  */
@@ -3603,10 +3460,7 @@ font-weight: var(--umn-font-weight-regular);
  */
 
 .umn-form--card .form_question.form_header .form_label {
-  margin:
-    var(--umn-space-lg)
-    calc(var(--umn-space-md) * -1)
-    var(--umn-space-md);
+  margin: var(--umn-space-lg) calc(var(--umn-space-md) * -1) var(--umn-space-md);
 
   padding: 0.625rem var(--umn-space-md);
 
@@ -3619,36 +3473,25 @@ font-weight: var(--umn-font-weight-regular);
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
 
-
 /*
  * When the first question on a contained form is a Slate Header Row,
  * remove the card's top padding so the header sits flush against
  * the top edge of the container.
  */
 
-.umn-form--card:has(
-  .form_page > .form_header:first-child
-) {
+.umn-form--card:has(.form_page > .form_header:first-child) {
   padding-top: 0;
 }
-
 
 /*
  * The first Header Row becomes the visual header for the contained
  * form and occupies the card's upper corners.
  */
 
-.umn-form--card
-  .form_page
-  > .form_header:first-child
-  .form_label {
+.umn-form--card .form_page > .form_header:first-child .form_label {
   margin-top: 0;
 
-  border-radius:
-    var(--umn-border-radius-md)
-    var(--umn-border-radius-md)
-    0
-    0;
+  border-radius: var(--umn-border-radius-md) var(--umn-border-radius-md) 0 0;
 }
 /*
  * Slate adds top margin to the embedded form container.
@@ -3668,7 +3511,6 @@ font-weight: var(--umn-font-weight-regular);
   font-size: var(--umn-font-size-md);
 }
 
-
 /* Public form headings */
 
 .umn-theme-public .umn-form .form_h1 .form_label {
@@ -3680,7 +3522,6 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-maroon);
   font-size: 1.5rem;
 }
-
 
 /*
  * Public Header Rows retain the same structural divider treatment
@@ -3695,7 +3536,6 @@ font-weight: var(--umn-font-weight-regular);
   background: transparent;
   border-bottom-color: var(--umn-color-maroon-border);
 }
-
 
 /* Public controls */
 
@@ -3718,7 +3558,6 @@ font-weight: var(--umn-font-weight-regular);
   padding: 0.625rem;
 }
 
-
 /* Public focus */
 
 .umn-theme-public .umn-form .form_text input[type="text"]:focus,
@@ -3737,7 +3576,6 @@ font-weight: var(--umn-font-weight-regular);
   box-shadow: 0 0 0 2px rgba(122, 0, 25, 0.16);
 }
 
-
 /* Public checkbox, radio, and rating scale */
 
 .umn-theme-public .umn-form .form_checkbox input[type="checkbox"],
@@ -3745,7 +3583,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-theme-public .umn-form .form_likert input[type="radio"] {
   accent-color: var(--umn-color-maroon);
 }
-
 
 /* Public replicate block */
 
@@ -3763,7 +3600,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-theme-public .umn-form .replicate_insert {
   color: var(--umn-color-maroon);
 }
-
 
 /* Public form actions */
 
@@ -3784,31 +3620,18 @@ font-weight: var(--umn-font-weight-regular);
   border-color: var(--umn-color-maroon-dark);
 }
 
-
 /* Public Back button */
 
-.umn-theme-public
-  .umn-form
-  .form_action_continue
-  .form_action_back,
-.umn-theme-public
-  .umn-form
-  .form_action_submit
-  .form_action_back {
+.umn-theme-public .umn-form .form_action_continue .form_action_back,
+.umn-theme-public .umn-form .form_action_submit .form_action_back {
   color: var(--umn-color-maroon);
 
   background: var(--umn-color-white);
   border-color: var(--umn-color-maroon);
 }
 
-.umn-theme-public
-  .umn-form
-  .form_action_continue
-  .form_action_back:hover,
-.umn-theme-public
-  .umn-form
-  .form_action_submit
-  .form_action_back:hover {
+.umn-theme-public .umn-form .form_action_continue .form_action_back:hover,
+.umn-theme-public .umn-form .form_action_submit .form_action_back:hover {
   color: var(--umn-color-maroon);
 
   background: var(--umn-color-maroon-subtle);
@@ -3827,7 +3650,6 @@ font-weight: var(--umn-font-weight-regular);
  * Slate's administrative interface.
  */
 
-
 /* Form control typography */
 
 .umn-site-main input,
@@ -3845,7 +3667,6 @@ font-weight: var(--umn-font-weight-regular);
   font-size: 100%;
 }
 
-
 /* --------------------------------------------------------------------------
    Required Field Indicators
    -------------------------------------------------------------------------- */
@@ -3855,21 +3676,12 @@ font-weight: var(--umn-font-weight-regular);
  * generated label configuration.
  */
 
-
 /* Labels containing paragraph markup should remain inline. */
 
-.umn-site-main
-  .form_question[data-required="1"]
-  > fieldset
-  > div.form_label
-  p,
-.umn-site-main
-  .form_question[data-required="1"]
-  > label.form_label
-  p {
+.umn-site-main .form_question[data-required="1"] > fieldset > div.form_label p,
+.umn-site-main .form_question[data-required="1"] > label.form_label p {
   display: inline;
 }
-
 
 /* Empty labels should not receive a standalone required marker. */
 
@@ -3882,7 +3694,6 @@ font-weight: var(--umn-font-weight-regular);
   > label.form_label:empty::after {
   content: none;
 }
-
 
 /* Standard visible form labels receive the required marker. */
 
@@ -3899,7 +3710,6 @@ font-weight: var(--umn-font-weight-regular);
 
   color: var(--umn-color-danger);
 }
-
 
 /*
  * Single-checkbox questions sometimes have no visible question label.
@@ -3918,7 +3728,6 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-danger);
 }
 
-
 /* --------------------------------------------------------------------------
    Form Actions
    -------------------------------------------------------------------------- */
@@ -3931,7 +3740,6 @@ font-weight: var(--umn-font-weight-regular);
 
   margin-top: var(--umn-space-lg);
 }
-
 
 /* Continue and Submit */
 
@@ -3971,33 +3779,23 @@ font-weight: var(--umn-font-weight-regular);
   border-color: var(--umn-color-maroon-dark);
 }
 
-
 /* Back button */
 
-.umn-site-main
-  .form_action_continue
-  .form_action_back,
-.umn-site-main
-  .form_action_submit
-  .form_action_back {
+.umn-site-main .form_action_continue .form_action_back,
+.umn-site-main .form_action_submit .form_action_back {
   color: var(--umn-color-maroon);
 
   background: var(--umn-color-white);
   border-color: var(--umn-color-maroon);
 }
 
-.umn-site-main
-  .form_action_continue
-  .form_action_back:hover,
-.umn-site-main
-  .form_action_submit
-  .form_action_back:hover {
+.umn-site-main .form_action_continue .form_action_back:hover,
+.umn-site-main .form_action_submit .form_action_back:hover {
   color: var(--umn-color-maroon);
 
   background: var(--umn-color-maroon-subtle);
   border-color: var(--umn-color-maroon);
 }
-
 
 /*
  * Slate places Submit before Back in the DOM on the final page.
@@ -4011,7 +3809,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-site-main .form_action_submit .form_button_submit {
   order: 2;
 }
-
 
 /* Keyboard focus */
 
@@ -4027,7 +3824,6 @@ font-weight: var(--umn-font-weight-regular);
   outline-offset: 3px;
 }
 
-
 /* --------------------------------------------------------------------------
    Responsive Form Controls
    -------------------------------------------------------------------------- */
@@ -4040,9 +3836,7 @@ font-weight: var(--umn-font-weight-regular);
   .umn-site-main input[type="email"],
   .umn-site-main input[type="tel"],
   .umn-site-main input:not([type]),
-  .umn-site-main
-    .form_question:not([class*="form_birthdate"])
-    select {
+  .umn-site-main .form_question:not([class*="form_birthdate"]) select {
     width: 100%;
   }
 
@@ -4124,7 +3918,6 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-text-muted);
 }
 
-
 /* --------------------------------------------------------------------------
    Breadcrumb Links
    -------------------------------------------------------------------------- */
@@ -4147,7 +3940,6 @@ font-weight: var(--umn-font-weight-regular);
   outline-offset: 2px;
 }
 
-
 /* --------------------------------------------------------------------------
    Current Page
    -------------------------------------------------------------------------- */
@@ -4156,7 +3948,6 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-text);
   font-weight: var(--umn-font-weight-bold);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -4170,8 +3961,7 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-maroon-dark);
 }
 
-.umn-theme-public
-  .umn-breadcrumbs__item[aria-current="page"] {
+.umn-theme-public .umn-breadcrumbs__item[aria-current="page"] {
   color: var(--umn-color-text);
 }
 /* ==========================================================================
@@ -4287,7 +4077,6 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-text-muted);
 }
 
-
 /* Public theme */
 
 .umn-theme-public .umn-pagination__link,
@@ -4338,7 +4127,6 @@ font-weight: var(--umn-font-weight-regular);
  * than internal Slate interfaces, where native Slate navigation should
  * generally remain in control.
  */
-
 
 /* --------------------------------------------------------------------------
    Base Navigation
@@ -4401,7 +4189,6 @@ font-weight: var(--umn-font-weight-regular);
   border-left-color: var(--umn-color-maroon);
 }
 
-
 /* --------------------------------------------------------------------------
    Horizontal Navigation
    -------------------------------------------------------------------------- */
@@ -4424,9 +4211,7 @@ font-weight: var(--umn-font-weight-regular);
 }
 
 .umn-nav--horizontal .umn-nav__link[aria-current="page"],
-.umn-nav--horizontal
-  .umn-nav__item--active
-  .umn-nav__link {
+.umn-nav--horizontal .umn-nav__item--active .umn-nav__link {
   border-bottom-color: var(--umn-color-maroon);
 }
 /* ==========================================================================
@@ -4446,7 +4231,6 @@ font-weight: var(--umn-font-weight-regular);
  * - .umn-details--horizontal
  * - .umn-details--compact
  */
-
 
 /* --------------------------------------------------------------------------
    Base Details
@@ -4488,7 +4272,6 @@ font-weight: var(--umn-font-weight-regular);
   border-bottom: 0;
 }
 
-
 /* --------------------------------------------------------------------------
    Links
    -------------------------------------------------------------------------- */
@@ -4507,7 +4290,6 @@ font-weight: var(--umn-font-weight-regular);
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
-
 
 /* --------------------------------------------------------------------------
    Horizontal Layout
@@ -4550,8 +4332,7 @@ font-weight: var(--umn-font-weight-regular);
 }
 
 .umn-details--horizontal .umn-details__label:first-child,
-.umn-details--horizontal .umn-details__label:first-child
-  + .umn-details__value {
+.umn-details--horizontal .umn-details__label:first-child + .umn-details__value {
   padding-top: 0;
 }
 
@@ -4560,7 +4341,6 @@ font-weight: var(--umn-font-weight-regular);
   padding-bottom: 0;
   border-bottom: 0;
 }
-
 
 /* --------------------------------------------------------------------------
    Compact Modifier
@@ -4580,22 +4360,18 @@ font-weight: var(--umn-font-weight-regular);
   padding-bottom: var(--umn-space-xs);
 }
 
-
 /*
  * Compact horizontal details keep each label/value row tight while
  * preserving alignment and row separators.
  */
 
-.umn-details--horizontal.umn-details--compact
-  .umn-details__label,
-.umn-details--horizontal.umn-details--compact
-  .umn-details__value {
+.umn-details--horizontal.umn-details--compact .umn-details__label,
+.umn-details--horizontal.umn-details--compact .umn-details__value {
   padding-top: var(--umn-space-xs);
   padding-bottom: var(--umn-space-xs);
 }
 
-.umn-details--horizontal.umn-details--compact
-  .umn-details__label:first-child,
+.umn-details--horizontal.umn-details--compact .umn-details__label:first-child,
 .umn-details--horizontal.umn-details--compact
   .umn-details__label:first-child
   + .umn-details__value {
@@ -4604,11 +4380,9 @@ font-weight: var(--umn-font-weight-regular);
 
 .umn-details--horizontal.umn-details--compact
   .umn-details__label:nth-last-child(2),
-.umn-details--horizontal.umn-details--compact
-  .umn-details__value:last-child {
+.umn-details--horizontal.umn-details--compact .umn-details__value:last-child {
   padding-bottom: 0;
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -4623,12 +4397,8 @@ font-weight: var(--umn-font-weight-regular);
   font-size: var(--umn-font-size-md);
 }
 
-.umn-theme-public
-  .umn-details--horizontal
-  .umn-details__label,
-.umn-theme-public
-  .umn-details--horizontal
-  .umn-details__value {
+.umn-theme-public .umn-details--horizontal .umn-details__label,
+.umn-theme-public .umn-details--horizontal .umn-details__value {
   padding-top: var(--umn-space-md);
   padding-bottom: var(--umn-space-md);
 }
@@ -4637,9 +4407,7 @@ font-weight: var(--umn-font-weight-regular);
  * edge after the public theme increases row spacing.
  */
 
-.umn-theme-public
-  .umn-details--horizontal
-  .umn-details__label:first-child,
+.umn-theme-public .umn-details--horizontal .umn-details__label:first-child,
 .umn-theme-public
   .umn-details--horizontal
   .umn-details__label:first-child
@@ -4652,12 +4420,8 @@ font-weight: var(--umn-font-weight-regular);
  * while retaining slightly more breathing room than internal Slate.
  */
 
-.umn-theme-public
-  .umn-details--compact
-  .umn-details__label,
-.umn-theme-public
-  .umn-details--compact
-  .umn-details__value,
+.umn-theme-public .umn-details--compact .umn-details__label,
+.umn-theme-public .umn-details--compact .umn-details__value,
 .umn-theme-public
   .umn-details--horizontal.umn-details--compact
   .umn-details__label,
@@ -4667,7 +4431,6 @@ font-weight: var(--umn-font-weight-regular);
   padding-top: var(--umn-space-sm);
   padding-bottom: var(--umn-space-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
@@ -4687,13 +4450,11 @@ font-weight: var(--umn-font-weight-regular);
     padding-top: var(--umn-space-xs);
   }
 
-  .umn-details--horizontal
-    .umn-details__label:nth-last-child(2) {
+  .umn-details--horizontal .umn-details__label:nth-last-child(2) {
     padding-bottom: 0;
   }
 
-  .umn-details--horizontal.umn-details--compact
-    .umn-details__label {
+  .umn-details--horizontal.umn-details--compact .umn-details__label {
     padding-bottom: 0;
   }
 }
@@ -4714,7 +4475,6 @@ font-weight: var(--umn-font-weight-regular);
  * Modifiers:
  * - .umn-empty-state--compact
  */
-
 
 /* --------------------------------------------------------------------------
    Base Empty State
@@ -4758,7 +4518,6 @@ font-weight: var(--umn-font-weight-regular);
   margin-top: var(--umn-space-md);
 }
 
-
 /* --------------------------------------------------------------------------
    Compact Modifier
    -------------------------------------------------------------------------- */
@@ -4791,7 +4550,6 @@ font-weight: var(--umn-font-weight-regular);
   margin-top: var(--umn-space-sm);
 }
 
-
 /* --------------------------------------------------------------------------
    Public Theme
    -------------------------------------------------------------------------- */
@@ -4812,7 +4570,6 @@ font-weight: var(--umn-font-weight-regular);
   font-size: var(--umn-font-size-md);
 }
 
-
 /*
  * Compact public empty states remain smaller than the standard
  * public presentation.
@@ -4822,15 +4579,11 @@ font-weight: var(--umn-font-weight-regular);
   padding: var(--umn-space-md);
 }
 
-.umn-theme-public
-  .umn-empty-state--compact
-  .umn-empty-state__title {
+.umn-theme-public .umn-empty-state--compact .umn-empty-state__title {
   font-size: var(--umn-font-size-md);
 }
 
-.umn-theme-public
-  .umn-empty-state--compact
-  .umn-empty-state__text {
+.umn-theme-public .umn-empty-state--compact .umn-empty-state__text {
   font-size: var(--umn-font-size-sm);
 }
 /* ==========================================================================
@@ -4854,7 +4607,6 @@ font-weight: var(--umn-font-weight-regular);
  * Modifier:
  * - .umn-steps--horizontal
  */
-
 
 /* --------------------------------------------------------------------------
    Base Steps
@@ -4884,7 +4636,6 @@ font-weight: var(--umn-font-weight-regular);
   padding-bottom: 0;
 }
 
-
 /* Connecting line */
 
 .umn-steps__item::before {
@@ -4903,7 +4654,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-steps__item:last-child::before {
   display: none;
 }
-
 
 /* --------------------------------------------------------------------------
    Marker
@@ -4932,7 +4682,6 @@ font-weight: var(--umn-font-weight-regular);
   box-sizing: border-box;
 }
 
-
 /* --------------------------------------------------------------------------
    Step Content
    -------------------------------------------------------------------------- */
@@ -4958,7 +4707,6 @@ font-weight: var(--umn-font-weight-regular);
   line-height: 1.4;
 }
 
-
 /* --------------------------------------------------------------------------
    Completed Step
    -------------------------------------------------------------------------- */
@@ -4982,7 +4730,6 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-text);
 }
 
-
 /* --------------------------------------------------------------------------
    Current Step
    -------------------------------------------------------------------------- */
@@ -5002,7 +4749,6 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-text);
   font-weight: var(--umn-font-weight-bold);
 }
-
 
 /* --------------------------------------------------------------------------
    Horizontal Steps
@@ -5065,7 +4811,6 @@ font-weight: var(--umn-font-weight-regular);
   max-width: 16rem;
 }
 
-
 /* --------------------------------------------------------------------------
    Public Theme
    -------------------------------------------------------------------------- */
@@ -5088,54 +4833,40 @@ font-weight: var(--umn-font-weight-regular);
   background: var(--umn-color-maroon);
 }
 
-.umn-theme-public
-  .umn-steps__item--complete
-  .umn-steps__marker {
+.umn-theme-public .umn-steps__item--complete .umn-steps__marker {
   color: var(--umn-color-white);
 
   background: var(--umn-color-maroon);
   border-color: var(--umn-color-maroon);
 }
 
-.umn-theme-public
-  .umn-steps__item--current
-  .umn-steps__marker {
+.umn-theme-public .umn-steps__item--current .umn-steps__marker {
   color: var(--umn-color-maroon);
 
   background: var(--umn-color-gold);
   border-color: var(--umn-color-maroon);
 }
 
-.umn-theme-public
-  .umn-steps__item--current
-  .umn-steps__label {
+.umn-theme-public .umn-steps__item--current .umn-steps__label {
   color: var(--umn-color-maroon);
 }
 
-.umn-theme-public
-  .umn-steps__item--complete
-  .umn-steps__label {
+.umn-theme-public .umn-steps__item--complete .umn-steps__label {
   color: var(--umn-color-maroon);
 }
-
 
 /* --------------------------------------------------------------------------
    Horizontal Public Theme
    -------------------------------------------------------------------------- */
 
-.umn-theme-public
-  .umn-steps--horizontal
-  .umn-steps__item {
+.umn-theme-public .umn-steps--horizontal .umn-steps__item {
   padding-bottom: 0;
 }
 
-.umn-theme-public
-  .umn-steps--horizontal
-  .umn-steps__item::before {
+.umn-theme-public .umn-steps--horizontal .umn-steps__item::before {
   top: 0.8125rem;
   left: 50%;
 }
-
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
@@ -5187,26 +4918,19 @@ font-weight: var(--umn-font-weight-regular);
     max-width: none;
   }
 
-
   /* Public theme */
 
-  .umn-theme-public
-    .umn-steps--horizontal
-    .umn-steps__item {
+  .umn-theme-public .umn-steps--horizontal .umn-steps__item {
     grid-template-columns: 1.75rem minmax(0, 1fr);
 
     padding-bottom: var(--umn-space-lg);
   }
 
-  .umn-theme-public
-    .umn-steps--horizontal
-    .umn-steps__item:last-child {
+  .umn-theme-public .umn-steps--horizontal .umn-steps__item:last-child {
     padding-bottom: 0;
   }
 
-  .umn-theme-public
-    .umn-steps--horizontal
-    .umn-steps__item::before {
+  .umn-theme-public .umn-steps--horizontal .umn-steps__item::before {
     top: 1.75rem;
     left: 0.8125rem;
   }
@@ -5236,7 +4960,6 @@ font-weight: var(--umn-font-weight-regular);
  * - .umn-timeline__item--highlight
  */
 
-
 /* --------------------------------------------------------------------------
    Base Timeline
    -------------------------------------------------------------------------- */
@@ -5265,7 +4988,6 @@ font-weight: var(--umn-font-weight-regular);
   padding-bottom: 0;
 }
 
-
 /* Connecting line */
 
 .umn-timeline__item::before {
@@ -5284,7 +5006,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-timeline__item:last-child::before {
   display: none;
 }
-
 
 /* --------------------------------------------------------------------------
    Marker
@@ -5307,7 +5028,6 @@ font-weight: var(--umn-font-weight-regular);
 
   box-sizing: border-box;
 }
-
 
 /* --------------------------------------------------------------------------
    Timeline Content
@@ -5345,7 +5065,6 @@ font-weight: var(--umn-font-weight-regular);
   line-height: 1.45;
 }
 
-
 /* --------------------------------------------------------------------------
    Highlighted Item
    -------------------------------------------------------------------------- */
@@ -5363,7 +5082,6 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-text);
 }
 
-
 /* --------------------------------------------------------------------------
    Compact Modifier
    -------------------------------------------------------------------------- */
@@ -5380,7 +5098,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-timeline--compact .umn-timeline__title {
   font-size: var(--umn-font-size-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Horizontal Timeline
@@ -5443,7 +5160,6 @@ font-weight: var(--umn-font-weight-regular);
   max-width: 16rem;
 }
 
-
 /* --------------------------------------------------------------------------
    Public Theme
    -------------------------------------------------------------------------- */
@@ -5469,36 +5185,26 @@ font-weight: var(--umn-font-weight-regular);
   color: var(--umn-color-maroon);
 }
 
-.umn-theme-public
-  .umn-timeline__item--highlight
-  .umn-timeline__marker {
+.umn-theme-public .umn-timeline__item--highlight .umn-timeline__marker {
   background: var(--umn-color-gold);
   border-color: var(--umn-color-maroon);
 }
 
-.umn-theme-public
-  .umn-timeline--compact
-  .umn-timeline__item {
+.umn-theme-public .umn-timeline--compact .umn-timeline__item {
   padding-bottom: var(--umn-space-lg);
 }
-
 
 /* --------------------------------------------------------------------------
    Horizontal Public Theme
    -------------------------------------------------------------------------- */
 
-.umn-theme-public
-  .umn-timeline--horizontal
-  .umn-timeline__item {
+.umn-theme-public .umn-timeline--horizontal .umn-timeline__item {
   padding-bottom: 0;
 }
 
-.umn-theme-public
-  .umn-timeline--horizontal
-  .umn-timeline__item::before {
+.umn-theme-public .umn-timeline--horizontal .umn-timeline__item::before {
   top: 0.5625rem;
 }
-
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
@@ -5553,18 +5259,13 @@ font-weight: var(--umn-font-weight-regular);
     max-width: none;
   }
 
-
   /* Public theme */
 
-  .umn-theme-public
-    .umn-timeline--horizontal
-    .umn-timeline__item {
+  .umn-theme-public .umn-timeline--horizontal .umn-timeline__item {
     padding-bottom: var(--umn-space-xl);
   }
 
-  .umn-theme-public
-    .umn-timeline--horizontal
-    .umn-timeline__item:last-child {
+  .umn-theme-public .umn-timeline--horizontal .umn-timeline__item:last-child {
     padding-bottom: 0;
   }
 }
@@ -5600,7 +5301,6 @@ font-weight: var(--umn-font-weight-regular);
  * </div>
  */
 
-
 /* --------------------------------------------------------------------------
    Base
    -------------------------------------------------------------------------- */
@@ -5617,7 +5317,6 @@ font-weight: var(--umn-font-weight-regular);
 
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
-
 
 /* --------------------------------------------------------------------------
    Body
@@ -5659,7 +5358,6 @@ font-weight: var(--umn-font-weight-regular);
   line-height: 1.45;
 }
 
-
 /* --------------------------------------------------------------------------
    Actions
    -------------------------------------------------------------------------- */
@@ -5672,7 +5370,6 @@ font-weight: var(--umn-font-weight-regular);
   justify-content: flex-end;
   gap: var(--umn-space-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -5692,7 +5389,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-theme-public .umn-section-header__description {
   font-size: var(--umn-font-size-md);
 }
-
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
@@ -5732,7 +5428,6 @@ font-weight: var(--umn-font-weight-regular);
  * - .umn-stat--accent
  */
 
-
 /* --------------------------------------------------------------------------
    Stat Group
    -------------------------------------------------------------------------- */
@@ -5744,7 +5439,6 @@ font-weight: var(--umn-font-weight-regular);
 
   width: 100%;
 }
-
 
 /* --------------------------------------------------------------------------
    Individual Stat
@@ -5759,7 +5453,6 @@ font-weight: var(--umn-font-weight-regular);
   border: var(--umn-border-width) solid var(--umn-color-border);
   border-radius: var(--umn-border-radius-md);
 }
-
 
 /* --------------------------------------------------------------------------
    Value
@@ -5776,7 +5469,6 @@ font-weight: var(--umn-font-weight-regular);
   line-height: 1.1;
 }
 
-
 /* --------------------------------------------------------------------------
    Label
    -------------------------------------------------------------------------- */
@@ -5792,7 +5484,6 @@ font-weight: var(--umn-font-weight-regular);
   line-height: 1.3;
 }
 
-
 /* --------------------------------------------------------------------------
    Description
    -------------------------------------------------------------------------- */
@@ -5805,7 +5496,6 @@ font-weight: var(--umn-font-weight-regular);
   line-height: 1.4;
 }
 
-
 /* --------------------------------------------------------------------------
    Accent Modifier
    -------------------------------------------------------------------------- */
@@ -5813,7 +5503,6 @@ font-weight: var(--umn-font-weight-regular);
 .umn-stat--accent {
   border-top: 0.3rem solid var(--umn-color-neutral-accent);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -5864,7 +5553,6 @@ font-weight: var(--umn-font-weight-regular);
  * - .umn-action-list--compact
  */
 
-
 /* --------------------------------------------------------------------------
    Base
    -------------------------------------------------------------------------- */
@@ -5884,7 +5572,6 @@ font-weight: var(--umn-font-weight-regular);
 
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
-
 
 /* --------------------------------------------------------------------------
    Link
@@ -5918,7 +5605,6 @@ font-weight: var(--umn-font-weight-regular);
   outline-offset: 2px;
 }
 
-
 /* --------------------------------------------------------------------------
    Description
    -------------------------------------------------------------------------- */
@@ -5934,7 +5620,6 @@ font-weight: var(--umn-font-weight-regular);
   line-height: 1.4;
 }
 
-
 /* --------------------------------------------------------------------------
    Compact Modifier
    -------------------------------------------------------------------------- */
@@ -5944,7 +5629,6 @@ font-weight: var(--umn-font-weight-regular);
 
   font-size: var(--umn-font-size-sm);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -6010,14 +5694,8 @@ font-weight: var(--umn-font-weight-regular);
 
   color: var(--umn-color-text);
   font-family:
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    "Liberation Mono",
-    "Courier New",
-    monospace;
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
   font-size: var(--umn-font-size-sm);
   line-height: 1.55;
   white-space: pre;
@@ -6061,7 +5739,6 @@ font-weight: var(--umn-font-weight-regular);
  * >i</span>
  */
 
-
 /* --------------------------------------------------------------------------
    Trigger
    -------------------------------------------------------------------------- */
@@ -6095,7 +5772,6 @@ font-weight: var(--umn-font-weight-regular);
   box-sizing: border-box;
 }
 
-
 /* --------------------------------------------------------------------------
    Tooltip Bubble
    -------------------------------------------------------------------------- */
@@ -6117,7 +5793,7 @@ font-weight: var(--umn-font-weight-regular);
 
   font-size: var(--umn-font-size-sm);
   font-weight: var(--umn-font-weight-regular);
-   font-style: normal;
+  font-style: normal;
   line-height: 1.4;
   text-align: left;
   white-space: normal;
@@ -6138,7 +5814,6 @@ font-weight: var(--umn-font-weight-regular);
   pointer-events: none;
 }
 
-
 /* --------------------------------------------------------------------------
    Visible State
    -------------------------------------------------------------------------- */
@@ -6151,7 +5826,6 @@ font-weight: var(--umn-font-weight-regular);
   transform: translateX(-50%) translateY(0);
 }
 
-
 /* --------------------------------------------------------------------------
    Keyboard Focus
    -------------------------------------------------------------------------- */
@@ -6160,7 +5834,6 @@ font-weight: var(--umn-font-weight-regular);
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
-
 
 /* --------------------------------------------------------------------------
    Dark Theme
@@ -6173,7 +5846,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   color: #131313;
   background: #e8e8e8;
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -6214,7 +5886,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
  * </span>
  */
 
-
 /* --------------------------------------------------------------------------
    Base
    -------------------------------------------------------------------------- */
@@ -6234,7 +5905,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   vertical-align: middle;
   white-space: nowrap;
 }
-
 
 /* --------------------------------------------------------------------------
    Icon
@@ -6260,7 +5930,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   box-sizing: border-box;
 }
 
-
 /* --------------------------------------------------------------------------
    Awaiting
    -------------------------------------------------------------------------- */
@@ -6269,7 +5938,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   --umn-status-icon-background: #eeeeee;
   --umn-status-icon-color: #666666;
 }
-
 
 /*
  * Awaiting uses a small square inside the circular marker.
@@ -6290,7 +5958,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   box-sizing: border-box;
 }
 
-
 /* --------------------------------------------------------------------------
    Received
    -------------------------------------------------------------------------- */
@@ -6299,7 +5966,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   --umn-status-icon-background: #e6f4ea;
   --umn-status-icon-color: #1f6f3e;
 }
-
 
 /* --------------------------------------------------------------------------
    Waived
@@ -6311,7 +5977,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
 
   color: var(--umn-color-text-muted);
 }
-
 
 /* --------------------------------------------------------------------------
    Overdue
@@ -6339,7 +6004,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   line-height: 1;
 }
 
-
 /* --------------------------------------------------------------------------
    Overdue Due Date
    -------------------------------------------------------------------------- */
@@ -6353,7 +6017,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
   color: var(--umn-color-danger);
   font-weight: var(--umn-font-weight-bold);
 }
-
 
 /* --------------------------------------------------------------------------
    Public Theme
@@ -6369,7 +6032,6 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
 
   font-size: 0.8125rem;
 }
-
 
 /* --------------------------------------------------------------------------
    Dark Theme
@@ -6427,7 +6089,6 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
  * styles so it does not depend on broad .umn-content heading rules.
  */
 
-
 /* --------------------------------------------------------------------------
    Title
    -------------------------------------------------------------------------- */
@@ -6440,7 +6101,6 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
   font-weight: var(--umn-font-weight-bold);
   line-height: 1.3;
 }
-
 
 /* --------------------------------------------------------------------------
    Description
@@ -6487,7 +6147,6 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
   font-weight: var(--umn-font-weight-bold);
 }
 
-
 /* --------------------------------------------------------------------------
    Checklist Accordion Status
    -------------------------------------------------------------------------- */
@@ -6502,30 +6161,23 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
   color: var(--umn-color-white);
 }
 
-
 /* Items Remaining */
 
-.umn-accordion__header
-  .umn-checklist-accordion__header
-  .umn-status--awaiting {
+.umn-accordion__header .umn-checklist-accordion__header .umn-status--awaiting {
   --umn-status-icon-background: rgba(255, 255, 255, 0.18);
   --umn-status-icon-color: var(--umn-color-white);
 
   color: var(--umn-color-white);
 }
 
-
 /* Complete */
 
-.umn-accordion__header
-  .umn-checklist-accordion__header
-  .umn-status--received {
+.umn-accordion__header .umn-checklist-accordion__header .umn-status--received {
   --umn-status-icon-background: var(--umn-color-gold);
   --umn-status-icon-color: var(--umn-color-maroon);
 
   color: var(--umn-color-white);
 }
-
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
@@ -6559,11 +6211,11 @@ html[data-umn-theme="dark"] .umn-table__due-date--overdue {
   --umn-font-size-md: 1rem;
 }
 
-
 /* ==========================================================================
    30. Slate Dark Theme Adaptation
    ========================================================================== */
 
+/*
  * Normal Slate pages can expose Slate's theme directly through the
  * document's class or data-theme attribute.
  *
@@ -6620,7 +6272,6 @@ html[data-umn-theme="dark"] {
     break-after: avoid;
   }
 }
-
 
 /* ==========================================================================
    32. Accessibility / Reduced Motion
