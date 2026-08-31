@@ -147,10 +147,20 @@
 }
 
 /*
- * Google Custom Search generates table-based markup and its own
- * control styling. Normalize only the pieces needed to produce
- * a compact header search.
+ * Google Custom Search generates nested table-based markup and applies
+ * its own spacing, backgrounds, and control sizing.
+ *
+ * Normalize the full generated structure so the search fits naturally
+ * within the UMN site header.
  */
+
+.umn-site-header__search .gsc-control-cse {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+}
 
 .umn-site-header__search form.gsc-search-box {
   margin: 0 !important;
@@ -162,53 +172,96 @@
   border: 0 !important;
 }
 
-.umn-site-header__search table.gsc-search-box,
-.umn-site-header__search table.gsc-search-box tbody,
-.umn-site-header__search table.gsc-search-box tr,
-.umn-site-header__search table.gsc-search-box td {
+.umn-site-header__search table.gsc-search-box {
+  width: 100% !important;
+
   margin: 0 !important;
   padding: 0 !important;
 
+  background: transparent !important;
+  border: 0 !important;
+  border-spacing: 0 !important;
+}
+
+.umn-site-header__search table.gsc-search-box tbody,
+.umn-site-header__search table.gsc-search-box tr,
+.umn-site-header__search table.gsc-search-box td {
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
+}
+
+.umn-site-header__search .gsc-input-box {
+  height: 2rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: var(--umn-border-radius-sm) 0 0 var(--umn-border-radius-sm) !important;
 }
 
 .umn-site-header__search
   .gsc-search-box-tools
   .gsc-search-box
   .gsc-input {
-  padding: 0 !important;
-}
+  height: 2rem !important;
 
-.umn-site-header__search input.gsc-input {
-  height: 2.25rem !important;
-  min-height: 2.25rem !important;
-
-  padding: 0.375rem 0.5rem !important;
+  margin: 0 !important;
+  padding: 0 0.5rem !important;
 
   color: var(--umn-color-text) !important;
   font-family: inherit !important;
   font-size: var(--umn-font-size-sm) !important;
-  line-height: 1.2 !important;
+  line-height: 2rem !important;
 
-  background-color: #ffffff !important;
+  background: #ffffff !important;
   border: 0 !important;
-  border-radius: 0 !important;
+}
+
+.umn-site-header__search input.gsc-input {
+  height: 2rem !important;
+  min-height: 2rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  line-height: 2rem !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .umn-site-header__search .gsc-search-button {
+  width: auto !important;
+
   margin: 0 !important;
   padding: 0 !important;
 }
 
 .umn-site-header__search .gsc-search-button-v2 {
-  height: 2.25rem !important;
-  min-height: 2.25rem !important;
+  width: 2.25rem !important;
+  height: 2rem !important;
+  min-height: 2rem !important;
 
   margin: 0 !important;
-  padding: 0.5rem 0.75rem !important;
+  padding: 0.375rem !important;
 
-  border-radius: 0 !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 var(--umn-border-radius-sm) var(--umn-border-radius-sm) 0 !important;
+}
+
+.umn-site-header__search .gsc-search-button-v2 svg {
+  width: 0.875rem !important;
+  height: 0.875rem !important;
 }
 
 
