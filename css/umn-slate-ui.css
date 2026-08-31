@@ -3091,7 +3091,63 @@
   font-family: inherit;
   font-size: var(--umn-font-size-sm);
 }
+/* --------------------------------------------------------------------------
+   File Upload
+   -------------------------------------------------------------------------- */
 
+.umn-form .form_response_material_upload p,
+.umn-site-main .form_response_material_upload p {
+  margin: 0;
+}
+
+.umn-form .form_response_material_upload input[type="file"],
+.umn-site-main .form_response_material_upload input[type="file"] {
+  max-width: 100%;
+
+  color: var(--umn-color-text);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+}
+
+
+/* Native file-picker button */
+
+.umn-form input[type="file"]::file-selector-button,
+.umn-site-main input[type="file"]::file-selector-button {
+  margin-right: var(--umn-space-sm);
+  padding: 0.4375rem 0.75rem;
+
+  color: var(--umn-color-maroon);
+  font-family: inherit;
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.25;
+
+  cursor: pointer;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid var(--umn-color-maroon);
+  border-radius: var(--umn-border-radius-sm);
+
+  transition:
+    color var(--umn-transition-fast),
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast);
+}
+
+.umn-form input[type="file"]::file-selector-button:hover,
+.umn-site-main input[type="file"]::file-selector-button:hover {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-maroon-subtle);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-form input[type="file"]:focus-visible,
+.umn-site-main input[type="file"]:focus-visible {
+  outline: 2px solid var(--umn-color-maroon);
+  outline-offset: 2px;
+}
 
 /* --------------------------------------------------------------------------
    Top-Level Error Message
