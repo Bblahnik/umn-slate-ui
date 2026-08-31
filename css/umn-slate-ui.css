@@ -13,6 +13,167 @@
  * - Avoid !important unless a demonstrated Slate-specific conflict requires it.
  */
 /* ==========================================================================
+   Site Header
+   ========================================================================== */
+
+/*
+ * University of Minnesota public-facing site header.
+ *
+ * Intended for Slate pages rendered through the institutional
+ * build.xslt branding shell.
+ *
+ * Uses the official reversed horizontal University wordmark
+ * on a maroon background.
+ */
+
+.umn-site-header {
+  width: 100%;
+  color: var(--umn-color-white);
+  background: var(--umn-color-maroon);
+}
+
+.umn-site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--umn-space-xl);
+
+  min-height: 5rem;
+  padding-block: var(--umn-space-md);
+}
+
+
+/* --------------------------------------------------------------------------
+   Brand
+   -------------------------------------------------------------------------- */
+
+.umn-site-header__brand {
+  display: block;
+  flex: 0 1 auto;
+
+  text-decoration: none;
+}
+
+.umn-site-header__brand img {
+  display: block;
+
+  width: min(100%, 22rem);
+  height: auto;
+}
+
+.umn-site-header__brand:focus-visible {
+  outline: 2px solid var(--umn-color-gold);
+  outline-offset: 4px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Utility Area
+   -------------------------------------------------------------------------- */
+
+.umn-site-header__utility {
+  display: flex;
+  flex: 0 1 22rem;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--umn-space-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Utility Links
+   -------------------------------------------------------------------------- */
+
+.umn-site-header__links {
+  display: flex;
+  align-items: center;
+  gap: var(--umn-space-lg);
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.umn-site-header__links li {
+  margin: 0;
+  padding: 0;
+}
+
+.umn-site-header__links a,
+.umn-content .umn-site-header__links a {
+  color: var(--umn-color-white);
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-site-header__links a:hover,
+.umn-content .umn-site-header__links a:hover {
+  color: var(--umn-color-white);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.umn-site-header__links a:focus-visible {
+  outline: 2px solid var(--umn-color-gold);
+  outline-offset: 3px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Search
+   -------------------------------------------------------------------------- */
+
+.umn-site-header__search {
+  width: 100%;
+  max-width: 20rem;
+}
+
+/*
+ * Google Custom Search generates its own internal markup.
+ * Keep our styling deliberately light during the first implementation.
+ * Once we see its rendered output in Slate, we can normalize the
+ * input/button presentation if necessary.
+ */
+
+.umn-site-header__search table {
+  margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 42rem) {
+  .umn-site-header__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--umn-space-md);
+
+    min-height: 0;
+  }
+
+  .umn-site-header__brand img {
+    width: min(100%, 19rem);
+  }
+
+  .umn-site-header__utility {
+    flex: none;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .umn-site-header__links {
+    justify-content: flex-start;
+  }
+
+  .umn-site-header__search {
+    max-width: none;
+  }
+}
+/* ==========================================================================
    1. Design Tokens
    ========================================================================== */
 
