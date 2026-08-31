@@ -356,7 +356,41 @@
 
   padding: 0;
 }
+/* --------------------------------------------------------------------------
+   Slate-Generated Links
+   -------------------------------------------------------------------------- */
 
+/*
+ * Slate populates #content and #global with native links.
+ *
+ * :where() deliberately keeps selector specificity low so individual
+ * UMN components can provide their own link presentation when needed.
+ */
+
+:where(.umn-site-main #content a),
+:where(.umn-site-main #global a) {
+  color: var(--umn-color-maroon);
+
+  line-height: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+
+  cursor: pointer;
+}
+
+:where(.umn-site-main #content a:hover),
+:where(.umn-site-main #global a:hover) {
+  color: var(--umn-color-maroon-dark);
+
+  text-decoration-thickness: 2px;
+}
+
+:where(.umn-site-main #content a:focus-visible),
+:where(.umn-site-main #global a:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
