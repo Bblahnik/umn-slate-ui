@@ -2575,6 +2575,12 @@
  * </nav>
  */
 
+/* Native Slate tabs should not inherit generic content-link underlines */
+
+ul.tabs li a,
+#content ul.subtabs li a {
+  text-decoration: none;
+}
 
 /* --------------------------------------------------------------------------
    Base Tabs
