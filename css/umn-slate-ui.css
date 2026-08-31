@@ -3579,7 +3579,236 @@
   background: var(--umn-color-maroon-subtle);
   border-color: var(--umn-color-maroon);
 }
+/* --------------------------------------------------------------------------
+   Slate Public Form Adapter
+   -------------------------------------------------------------------------- */
 
+/*
+ * Public Slate forms rendered through build.xslt do not necessarily
+ * receive the .umn-form class.
+ *
+ * Scope these compatibility styles to .umn-site-main so native
+ * Slate-generated forms use the UMN design language without affecting
+ * Slate's administrative interface.
+ */
+
+
+/* Form control typography */
+
+.umn-site-main input,
+.umn-site-main button,
+.umn-site-main textarea,
+.umn-site-main select,
+.umn-site-main optgroup,
+.umn-site-main option,
+.umn-site-main input[type="password"],
+.umn-site-main input[type="text"],
+.umn-site-main input[type="email"],
+.umn-site-main input[type="tel"],
+.umn-site-main input:not([type]) {
+  font-family: inherit !important;
+  font-size: 100%;
+}
+
+
+/* --------------------------------------------------------------------------
+   Required Field Indicators
+   -------------------------------------------------------------------------- */
+
+/*
+ * Slate does not consistently render required indicators in every
+ * generated label configuration.
+ */
+
+
+/* Labels containing paragraph markup should remain inline. */
+
+.umn-site-main
+  .form_question[data-required="1"]
+  > fieldset
+  > div.form_label
+  p,
+.umn-site-main
+  .form_question[data-required="1"]
+  > label.form_label
+  p {
+  display: inline;
+}
+
+
+/* Empty labels should not receive a standalone required marker. */
+
+.umn-site-main
+  .form_question[data-required="1"]
+  > fieldset
+  > div.form_label:empty::after,
+.umn-site-main
+  .form_question[data-required="1"]
+  > label.form_label:empty::after {
+  content: none;
+}
+
+
+/* Standard visible form labels receive the required marker. */
+
+.umn-site-main
+  .form_question[data-required="1"]
+  > fieldset
+  > div.form_label:not(:empty)::after,
+.umn-site-main
+  .form_question[data-required="1"]
+  > label.form_label:not(:empty)::after {
+  content: " *";
+
+  display: inline;
+
+  color: var(--umn-color-danger);
+}
+
+
+/*
+ * Single-checkbox questions sometimes have no visible question label.
+ * In that case, place the required marker after the checkbox option label.
+ */
+
+.umn-site-main
+  .form_question[data-required="1"].form_checkbox:has(.form_label:empty)
+  .form_responses:not(:has(:scope > :nth-child(2)))
+  .form_response
+  label::after {
+  content: " *";
+
+  display: inline;
+
+  color: var(--umn-color-danger);
+}
+
+
+/* --------------------------------------------------------------------------
+   Form Actions
+   -------------------------------------------------------------------------- */
+
+.umn-site-main .action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-sm);
+
+  margin-top: var(--umn-space-lg);
+}
+
+
+/* Continue and Submit */
+
+.umn-site-main .form_action_continue button,
+.umn-site-main .form_action_submit button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 2.5rem;
+  padding: 0.5rem var(--umn-space-md);
+
+  color: var(--umn-color-white);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.25;
+  text-align: center;
+
+  cursor: pointer;
+
+  background: var(--umn-color-maroon);
+  border: var(--umn-border-width) solid var(--umn-color-maroon);
+  border-radius: var(--umn-border-radius-sm);
+
+  transition:
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast),
+    color var(--umn-transition-fast);
+}
+
+.umn-site-main .form_action_continue button:hover,
+.umn-site-main .form_action_submit button:hover {
+  color: var(--umn-color-white);
+
+  background: var(--umn-color-maroon-dark);
+  border-color: var(--umn-color-maroon-dark);
+}
+
+
+/* Back button */
+
+.umn-site-main
+  .form_action_continue
+  .form_action_back,
+.umn-site-main
+  .form_action_submit
+  .form_action_back {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-white);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-site-main
+  .form_action_continue
+  .form_action_back:hover,
+.umn-site-main
+  .form_action_submit
+  .form_action_back:hover {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-maroon-subtle);
+  border-color: var(--umn-color-maroon);
+}
+
+
+/*
+ * Slate places Submit before Back in the DOM on the final page.
+ * Display Back before Submit without altering Slate's markup.
+ */
+
+.umn-site-main .form_action_submit .form_action_back {
+  order: 1;
+}
+
+.umn-site-main .form_action_submit .form_button_submit {
+  order: 2;
+}
+
+
+/* Keyboard focus */
+
+.umn-site-main .form_action_continue button:focus-visible,
+.umn-site-main .form_action_submit button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Form Controls
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 36rem) {
+  .umn-site-main button,
+  .umn-site-main textarea,
+  .umn-site-main input[type="password"],
+  .umn-site-main input[type="text"],
+  .umn-site-main input[type="email"],
+  .umn-site-main input[type="tel"],
+  .umn-site-main input:not([type]),
+  .umn-site-main
+    .form_question:not([class*="form_birthdate"])
+    select {
+    width: 100%;
+  }
+
+  .umn-site-main .action {
+    align-items: stretch;
+  }
+}
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
