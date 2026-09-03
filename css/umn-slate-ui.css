@@ -884,13 +884,6 @@
 }
 
 .umn-theme-public .umn-content h1,
-.umn-theme-public .umn-content h2,
-.umn-theme-public.umn-content h1,
-.umn-theme-public.umn-content h2 {
-  color: var(--umn-color-maroon);
-}
-
-.umn-theme-public .umn-content h1,
 .umn-theme-public.umn-content h1 {
   font-size: 2.75rem;
 }
