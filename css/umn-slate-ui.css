@@ -665,6 +665,7 @@
   --umn-color-maroon-subtle: #f8eef0;
   --umn-color-maroon-border: #d7c3c7;
   --umn-color-gold: #ffcc33;
+  --umn-color-gold-dark: #f2bd00;
 
   /* Semantic and accent colors */
   --umn-color-neutral-accent: #777777;
@@ -1247,6 +1248,15 @@
   --umn-button-hover-background: var(--umn-color-maroon-subtle);
   --umn-button-hover-border-color: var(--umn-color-maroon);
   --umn-button-hover-color: var(--umn-color-maroon);
+  --umn-button-focus-color: var(--umn-color-maroon);
+}
+.umn-theme-public .umn-button--gold {
+  --umn-button-background: var(--umn-color-gold);
+  --umn-button-border-color: var(--umn-color-gold);
+  --umn-button-color: var(--umn-color-maroon);
+  --umn-button-hover-background: #f2bd00;
+  --umn-button-hover-border-color: #f2bd00;
+  --umn-button-hover-color: var(--umn-color-maroon-dark);
   --umn-button-focus-color: var(--umn-color-maroon);
 }
 
