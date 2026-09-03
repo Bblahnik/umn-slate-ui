@@ -3878,7 +3878,49 @@
   outline: 3px solid var(--umn-color-maroon);
   outline-offset: 3px;
 }
+/* --------------------------------------------------------------------------
+   Replicate Controls
+   -------------------------------------------------------------------------- */
 
+/*
+ * Slate replicate fields provide Add and Delete links for repeating
+ * groups of form questions.
+ *
+ * Public forms rendered through build.xslt do not necessarily receive
+ * .umn-form, so style these controls through the public page shell.
+ */
+
+.umn-site-main .replicate_insert {
+  color: var(--umn-color-maroon);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-site-main .replicate_insert:hover {
+  color: var(--umn-color-maroon-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.umn-site-main .replicate_delete {
+  color: var(--umn-color-danger);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-site-main .replicate_delete:hover {
+  color: var(--umn-color-danger-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.umn-site-main .replicate_insert:focus-visible,
+.umn-site-main .replicate_delete:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
 /* --------------------------------------------------------------------------
    Responsive Form Controls
    -------------------------------------------------------------------------- */
