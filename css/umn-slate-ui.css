@@ -3818,7 +3818,38 @@
 
   color: var(--umn-color-danger);
 }
+/* --------------------------------------------------------------------------
+   Public Form Header Rows
+   -------------------------------------------------------------------------- */
 
+/*
+ * Slate Header Rows act as section dividers within public forms.
+ *
+ * Replace Slate's heavier gray bar treatment with a lighter UMN-branded
+ * divider so sections remain distinct without competing with the page title.
+ */
+
+.umn-site-main .form_header .form_label {
+  margin: var(--umn-space-lg) 0 var(--umn-space-sm);
+  padding: 0 0 var(--umn-space-sm);
+
+  color: var(--umn-color-maroon);
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+
+  background: transparent;
+  border-bottom: var(--umn-border-width) solid var(--umn-color-maroon-border);
+}
+
+/*
+ * Avoid unnecessary extra space when a Header Row is the first
+ * element in the form.
+ */
+
+.umn-site-main .form_header:first-child .form_label {
+  margin-top: 0;
+}
 /* --------------------------------------------------------------------------
    Form Actions
    -------------------------------------------------------------------------- */
