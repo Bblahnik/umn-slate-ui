@@ -866,6 +866,10 @@
 /*
  * Public portals intentionally use a larger, more content-oriented
  * typographic scale than Slate's internal interface.
+ *
+ * Public content headings align with the heading scale used by
+ * .umn-site-main so Slate-generated headings and headings inside
+ * .umn-content have a consistent visual hierarchy.
  */
 
 .umn-theme-public .umn-content {
@@ -878,19 +882,41 @@
 }
 
 .umn-theme-public .umn-content h1 {
-  font-size: 2rem;
+  font-size: 2.75rem;
 }
 
 .umn-theme-public .umn-content h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .umn-theme-public .umn-content h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .umn-theme-public .umn-content h4 {
-  font-size: 1rem;
+  font-size: 1.1875rem;
+}
+
+/* --------------------------------------------------------------------------
+   Public Theme Responsive Headings
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 49.999rem) {
+  .umn-theme-public .umn-content h1 {
+    font-size: 2rem;
+  }
+
+  .umn-theme-public .umn-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .umn-theme-public .umn-content h3 {
+    font-size: 1.1875rem;
+  }
+
+  .umn-theme-public .umn-content h4 {
+    font-size: 1.125rem;
+  }
 }
 
 /* ==========================================================================
