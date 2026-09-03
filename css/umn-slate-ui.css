@@ -3890,6 +3890,10 @@
  * .umn-form, so style these controls through the public page shell.
  */
 
+.umn-site-main .replicate_insert_container td {
+  padding-inline: var(--umn-space-sm);
+}
+
 .umn-site-main .replicate_insert {
   color: var(--umn-color-maroon);
   font-size: var(--umn-font-size-md);
