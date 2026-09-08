@@ -36,37 +36,23 @@
   --umn-badge-border-color: #7f1d1d;
 }
 /* ==========================================================================
-   Embedded Form Modal Spacing
+   Embedded Form Action Layout
    ========================================================================== */
 
 /*
- * In the Course Navigator Lib Ed Review Request modal, a required
- * acknowledgement checkbox may be the final form question immediately
- * before the action buttons.
+ * Slate AJAX popup forms may apply an inline "display: initial" style
+ * to the currently visible form action row.
  *
- * Add a small amount of bottom spacing in that specific situation so the
- * checkbox text does not crowd the Submit / Back button row.
+ * That inline value overrides UMN Slate UI's flex-based action layout
+ * and can cause the Submit / Back buttons to crowd the final form question.
  *
- * This is intentionally kept in the Course Navigator extension because
- * it addresses a narrow embedded-form/modal layout edge case rather than
- * a general UMN Slate UI form pattern.
+ * Restore the intended flex layout only for the currently visible
+ * action row. The !important declaration is necessary to override
+ * Slate's inline display style.
+ *
+ * aria-hidden="false" keeps hidden action rows from being forced visible.
  */
 
-/* ==========================================================================
-   Embedded Form Modal Spacing
-   ========================================================================== */
-
-/*
- * In the Course Navigator Lib Ed Review Request modal, the final
- * acknowledgement checkbox sits very close to the form action buttons.
- *
- * Add a little extra space below the last checkbox question so the
- * acknowledgement does not visually crowd the Submit / Back row.
- *
- * Kept in the Course Navigator extension because this is a narrow
- * modal-specific layout adjustment.
- */
-
-.umn-form .form_question.form_checkbox:has(~ .action) {
-  margin-bottom: var(--umn-space-md);
+.umn-form .action.form_action[aria-hidden="false"] {
+  display: flex !important;
 }
