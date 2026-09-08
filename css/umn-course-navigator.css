@@ -59,3 +59,18 @@
   ) {
   padding-bottom: var(--umn-space-md);
 }
+/* ==========================================================================
+   Embedded Form Action Separator
+   ========================================================================== */
+
+/*
+ * Slate applies a faint top border to the final Submit / Back action row
+ * in the Course Navigator review-request modal.
+ *
+ * Remove that separator so the action buttons sit cleanly beneath the
+ * final form question.
+ */
+
+.umn-form .action.form_action_submit {
+  border-top: 0;
+}
