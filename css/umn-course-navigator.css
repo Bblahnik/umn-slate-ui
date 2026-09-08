@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Course Navigator Badge Variants
+   ========================================================================== */
+
+/* Blue category */
+.umn-course-badge--blue {
+  --umn-badge-color: #0b3b8b;
+  --umn-badge-background: #e8f1ff;
+  --umn-badge-border-color: #b9d5ff;
+}
+
+/* Green category */
+.umn-course-badge--green {
+  --umn-badge-color: #1f5d3a;
+  --umn-badge-background: #e6f6ec;
+  --umn-badge-border-color: #b7e2c8;
+}
+
+/* Charcoal category */
+.umn-course-badge--charcoal {
+  --umn-badge-color: #ffffff;
+  --umn-badge-background: #4b5563;
+  --umn-badge-border-color: #374151;
+}
+
+/* Expired state */
+.umn-course-badge--expired {
+  --umn-badge-color: #ffffff;
+  --umn-badge-background: #b91c1c;
+  --umn-badge-border-color: #7f1d1d;
+}
