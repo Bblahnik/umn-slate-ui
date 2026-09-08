@@ -35,3 +35,23 @@
   --umn-badge-background: #b91c1c;
   --umn-badge-border-color: #7f1d1d;
 }
+/* ==========================================================================
+   Embedded Form Modal Spacing
+   ========================================================================== */
+
+/*
+ * In the Course Navigator Lib Ed Review Request modal, a required
+ * acknowledgement checkbox may be the final form question immediately
+ * before the action buttons.
+ *
+ * Add a small amount of bottom spacing in that specific situation so the
+ * checkbox text does not crowd the Submit / Back button row.
+ *
+ * This is intentionally kept in the Course Navigator extension because
+ * it addresses a narrow embedded-form/modal layout edge case rather than
+ * a general UMN Slate UI form pattern.
+ */
+
+.umn-form .form_question.form_checkbox:has(+ .action) {
+  margin-bottom: var(--umn-space-md);
+}
