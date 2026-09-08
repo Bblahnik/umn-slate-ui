@@ -2919,54 +2919,29 @@
    -------------------------------------------------------------------------- */
 
 /*
- * Explicit .umn-form implementations.
+ * Visible labels receive the required marker.
  */
 
-.umn-form .form_question[data-required="1"] > .form_label::after,
-.umn-form .form_question[data-required="1"] > fieldset > .form_label::after {
+.umn-form .form_question[data-required="1"] > .form_label:not(:empty)::after,
+.umn-form
+  .form_question[data-required="1"]
+  > fieldset
+  > .form_label:not(:empty)::after {
   content: " *";
 
   color: var(--umn-color-danger);
 }
 
 /*
- * Native public forms need slightly more defensive selectors because
- * Slate does not consistently render required labels in the same structure.
+ * Empty labels should not receive a standalone required marker.
  */
 
-/* Labels containing paragraph markup should remain inline. */
-
-.umn-site-main .form_question[data-required="1"] > fieldset > div.form_label p,
-.umn-site-main .form_question[data-required="1"] > label.form_label p {
-  display: inline;
-}
-
-/* Empty labels should not receive a standalone required marker. */
-
-.umn-site-main
+.umn-form .form_question[data-required="1"] > .form_label:empty::after,
+.umn-form
   .form_question[data-required="1"]
   > fieldset
-  > div.form_label:empty::after,
-.umn-site-main
-  .form_question[data-required="1"]
-  > label.form_label:empty::after {
+  > .form_label:empty::after {
   content: none;
-}
-
-/* Standard visible form labels receive the required marker. */
-
-.umn-site-main
-  .form_question[data-required="1"]
-  > fieldset
-  > div.form_label:not(:empty)::after,
-.umn-site-main
-  .form_question[data-required="1"]
-  > label.form_label:not(:empty)::after {
-  content: " *";
-
-  display: inline;
-
-  color: var(--umn-color-danger);
 }
 
 /*
@@ -2974,7 +2949,7 @@
  * In that case, place the required marker after the checkbox option label.
  */
 
-.umn-site-main
+.umn-form
   .form_question[data-required="1"].form_checkbox:has(.form_label:empty)
   .form_responses:not(:has(:scope > :nth-child(2)))
   .form_response
