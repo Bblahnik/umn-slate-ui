@@ -36,23 +36,25 @@
   --umn-badge-border-color: #7f1d1d;
 }
 /* ==========================================================================
-   Embedded Form Action Layout
+   Embedded Form Acknowledgement Spacing
    ========================================================================== */
 
 /*
- * Slate AJAX popup forms may apply an inline "display: initial" style
- * to the currently visible form action row.
+ * Slate forms may render a required single-checkbox acknowledgement
+ * without a visible question label. When that acknowledgement is the
+ * final question on a form page, Slate's action row can sit very close
+ * to the checkbox text.
  *
- * That inline value overrides UMN Slate UI's flex-based action layout
- * and can cause the Submit / Back buttons to crowd the final form question.
+ * Add a small amount of internal space below this specific question
+ * pattern without altering Slate's action-row display behavior.
  *
- * Restore the intended flex layout only for the currently visible
- * action row. The !important declaration is necessary to override
- * Slate's inline display style.
- *
- * aria-hidden="false" keeps hidden action rows from being forced visible.
+ * Padding is used instead of margin so the spacing remains reliable
+ * regardless of Slate's generated action layout.
  */
 
-.umn-form .action.form_action[aria-hidden="false"] {
-  display: flex !important;
+.umn-form
+  .form_question.form_checkbox[data-required="1"]:has(
+    > fieldset > .form_label:empty
+  ):has(.form_responses:not(:has(:scope > :nth-child(2)))) {
+  padding-bottom: var(--umn-space-md);
 }
