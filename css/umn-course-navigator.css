@@ -52,6 +52,21 @@
  * a general UMN Slate UI form pattern.
  */
 
-.umn-form .form_question.form_checkbox:has(+ .action) {
+/* ==========================================================================
+   Embedded Form Modal Spacing
+   ========================================================================== */
+
+/*
+ * In the Course Navigator Lib Ed Review Request modal, the final
+ * acknowledgement checkbox sits very close to the form action buttons.
+ *
+ * Add a little extra space below the last checkbox question so the
+ * acknowledgement does not visually crowd the Submit / Back row.
+ *
+ * Kept in the Course Navigator extension because this is a narrow
+ * modal-specific layout adjustment.
+ */
+
+.umn-form .form_question.form_checkbox:has(~ .action) {
   margin-bottom: var(--umn-space-md);
 }
