@@ -22,6 +22,12 @@
   --umn-badge-background: #4b5563;
   --umn-badge-border-color: #374151;
 }
+/* Purple category */
+.umn-course-badge--purple {
+  --umn-badge-color: #4b2d7f;
+  --umn-badge-background: #efe6ff;
+  --umn-badge-border-color: #cdb7ff;
+}
 
 /* Expired state */
 .umn-course-badge--expired {
