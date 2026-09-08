@@ -36,25 +36,26 @@
   --umn-badge-border-color: #7f1d1d;
 }
 /* ==========================================================================
-   Embedded Form Acknowledgement Spacing
+   Embedded Form Final-Page Spacing
    ========================================================================== */
 
 /*
- * Slate forms may render a required single-checkbox acknowledgement
- * without a visible question label. When that acknowledgement is the
- * final question on a form page, Slate's action row can sit very close
- * to the checkbox text.
+ * In the Course Navigator Lib Ed Review Request modal, the final
+ * acknowledgement checkbox is contained inside a Slate .form_page,
+ * while the Submit / Back action row is rendered outside that page.
  *
- * Add a small amount of internal space below this specific question
- * pattern without altering Slate's action-row display behavior.
+ * Add breathing room to the bottom of the form page itself so the
+ * acknowledgement does not crowd the action buttons.
  *
- * Padding is used instead of margin so the spacing remains reliable
- * regardless of Slate's generated action layout.
+ * This avoids changing Slate's action-row display behavior, which Slate
+ * uses to control which navigation buttons appear on each form page.
  */
 
 .umn-form
-  .form_question.form_checkbox[data-required="1"]:has(
-    > fieldset > .form_label:empty
-  ):has(.form_responses:not(:has(:scope > :nth-child(2)))) {
+  .form_page:has(
+    .form_question.form_checkbox[data-required="1"]
+      > fieldset
+      > .form_label:empty
+  ) {
   padding-bottom: var(--umn-space-md);
 }
