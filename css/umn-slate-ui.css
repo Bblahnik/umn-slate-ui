@@ -6474,7 +6474,92 @@ html[data-umn-theme="dark"] {
     break-after: avoid;
   }
 }
+/* ==========================================================================
+   SECTION: Application Selector
+   ========================================================================== */
 
+/*
+ * Styles Slate's generated application-switcher control.
+ *
+ * Apply .umn-application-selector to the portal part containing the
+ * generated select element.
+ */
+
+.umn-application-selector {
+  display: flex;
+  justify-content: flex-end;
+
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Select Control
+   -------------------------------------------------------------------------- */
+
+.umn-application-selector select {
+  float: none !important;
+
+  width: 100%;
+  max-width: 32rem;
+  min-width: 0;
+  min-height: 2.125rem;
+
+  margin: 0;
+  padding: 0.375rem 0.5rem;
+
+  color: var(--umn-color-text);
+  font-family: inherit !important;
+  font-size: var(--umn-font-size-md) !important;
+  line-height: 1.3;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid #b8b8b8;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+  cursor: pointer;
+
+  transition:
+    border-color var(--umn-transition-fast),
+    box-shadow var(--umn-transition-fast);
+}
+
+/* --------------------------------------------------------------------------
+   Focus
+   -------------------------------------------------------------------------- */
+
+.umn-application-selector select:focus {
+  outline: none;
+
+  border-color: #666666;
+  box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+.umn-theme-public .umn-application-selector select,
+.umn-theme-public.umn-application-selector select {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.625rem;
+}
+
+.umn-theme-public .umn-application-selector select:focus,
+.umn-theme-public.umn-application-selector select:focus {
+  border-color: var(--umn-color-maroon);
+  box-shadow: 0 0 0 2px rgba(122, 0, 25, 0.16);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 36rem) {
+  .umn-application-selector select {
+    max-width: none;
+  }
+}
 /* ==========================================================================
    SECTION: Accessibility / Reduced Motion
    ========================================================================== */
