@@ -1295,7 +1295,6 @@
   --umn-button-hover-color: var(--umn-color-maroon-dark);
   --umn-button-focus-color: var(--umn-color-maroon);
 }
-
 /* ==========================================================================
    SECTION: Alerts
    ========================================================================== */
@@ -1336,6 +1335,9 @@
  *
  * Add the native "open" attribute to <details> when a collapsible
  * alert should be expanded initially.
+ *
+ * Alert typography remains consistent across themes. Public-theme
+ * variants change alert colors, but do not enlarge alert content.
  */
 
 .umn-alert {
@@ -1347,6 +1349,9 @@
   padding: var(--umn-space-md);
 
   color: var(--umn-alert-color);
+  font-size: var(--umn-font-size-md);
+  line-height: 1.5;
+
   background: var(--umn-alert-background);
 
   border: var(--umn-border-width) solid var(--umn-alert-border-color);
@@ -1354,13 +1359,43 @@
   border-radius: var(--umn-border-radius-sm);
 }
 
+/*
+ * Preserve alert typography when .umn-content and .umn-alert are
+ * applied to the same Slate part.
+ */
+
+.umn-alert.umn-content {
+  font-size: var(--umn-font-size-md);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Alert Title
+   -------------------------------------------------------------------------- */
+
 .umn-alert__title {
   display: block;
 
   margin-bottom: var(--umn-space-xs);
 
   color: inherit;
+  font-size: 0.9375rem;
   font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+}
+
+/*
+ * Override broad .umn-content heading styles when a semantic heading
+ * element is used as an alert title.
+ */
+
+.umn-alert > :is(h1, h2, h3, h4).umn-alert__title {
+  margin-top: 0;
+  margin-bottom: var(--umn-space-xs);
+
+  color: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.3;
 }
 
 .umn-alert > :first-child {
@@ -1441,14 +1476,16 @@
    -------------------------------------------------------------------------- */
 
 /*
- * The additional component specificity ensures broad .umn-content
- * heading margins and colors do not disrupt the summary layout.
- * Heading font sizing may still inherit the appropriate content theme.
+ * Component-specific sizing prevents broad public-theme heading rules
+ * from enlarging collapsible alert titles.
  */
 
 .umn-alert.umn-alert--collapsible > .umn-alert__summary > .umn-alert__title {
   margin: 0;
+
   color: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.3;
 }
 
 /* --------------------------------------------------------------------------
@@ -1492,6 +1529,9 @@
   padding: var(--umn-space-md);
 
   color: inherit;
+  font-size: var(--umn-font-size-md);
+  line-height: 1.5;
+
   background: transparent;
 
   border-top: var(--umn-border-width) solid var(--umn-alert-border-color);
@@ -1549,6 +1589,9 @@
    -------------------------------------------------------------------------- */
 
 /*
+ * Public-theme alert variants change colors without changing alert
+ * typography or spacing.
+ *
  * Support the public theme on either an ancestor:
  *
  * <div class="umn-theme-public">
