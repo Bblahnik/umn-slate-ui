@@ -1297,7 +1297,7 @@
 }
 
 /* ==========================================================================
-  SECTION: Alerts
+   SECTION: Alerts
    ========================================================================== */
 
 /*
@@ -1310,12 +1310,32 @@
  * - warning
  * - danger
  *
- * Optional title:
+ * Modifiers:
+ * - collapsible
+ *
+ * Standard alert:
  *
  * <div class="umn-alert umn-alert--info-primary">
  *   <strong class="umn-alert__title">Important Information</strong>
  *   <p>Alert content...</p>
  * </div>
+ *
+ * Collapsible alert:
+ *
+ * <details
+ *   class="umn-alert umn-alert--info-alternate umn-alert--collapsible"
+ * >
+ *   <summary class="umn-alert__summary">
+ *     <h3 class="umn-alert__title">Passport Processing Timeline</h3>
+ *   </summary>
+ *
+ *   <div class="umn-alert__content">
+ *     <p>Alert content...</p>
+ *   </div>
+ * </details>
+ *
+ * Add the native "open" attribute to <details> when a collapsible
+ * alert should be expanded initially.
  */
 
 .umn-alert {
@@ -1325,8 +1345,10 @@
   --umn-alert-color: var(--umn-color-text);
 
   padding: var(--umn-space-md);
+
   color: var(--umn-alert-color);
   background: var(--umn-alert-background);
+
   border: var(--umn-border-width) solid var(--umn-alert-border-color);
   border-left: 0.3rem solid var(--umn-alert-accent-color);
   border-radius: var(--umn-border-radius-sm);
@@ -1334,7 +1356,9 @@
 
 .umn-alert__title {
   display: block;
+
   margin-bottom: var(--umn-space-xs);
+
   color: inherit;
   font-weight: var(--umn-font-weight-bold);
 }
@@ -1344,6 +1368,140 @@
 }
 
 .umn-alert > :last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Collapsible Alert
+   -------------------------------------------------------------------------- */
+
+/*
+ * Use only for supporting or contextual information.
+ *
+ * Urgent deadlines, errors, missing requirements, and other information
+ * requiring immediate attention should remain visible.
+ */
+
+.umn-alert--collapsible {
+  overflow: hidden;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Collapsible Summary
+   -------------------------------------------------------------------------- */
+
+.umn-alert--collapsible > .umn-alert__summary {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  padding: var(--umn-space-md) calc(var(--umn-space-md) + 1.5rem)
+    var(--umn-space-md) var(--umn-space-md);
+
+  color: inherit;
+
+  cursor: pointer;
+  background-color: transparent;
+
+  box-sizing: border-box;
+
+  transition: background-color var(--umn-transition-fast);
+}
+
+/*
+ * Remove the browser's native disclosure marker so the component uses
+ * one consistent indicator across supported browsers.
+ */
+
+.umn-alert--collapsible > .umn-alert__summary::marker {
+  content: "";
+}
+
+.umn-alert--collapsible > .umn-alert__summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Hover */
+
+.umn-alert--collapsible > .umn-alert__summary:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Keyboard focus */
+
+.umn-alert--collapsible > .umn-alert__summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -4px;
+}
+
+/* --------------------------------------------------------------------------
+   Collapsible Title
+   -------------------------------------------------------------------------- */
+
+/*
+ * The additional component specificity ensures broad .umn-content
+ * heading margins and colors do not disrupt the summary layout.
+ * Heading font sizing may still inherit the appropriate content theme.
+ */
+
+.umn-alert.umn-alert--collapsible > .umn-alert__summary > .umn-alert__title {
+  margin: 0;
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Collapsible Indicator
+   -------------------------------------------------------------------------- */
+
+/*
+ * CSS-generated chevron.
+ *
+ * No icon library or JavaScript is required. Native <details> state
+ * controls the indicator direction.
+ */
+
+.umn-alert--collapsible > .umn-alert__summary::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  right: var(--umn-space-md);
+
+  width: 0.5rem;
+  height: 0.5rem;
+
+  border-right: 2px solid var(--umn-alert-accent-color);
+  border-bottom: 2px solid var(--umn-alert-accent-color);
+
+  transform: translateY(-65%) rotate(45deg);
+
+  transition: transform var(--umn-transition-fast);
+}
+
+.umn-alert--collapsible[open] > .umn-alert__summary::after {
+  transform: translateY(-35%) rotate(225deg);
+}
+
+/* --------------------------------------------------------------------------
+   Collapsible Content
+   -------------------------------------------------------------------------- */
+
+.umn-alert--collapsible > .umn-alert__content {
+  padding: var(--umn-space-md);
+
+  color: inherit;
+  background: transparent;
+
+  border-top: var(--umn-border-width) solid var(--umn-alert-border-color);
+}
+
+.umn-alert--collapsible > .umn-alert__content > :first-child {
+  margin-top: 0;
+}
+
+.umn-alert--collapsible > .umn-alert__content > :last-child {
   margin-bottom: 0;
 }
 
@@ -1390,41 +1548,92 @@
    Public Theme
    -------------------------------------------------------------------------- */
 
-.umn-theme-public .umn-alert--info-primary {
+/*
+ * Support the public theme on either an ancestor:
+ *
+ * <div class="umn-theme-public">
+ *   <div class="umn-alert umn-alert--info-primary">...</div>
+ * </div>
+ *
+ * Or directly on the alert, which is useful in Slate's CSS Class Name
+ * field:
+ *
+ * <div
+ *   class="umn-theme-public umn-alert umn-alert--info-primary"
+ * >
+ *   ...
+ * </div>
+ */
+
+.umn-theme-public .umn-alert--info-primary,
+.umn-theme-public.umn-alert--info-primary {
   --umn-alert-background: var(--umn-color-maroon-subtle);
   --umn-alert-border-color: #d7a8b2;
   --umn-alert-accent-color: var(--umn-color-maroon);
   --umn-alert-color: #4b0010;
 }
 
-.umn-theme-public .umn-alert--info-secondary {
+.umn-theme-public .umn-alert--info-secondary,
+.umn-theme-public.umn-alert--info-secondary {
   --umn-alert-background: #f5f5f5;
   --umn-alert-border-color: var(--umn-color-border);
   --umn-alert-accent-color: var(--umn-color-neutral-accent);
   --umn-alert-color: var(--umn-color-text);
 }
 
-.umn-theme-public .umn-alert--info-alternate {
+.umn-theme-public .umn-alert--info-alternate,
+.umn-theme-public.umn-alert--info-alternate {
   --umn-alert-background: #fff9e6;
   --umn-alert-border-color: #e6cc72;
   --umn-alert-accent-color: #a97800;
   --umn-alert-color: #4d3a00;
 }
 
-.umn-theme-public .umn-alert--warning {
+.umn-theme-public .umn-alert--warning,
+.umn-theme-public.umn-alert--warning {
   --umn-alert-background: #fff4cc;
   --umn-alert-border-color: #d6ad1f;
   --umn-alert-accent-color: #8a6500;
   --umn-alert-color: #3f3000;
 }
 
-.umn-theme-public .umn-alert--danger {
+.umn-theme-public .umn-alert--danger,
+.umn-theme-public.umn-alert--danger {
   --umn-alert-background: var(--umn-color-danger-subtle);
   --umn-alert-border-color: var(--umn-color-danger-border);
   --umn-alert-accent-color: var(--umn-color-danger);
   --umn-alert-color: var(--umn-color-danger-text);
 }
 
+/* --------------------------------------------------------------------------
+   Print
+   -------------------------------------------------------------------------- */
+
+/*
+ * Always expose collapsible supporting content when printing, even when
+ * the alert is closed on screen.
+ */
+
+@media print {
+  .umn-alert--collapsible:not([open]) > .umn-alert__content {
+    display: block !important;
+  }
+
+  .umn-alert--collapsible > .umn-alert__summary::after {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .umn-alert--collapsible > .umn-alert__summary,
+  .umn-alert--collapsible > .umn-alert__summary::after {
+    transition: none;
+  }
+}
 /* ==========================================================================
    SECTION: Badges
    ========================================================================== */
