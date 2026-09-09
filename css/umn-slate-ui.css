@@ -5843,6 +5843,80 @@
 .umn-theme-public .umn-section-header__description {
   font-size: var(--umn-font-size-md);
 }
+/* --------------------------------------------------------------------------
+   Page Header Modifier
+   -------------------------------------------------------------------------- */
+
+/*
+ * Page-level version of the section header.
+ *
+ * Use for the primary heading and compact metadata at the beginning
+ * of a portal page or major portal view.
+ *
+ * Example:
+ *
+ * <header class="umn-section-header umn-section-header--page">
+ *   <div class="umn-section-header__body">
+ *     <h1 class="umn-section-header__title">Program Name</h1>
+ *
+ *     <div class="umn-section-header__meta">
+ *       <div class="umn-section-header__meta-item">
+ *         <strong>Application status:</strong>
+ *         <span class="umn-badge">Admitted</span>
+ *       </div>
+ *     </div>
+ *   </div>
+ * </header>
+ */
+
+.umn-section-header--page {
+  display: block;
+
+  padding-bottom: var(--umn-space-md);
+}
+
+/*
+ * Keep the page title larger than ordinary section-header titles while
+ * preventing broad public-theme h1 rules from making it oversized.
+ */
+
+.umn-section-header.umn-section-header--page
+  .umn-section-header__title,
+#content
+  .umn-section-header--page
+  .umn-section-header__title {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   Page Header Metadata
+   -------------------------------------------------------------------------- */
+
+.umn-section-header--page .umn-section-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-sm) var(--umn-space-lg);
+
+  margin-top: var(--umn-space-sm);
+
+  color: var(--umn-color-text);
+  font-size: var(--umn-font-size-md);
+  line-height: 1.4;
+}
+
+.umn-section-header--page .umn-section-header__meta-item {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-xs);
+}
+
+.umn-section-header--page .umn-section-header__meta-item strong {
+  color: var(--umn-color-text);
+  font-weight: var(--umn-font-weight-bold);
+}
 
 /* --------------------------------------------------------------------------
    Responsive Behavior
