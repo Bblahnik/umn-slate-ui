@@ -4560,12 +4560,12 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_label {
   font-weight: var(--umn-font-weight-medium);
   line-height: 1.35;
 }
-/* Dialog table-layout label column */
+/* Dialog stacked form layout */
 
 /*
- * Slate reserves a narrow label column in its table layout. Widen the
- * label and response offsets together so medium-length labels do not
- * wrap unnecessarily while controls remain aligned.
+ * Slate's native table layout places labels and controls in shared columns.
+ * Widget labels and field widths vary substantially, so stack each label
+ * above its response instead of maintaining a fragile fixed label column.
  */
 
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
@@ -4575,10 +4575,10 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_question.form_layout_table
   > fieldset
   > .form_label {
-  float: left;
+  float: none;
 
-  width: var(--umn-dialog-label-width);
-  padding-right: var(--umn-space-md);
+  width: 100%;
+  padding-right: 0;
 
   box-sizing: border-box;
 }
@@ -4590,32 +4590,10 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_question.form_layout_table
   > fieldset
   > .form_responses {
-  margin-left: var(--umn-dialog-label-width);
-}
+  width: 100%;
+  margin-left: 0;
 
-@media (max-width: 36rem) {
-  form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
-    .form_question.form_layout_table
-    > .form_label,
-  form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
-    .form_question.form_layout_table
-    > fieldset
-    > .form_label {
-    float: none;
-
-    width: 100%;
-    padding-right: 0;
-  }
-
-  form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
-    .form_question.form_layout_table
-    > .form_responses,
-  form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
-    .form_question.form_layout_table
-    > fieldset
-    > .form_responses {
-    margin-left: 0;
-  }
+  box-sizing: border-box;
 }
 /* Dialog form section headings */
 
