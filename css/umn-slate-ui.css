@@ -4569,6 +4569,13 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_label {
  */
 
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_question.form_layout_table {
+  display: block;
+
+  width: 100%;
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_question.form_layout_table
   > .form_label,
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
@@ -4581,6 +4588,19 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   padding-right: 0;
 
   box-sizing: border-box;
+}
+
+/*
+ * Cancel Slate's remaining positioning on ordinary response containers.
+ * Date fieldsets retain their later flex layout.
+ */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_question.form_layout_table
+  > .form_responses {
+  display: block;
+  float: none;
+  clear: both;
 }
 
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
