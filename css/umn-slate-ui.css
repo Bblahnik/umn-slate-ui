@@ -4642,6 +4642,91 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   select {
   margin-left: 0 !important;
 }
+/* Dialog date and birthdate groups */
+
+/*
+ * Native widget date fields do not consistently expose .form_date or
+ * .form_birthdate. Identify them by their fieldset containing a direct
+ * .form_responses element with select controls.
+ */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  fieldset:has(> .form_responses > select) {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+/*
+ * Slate repeats the visible .form_label as a semantic legend. Keep that
+ * legend available to assistive technology without displaying it twice.
+ */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  fieldset:has(> .form_responses > select)
+  > legend {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  fieldset:has(> .form_responses > select)
+  > .form_responses {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-sm);
+}
+
+/* Slate supplies inline left margins; gap now owns the spacing. */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  fieldset:has(> .form_responses > select)
+  > .form_responses
+  > select {
+  margin-left: 0 !important;
+
+  min-height: 2.5rem;
+  padding: 0.5rem 0.625rem;
+
+  color: var(--umn-color-text);
+  font-family: inherit !important;
+  font-size: 1rem;
+  line-height: 1.3;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid #b8b8b8;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color var(--umn-transition-fast),
+    box-shadow var(--umn-transition-fast);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  fieldset:has(> .form_responses > select)
+  > .form_responses
+  > select:focus {
+  outline: none;
+
+  border-color: var(--umn-color-maroon);
+  box-shadow: 0 0 0 2px rgba(122, 0, 25, 0.16);
+}
 /* Dialog controls */
 
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_text input,
