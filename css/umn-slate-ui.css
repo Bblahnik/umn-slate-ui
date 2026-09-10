@@ -4569,17 +4569,14 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_label {
  */
 
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
-  .form_question.form_layout_table {
-  --umn-dialog-label-width: 11.5rem;
-}
-
-form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_question.form_layout_table
   > .form_label,
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_question.form_layout_table
   > fieldset
   > .form_label {
+  float: left;
+
   width: var(--umn-dialog-label-width);
   padding-right: var(--umn-space-md);
 
