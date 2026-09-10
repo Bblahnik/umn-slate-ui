@@ -6746,9 +6746,8 @@ html[data-umn-theme="dark"] {
   box-sizing: border-box;
 }
 
-#side #menu li {
-  margin: 0;
-  padding: 0;
+#side #menu li > a {
+  width: calc(100% - var(--umn-space-xs)) !important;
 }
 
 /* --------------------------------------------------------------------------
