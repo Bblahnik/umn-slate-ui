@@ -4127,6 +4127,89 @@
 }
 
 /* --------------------------------------------------------------------------
+   Slate Application Actions
+   -------------------------------------------------------------------------- */
+
+/*
+ * Slate-hosted applications use a simpler generated structure than forms:
+ *
+ * <div class="action">
+ *   <button class="default">Continue or Submit Application</button>
+ *   <button>Save for Later</button>
+ * </div>
+ *
+ * Unclassed buttons are secondary. Slate's .default class identifies the
+ * primary action without requiring selectors tied to mutable button text or
+ * inline JavaScript.
+ */
+
+.umn-site-main .action > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 2.5rem;
+  margin: 0;
+  padding: 0.5rem var(--umn-space-md);
+
+  color: var(--umn-color-maroon);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.25;
+  text-align: center;
+
+  cursor: pointer;
+
+  appearance: none;
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid var(--umn-color-maroon);
+  border-radius: var(--umn-border-radius-sm);
+
+  transition:
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast),
+    color var(--umn-transition-fast),
+    transform var(--umn-transition-fast);
+}
+
+.umn-site-main .action > button:hover {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-maroon-subtle);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-site-main .action > button.default {
+  color: #ffffff;
+
+  background: var(--umn-color-maroon);
+  border-color: var(--umn-color-maroon);
+}
+
+.umn-site-main .action > button.default:hover {
+  color: #ffffff;
+
+  background: var(--umn-color-maroon-dark);
+  border-color: var(--umn-color-maroon-dark);
+}
+
+.umn-site-main .action > button:focus-visible {
+  outline: 3px solid var(--umn-color-maroon);
+  outline-offset: 3px;
+}
+
+.umn-site-main .action > button:active {
+  transform: translateY(1px);
+}
+
+.umn-site-main .action > button:disabled,
+.umn-site-main .action > button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* --------------------------------------------------------------------------
    Special Slate Controls
    -------------------------------------------------------------------------- */
 
