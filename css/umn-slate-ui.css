@@ -4363,11 +4363,8 @@
   background: var(--umn-color-background-subtle);
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
-```css
-  .umn-site-main
-  #content
-  .form_question[data-type="plugin:widget"]
-  a.widget_add,
+
+.umn-site-main #content .form_question[data-type="plugin:widget"] a.widget_add,
 .umn-site-main
   #content
   .form_question[data-type="plugin:widget"]
@@ -4406,7 +4403,6 @@
 
   background: var(--umn-color-maroon-subtle);
 }
-```
 
 /* Data rows */
 
