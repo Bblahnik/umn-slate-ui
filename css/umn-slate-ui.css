@@ -4638,21 +4638,6 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   margin-top: 0;
 }
 
-/* Dialog date and birthdate groups */
-
-form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
-  .form_date
-  fieldset,
-form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
-  .form_birthdate
-  fieldset {
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-
-  border: 0;
-}
-
 /*
  * Slate repeats the visible .form_label as a semantic legend. Keep that
  * legend available to assistive technology without displaying it twice.
