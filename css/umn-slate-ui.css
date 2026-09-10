@@ -4291,6 +4291,185 @@
     transition: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Slate Application Widget Tables
+   -------------------------------------------------------------------------- */
+
+/*
+ * Native application widgets retain Slate's required .table, sorting,
+ * row-hover, popup, and widget classes. This adapter supplies the public
+ * table presentation without requiring classes on Slate-owned markup.
+ */
+
+.umn-site-main .form_question[data-type="plugin:widget"] > label {
+  display: block;
+
+  margin: 0 0 var(--umn-space-sm);
+
+  color: var(--umn-color-text);
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.35;
+}
+
+.umn-site-main .form_question[data-type="plugin:widget"] > .form_responses {
+  width: 100%;
+  overflow-x: auto;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.umn-site-main .form_question[data-type="plugin:widget"] table.table {
+  width: 100%;
+
+  color: var(--umn-color-text);
+
+  background: var(--umn-color-white);
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Column headings */
+
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  thead
+  tr.column
+  > th {
+  padding: 0.75rem var(--umn-space-md);
+
+  color: #ffffff;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+  text-align: left;
+  vertical-align: bottom;
+
+  background: var(--umn-color-maroon);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-maroon);
+}
+
+/* Add-item row */
+
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  thead
+  tr.row_hover
+  > td {
+  padding: 0.625rem var(--umn-space-md);
+
+  background: var(--umn-color-background-subtle);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-site-main .form_question[data-type="plugin:widget"] .widget_add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 2rem;
+  padding: 0.375rem 0.75rem;
+
+  color: var(--umn-color-maroon);
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.25;
+  text-decoration: none;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid var(--umn-color-maroon);
+  border-radius: var(--umn-border-radius-sm);
+}
+
+.umn-site-main .form_question[data-type="plugin:widget"] .widget_add:hover {
+  color: var(--umn-color-maroon);
+  text-decoration: none;
+
+  background: var(--umn-color-maroon-subtle);
+}
+
+/* Data rows */
+
+.umn-site-main .form_question[data-type="plugin:widget"] table.table tbody > tr,
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  tbody
+  > tr:nth-child(odd),
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  tbody
+  > tr:nth-child(even) {
+  background: transparent;
+
+  transition: background-color var(--umn-transition-fast);
+}
+
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  tbody
+  > tr
+  > td {
+  padding: 0.75rem var(--umn-space-md);
+
+  text-align: left;
+  vertical-align: top;
+
+  background: transparent;
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  tbody
+  > tr:hover,
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  tbody
+  > tr:hover
+  > td {
+  background: var(--umn-color-maroon-subtle);
+}
+
+.umn-site-main .form_question[data-type="plugin:widget"] table.table tbody a {
+  color: var(--umn-color-maroon);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  tbody
+  a:hover {
+  color: var(--umn-color-maroon-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.umn-site-main
+  .form_question[data-type="plugin:widget"]
+  table.table
+  a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .umn-site-main
+    .form_question[data-type="plugin:widget"]
+    table.table
+    tbody
+    > tr {
+    transition: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Slate Application Actions
    -------------------------------------------------------------------------- */
