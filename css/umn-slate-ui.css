@@ -4433,6 +4433,22 @@ body:has(.umn-account-login) a.social_login_button {
   width: 100%;
   margin: 0;
 }
+/* Slate's account page overrides generic button hover backgrounds. */
+
+.umn-account-login .umn-account-login__button.umn-button--primary {
+  color: var(--umn-color-white) !important;
+
+  background: var(--umn-color-maroon) !important;
+  border-color: var(--umn-color-maroon) !important;
+}
+
+.umn-account-login .umn-account-login__button.umn-button--primary:hover,
+.umn-account-login .umn-account-login__button.umn-button--primary:active {
+  color: var(--umn-color-white) !important;
+
+  background: var(--umn-color-maroon-dark) !important;
+  border-color: var(--umn-color-maroon-dark) !important;
+}
 
 .umn-account-login__note {
   font-size: var(--umn-font-size-sm);
