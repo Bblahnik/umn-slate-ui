@@ -4380,10 +4380,10 @@
   min-height: 2rem;
   padding: 0.375rem 0.75rem;
 
-  color: var(--umn-color-maroon);
+  color: var(--umn-color-maroon) !important;
   font-weight: var(--umn-font-weight-bold);
   line-height: 1.25;
-  text-decoration: none;
+  text-decoration: none !important;
 
   background: var(--umn-color-white);
   border: var(--umn-border-width) solid var(--umn-color-maroon);
@@ -4398,8 +4398,8 @@
   #content
   .form_question[data-type="plugin:widget"]
   a.widget_add:active {
-  color: var(--umn-color-maroon);
-  text-decoration: none;
+  color: var(--umn-color-maroon) !important;
+  text-decoration: none !important;
 
   background: var(--umn-color-maroon-subtle);
 }
