@@ -4737,10 +4737,6 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_multiselect
   select,
-form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_date select,
-form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
-  .form_birthdate
-  select,
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_textarea
   textarea {
