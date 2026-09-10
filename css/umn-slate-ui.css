@@ -4363,8 +4363,19 @@
   background: var(--umn-color-background-subtle);
   border-bottom: var(--umn-border-width) solid var(--umn-color-border);
 }
-
-.umn-site-main .form_question[data-type="plugin:widget"] .widget_add {
+```css
+  .umn-site-main
+  #content
+  .form_question[data-type="plugin:widget"]
+  a.widget_add,
+.umn-site-main
+  #content
+  .form_question[data-type="plugin:widget"]
+  a.widget_add:link,
+.umn-site-main
+  #content
+  .form_question[data-type="plugin:widget"]
+  a.widget_add:visited {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -4382,12 +4393,20 @@
   border-radius: var(--umn-border-radius-sm);
 }
 
-.umn-site-main .form_question[data-type="plugin:widget"] .widget_add:hover {
+.umn-site-main
+  #content
+  .form_question[data-type="plugin:widget"]
+  a.widget_add:hover,
+.umn-site-main
+  #content
+  .form_question[data-type="plugin:widget"]
+  a.widget_add:active {
   color: var(--umn-color-maroon);
   text-decoration: none;
 
   background: var(--umn-color-maroon-subtle);
 }
+```
 
 /* Data rows */
 
