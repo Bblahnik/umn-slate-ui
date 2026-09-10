@@ -4126,7 +4126,7 @@
   outline-offset: 3px;
 }
 /* --------------------------------------------------------------------------
-   Slate Application Summary Table
+   SECTION: Slate Application Summary Table
    -------------------------------------------------------------------------- */
 
 /*
@@ -4339,7 +4339,75 @@
   outline-offset: 3px;
 }
 /* --------------------------------------------------------------------------
-   Slate Application Native Form Modules
+   SECTION: Slate Application Login Options
+   -------------------------------------------------------------------------- */
+
+/*
+ * Slate retains its generated login table so the redirect script can read
+ * the original destination. Hide that table only when the custom login
+ * choices are present; the script can still query hidden table content.
+ */
+
+body:has(.umn-login-options) table.fixed {
+  display: none;
+}
+
+.umn-login-options {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    var(--umn-border-width)
+    minmax(0, 1fr);
+  align-items: stretch;
+  gap: var(--umn-space-xl);
+
+  width: 100%;
+}
+
+.umn-login-options__option {
+  min-width: 0;
+}
+
+.umn-login-options__option > h2 {
+  margin: 0;
+}
+
+.umn-login-options__divider {
+  width: var(--umn-border-width);
+
+  background: var(--umn-color-maroon);
+}
+
+.umn-login-options__actions {
+  --umn-stack-space: var(--umn-space-md);
+}
+
+.umn-login-options__button {
+  flex-direction: column;
+  gap: 0.125rem;
+
+  width: 100%;
+  margin: 0;
+}
+
+.umn-login-options__note {
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-regular);
+  line-height: 1.35;
+}
+
+@media (max-width: 50rem) {
+  .umn-login-options {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--umn-space-xl);
+  }
+
+  .umn-login-options__divider {
+    display: none;
+  }
+}
+/* --------------------------------------------------------------------------
+   SECTION: Slate Application Native Form Modules
    -------------------------------------------------------------------------- */
 
 /*
@@ -4505,7 +4573,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Slate Application Widget Tables
+   SECTION: Slate Application Widget Tables
    -------------------------------------------------------------------------- */
 
 /*
@@ -4697,7 +4765,7 @@
   }
 }
 /* --------------------------------------------------------------------------
-   Slate Application Widget Dialogs
+   SECTION: Slate Application Widget Dialogs
    -------------------------------------------------------------------------- */
 
 /*
@@ -5249,7 +5317,7 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
 }
 
 /* --------------------------------------------------------------------------
-   Slate Application Actions
+   SECTION: Slate Application Actions
    -------------------------------------------------------------------------- */
 
 /*
