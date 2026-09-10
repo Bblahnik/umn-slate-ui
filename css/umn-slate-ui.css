@@ -4125,6 +4125,176 @@
   outline: 3px solid var(--umn-color-maroon);
   outline-offset: 3px;
 }
+/* --------------------------------------------------------------------------
+   Slate Application Summary Table
+   -------------------------------------------------------------------------- */
+
+/*
+ * The built-in /apply landing page does not expose the opt-in .umn-table
+ * class or a custom wrapper. Identify its application summary through
+ * Slate's .table.nohighlight classes and semantic grouped heading row.
+ * Preserve Slate's authored column widths and no-highlight behavior.
+ */
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"]) {
+  width: 100%;
+
+  color: var(--umn-color-text);
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Grouped table title */
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > thead
+  > tr.header
+  > th {
+  padding: 0.625rem var(--umn-space-md);
+
+  color: var(--umn-color-maroon);
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+  text-align: left;
+
+  background: var(--umn-color-maroon-subtle);
+  border-top: 0.25rem solid var(--umn-color-maroon);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-maroon-border);
+}
+
+/* Column headings */
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > thead
+  > tr.column
+  > th {
+  padding: 0.75rem var(--umn-space-md);
+
+  color: var(--umn-color-white);
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+  text-align: left;
+  vertical-align: bottom;
+
+  background: var(--umn-color-maroon);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-maroon);
+}
+
+/* Application-count information row */
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > thead
+  > tr:not(.header):not(.column)
+  > td {
+  padding: 0.625rem var(--umn-space-md);
+
+  color: var(--umn-color-text);
+
+  background: var(--umn-color-background-subtle);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+/* Application rows */
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  > tr
+  > td {
+  padding: 0.75rem var(--umn-space-md);
+
+  color: var(--umn-color-text);
+  line-height: 1.4;
+  text-align: left;
+  vertical-align: top;
+
+  background: var(--umn-color-white);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  > tr:last-child
+  > td {
+  border-bottom: 0;
+}
+
+/* Application detail links */
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  a,
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  a:link,
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  a:visited {
+  color: var(--umn-color-maroon);
+  font-weight: var(--umn-font-weight-medium);
+  text-decoration: none;
+}
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  a:hover,
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  a:active {
+  color: var(--umn-color-maroon-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
+}
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Slate supplies the program description through an inline-styled span. */
+
+.umn-site-main
+  table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+  > tbody
+  td[scope="row"]
+  > div
+  > span {
+  margin-left: var(--umn-space-sm) !important;
+
+  color: var(--umn-color-text-muted) !important;
+}
+
+@media (max-width: 42rem) {
+  .umn-site-main
+    table.table.nohighlight:has(> thead > tr.header > th[scope="colgroup"])
+    > tbody
+    td[scope="row"]
+    > div
+    > span {
+    display: block;
+
+    margin-top: var(--umn-space-xs);
+    margin-left: 0 !important;
+  }
+}
 
 /* --------------------------------------------------------------------------
    Slate Application Native Form Modules
