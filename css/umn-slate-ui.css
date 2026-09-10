@@ -4440,6 +4440,7 @@ body:has(.umn-account-login) a.social_login_button {
 
   background: var(--umn-color-maroon) !important;
   border-color: var(--umn-color-maroon) !important;
+  opacity: 1 !important;
 }
 
 .umn-account-login .umn-account-login__button.umn-button--primary:hover,
