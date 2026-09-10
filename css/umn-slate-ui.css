@@ -4408,6 +4408,49 @@ body:has(.umn-login-options) table.fixed {
   }
 }
 /* --------------------------------------------------------------------------
+   SECTION: Slate Account Login Introduction
+   -------------------------------------------------------------------------- */
+
+/*
+ * The /account/login page supplies Slate's native account form after this
+ * introductory content. Hide only Slate's redundant social-login links;
+ * do not hide its generated login table or controls.
+ */
+
+body:has(.umn-account-login) a.social_login_button {
+  display: none;
+}
+
+.umn-account-login {
+  width: 100%;
+  margin-top: var(--umn-space-lg);
+}
+
+.umn-account-login__button {
+  flex-direction: column;
+  gap: 0.125rem;
+
+  width: 100%;
+  margin: 0;
+}
+
+.umn-account-login__note {
+  font-size: var(--umn-font-size-sm);
+  font-weight: var(--umn-font-weight-regular);
+  line-height: 1.35;
+}
+
+.umn-account-login__native-heading {
+  margin-top: var(--umn-space-xl);
+  padding-top: var(--umn-space-lg);
+
+  border-top: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+.umn-account-login__native-heading > h2 {
+  margin: 0;
+}
+/* --------------------------------------------------------------------------
    SECTION: Slate Application Native Form Modules
    -------------------------------------------------------------------------- */
 
