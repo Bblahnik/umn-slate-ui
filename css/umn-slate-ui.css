@@ -4560,7 +4560,88 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_label {
   font-weight: var(--umn-font-weight-medium);
   line-height: 1.35;
 }
+/* Dialog form section headings */
 
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_header
+  .form_label {
+  margin: var(--umn-space-lg) 0 var(--umn-space-sm);
+  padding: 0 0 var(--umn-space-sm);
+
+  color: var(--umn-color-maroon);
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+
+  background: transparent;
+  border-bottom: var(--umn-border-width) solid var(--umn-color-maroon-border);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_header:first-child
+  .form_label {
+  margin-top: 0;
+}
+
+/* Dialog date and birthdate groups */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_date
+  fieldset,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_birthdate
+  fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+/*
+ * Slate repeats the visible .form_label as a semantic legend. Keep that
+ * legend available to assistive technology without displaying it twice.
+ */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_date legend,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_birthdate
+  legend {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_date
+  .form_responses,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_birthdate
+  .form_responses {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-sm);
+}
+
+/* Slate supplies inline left margins; gap now owns the spacing. */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_date select,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_birthdate
+  select {
+  margin-left: 0 !important;
+}
 /* Dialog controls */
 
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_text input,
@@ -4570,6 +4651,10 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   select,
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_multiselect
+  select,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_date select,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_birthdate
   select,
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_textarea
@@ -4617,6 +4702,12 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   select:focus,
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_multiselect
+  select:focus,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_date
+  select:focus,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_birthdate
   select:focus,
 form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   .form_textarea
