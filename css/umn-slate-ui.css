@@ -6739,9 +6739,11 @@ html[data-umn-theme="dark"] {
   gap: 0.125rem;
 
   margin: 0;
-  padding: 0;
+  padding: 0 var(--umn-space-xs) 0 0;
 
   list-style: none;
+
+  box-sizing: border-box;
 }
 
 #side #menu li {
