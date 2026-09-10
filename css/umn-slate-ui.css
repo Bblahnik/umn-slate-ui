@@ -6691,6 +6691,194 @@ html[data-umn-theme="dark"] {
   }
 }
 /* ==========================================================================
+   SECTION: Slate Application Side Navigation
+   ========================================================================== */
+
+/*
+ * Styles Slate's generated application navigation. Slate owns this markup,
+ * so the native #side and #menu IDs provide the narrowest dependable scope.
+ *
+ * I would have liked to put this section in it's own extension file, but the Slate application doesn't allow for additional CSS files to be loaded. So, this is the best place to put it.
+ *
+ * Expected markup:
+ *
+ * <div id="side">
+ *   <div id="menu" role="navigation">
+ *     <ul>
+ *       <li><a href="...">Page</a></li>
+ *       <li><a class="selected" aria-current="page">Current page</a></li>
+ *     </ul>
+ *   </div>
+ * </div>
+ */
+
+/* --------------------------------------------------------------------------
+   Navigation Container
+   -------------------------------------------------------------------------- */
+
+#side {
+  background: transparent;
+}
+
+#side #menu {
+  width: 100%;
+  padding: var(--umn-space-xs);
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid var(--umn-color-border);
+  border-top: 0.25rem solid var(--umn-color-maroon);
+  border-radius: var(--umn-border-radius-md);
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#side #menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+#side #menu li {
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Navigation Links
+   -------------------------------------------------------------------------- */
+
+#side #menu a,
+#side #menu a:link,
+#side #menu a:visited {
+  display: block;
+
+  padding: 0.625rem 0.75rem;
+
+  color: var(--umn-color-text);
+  font-family: var(--umn-font-family-body);
+  font-size: var(--umn-font-size-md);
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.35;
+  text-decoration: none;
+
+  background: transparent;
+  border: 0;
+  border-left: 0.1875rem solid transparent;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+
+  transition:
+    color var(--umn-transition-fast),
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast);
+}
+
+#side #menu a:hover,
+#side #menu a:active {
+  color: var(--umn-color-maroon-dark);
+  text-decoration: none;
+
+  background: var(--umn-color-maroon-subtle);
+  border-left-color: var(--umn-color-maroon-border);
+}
+
+#side #menu a:focus-visible {
+  outline: 2px solid var(--umn-color-maroon);
+  outline-offset: -2px;
+}
+
+/* --------------------------------------------------------------------------
+   Current Page
+   -------------------------------------------------------------------------- */
+
+/*
+ * Support both Slate's generated .selected class and the semantic
+ * aria-current attribute present in current application markup.
+ */
+
+#side #menu a.selected,
+#side #menu a[aria-current="page"],
+#side #menu a.selected:link,
+#side #menu a.selected:visited,
+#side #menu a[aria-current="page"]:link,
+#side #menu a[aria-current="page"]:visited {
+  color: #ffffff;
+  font-weight: var(--umn-font-weight-bold);
+
+  background: var(--umn-color-maroon);
+  border-left-color: var(--umn-color-gold);
+}
+
+#side #menu a.selected:hover,
+#side #menu a.selected:active,
+#side #menu a[aria-current="page"]:hover,
+#side #menu a[aria-current="page"]:active {
+  color: #ffffff;
+
+  background: var(--umn-color-maroon-dark);
+  border-left-color: var(--umn-color-gold);
+}
+
+#side #menu a.selected:focus-visible,
+#side #menu a[aria-current="page"]:focus-visible {
+  outline-color: var(--umn-color-gold);
+}
+
+/* --------------------------------------------------------------------------
+   Dark Theme
+   -------------------------------------------------------------------------- */
+
+html.darkmode #side #menu,
+html[data-theme="darkmode"] #side #menu,
+html[data-theme^="twilight"] #side #menu,
+html[data-umn-theme="dark"] #side #menu {
+  background: var(--umn-color-background);
+}
+
+html.darkmode #side #menu a:hover,
+html.darkmode #side #menu a:active,
+html[data-theme="darkmode"] #side #menu a:hover,
+html[data-theme="darkmode"] #side #menu a:active,
+html[data-theme^="twilight"] #side #menu a:hover,
+html[data-theme^="twilight"] #side #menu a:active,
+html[data-umn-theme="dark"] #side #menu a:hover,
+html[data-umn-theme="dark"] #side #menu a:active {
+  color: #ffffff;
+  background: rgba(122, 0, 25, 0.45);
+  border-left-color: var(--umn-color-maroon);
+}
+
+html.darkmode #side #menu a.selected,
+html.darkmode #side #menu a[aria-current="page"],
+html[data-theme="darkmode"] #side #menu a.selected,
+html[data-theme="darkmode"] #side #menu a[aria-current="page"],
+html[data-theme^="twilight"] #side #menu a.selected,
+html[data-theme^="twilight"] #side #menu a[aria-current="page"],
+html[data-umn-theme="dark"] #side #menu a.selected,
+html[data-umn-theme="dark"] #side #menu a[aria-current="page"] {
+  color: #ffffff;
+  background: var(--umn-color-maroon);
+  border-left-color: var(--umn-color-gold);
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility / Reduced Motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  #side #menu a {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
    SECTION: Accessibility / Reduced Motion
    ========================================================================== */
 
