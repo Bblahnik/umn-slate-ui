@@ -4388,7 +4388,6 @@ body:has(.umn-login-options) table.fixed {
   gap: 0.125rem;
 
   width: 100%;
-  margin: 0;
 }
 
 .umn-login-options__note {
