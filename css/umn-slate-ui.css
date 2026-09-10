@@ -4484,6 +4484,292 @@
     transition: none;
   }
 }
+/* --------------------------------------------------------------------------
+   Slate Application Widget Dialogs
+   -------------------------------------------------------------------------- */
+
+/*
+ * Slate renders application widget forms in draggable dialogs outside the
+ * normal .umn-site-main branding wrapper. The loaded widget form supplies a
+ * dependable signature through data-fw-form, data-ready, and cmd=widget.
+ *
+ * Keep Slate in control of dialog position, stacking, dimensions, dragging,
+ * close behavior, validation, and form submission. This adapter changes only
+ * presentation inside the generated dialog.
+ */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] {
+  color: var(--umn-color-text);
+  font-family: var(--umn-font-family-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Dialog header */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .header.dialog_closeable {
+  padding: 0.75rem 3rem 0.75rem var(--umn-space-md);
+
+  color: var(--umn-color-maroon);
+  font-size: 1.125rem;
+  font-weight: var(--umn-font-weight-bold);
+  line-height: 1.3;
+
+  background: var(--umn-color-maroon-subtle);
+  border-top: 0.25rem solid var(--umn-color-maroon);
+  border-bottom: var(--umn-border-width) solid var(--umn-color-maroon-border);
+
+  box-sizing: border-box;
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .header
+  > .dialog_close:focus-visible {
+  outline: 2px solid var(--umn-color-maroon);
+  outline-offset: 2px;
+}
+
+/* Dialog content */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] > .content {
+  padding: var(--umn-space-md);
+
+  color: var(--umn-color-text);
+  background: var(--umn-color-white);
+
+  box-sizing: border-box;
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_question {
+  margin-bottom: var(--umn-space-md);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_question:last-child {
+  margin-bottom: 0;
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_label {
+  display: block;
+
+  margin-bottom: var(--umn-space-xs);
+
+  color: var(--umn-color-text);
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.35;
+}
+
+/* Dialog controls */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_text input,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .form_secret input,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_select
+  select,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_multiselect
+  select,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_textarea
+  textarea {
+  width: 100%;
+  max-width: 32rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.625rem;
+
+  color: var(--umn-color-text);
+  font-family: inherit !important;
+  font-size: 1rem;
+  line-height: 1.3;
+
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid #b8b8b8;
+  border-radius: var(--umn-border-radius-sm);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color var(--umn-transition-fast),
+    box-shadow var(--umn-transition-fast);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_textarea
+  textarea {
+  min-height: 7rem;
+
+  line-height: 1.45;
+  resize: vertical;
+}
+
+/* Dialog control focus */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_text
+  input:focus,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_secret
+  input:focus,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_select
+  select:focus,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_multiselect
+  select:focus,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  .form_textarea
+  textarea:focus {
+  outline: none;
+
+  border-color: var(--umn-color-maroon);
+  box-shadow: 0 0 0 2px rgba(122, 0, 25, 0.16);
+}
+
+/* Disabled controls */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] input:disabled,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] textarea:disabled,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] select:disabled {
+  cursor: not-allowed;
+
+  background: var(--umn-color-background-subtle);
+  opacity: 0.65;
+}
+
+/* Checkbox and radio controls */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  input[type="checkbox"],
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  input[type="radio"] {
+  accent-color: var(--umn-color-maroon);
+}
+
+/* Dialog errors */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] .error {
+  margin-bottom: var(--umn-space-md);
+  padding: var(--umn-space-sm);
+
+  color: var(--umn-color-danger-text);
+
+  background: var(--umn-color-danger-subtle);
+  border: var(--umn-border-width) solid var(--umn-color-danger-border);
+  border-left: 0.25rem solid var(--umn-color-danger);
+  border-radius: var(--umn-border-radius-sm);
+}
+
+/* Dialog actions: Cancel is secondary; .default Save is primary */
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] > .action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-sm);
+
+  margin: 0;
+  padding: var(--umn-space-md);
+
+  background: var(--umn-color-background-subtle);
+  border-top: var(--umn-border-width) solid var(--umn-color-border);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .action
+  > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 2.5rem;
+  margin: 0;
+  padding: 0.5rem var(--umn-space-md);
+
+  color: var(--umn-color-maroon);
+  font-family: inherit !important;
+  font-size: 1rem;
+  font-weight: var(--umn-font-weight-medium);
+  line-height: 1.25;
+  text-align: center;
+
+  cursor: pointer;
+
+  appearance: none;
+  background: var(--umn-color-white);
+  border: var(--umn-border-width) solid var(--umn-color-maroon);
+  border-radius: var(--umn-border-radius-sm);
+
+  transition:
+    background-color var(--umn-transition-fast),
+    border-color var(--umn-transition-fast),
+    color var(--umn-transition-fast),
+    transform var(--umn-transition-fast);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .action
+  > button:hover {
+  color: var(--umn-color-maroon);
+
+  background: var(--umn-color-maroon-subtle);
+  border-color: var(--umn-color-maroon);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .action
+  > button.default {
+  color: #ffffff;
+
+  background: var(--umn-color-maroon);
+  border-color: var(--umn-color-maroon);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .action
+  > button.default:hover {
+  color: #ffffff;
+
+  background: var(--umn-color-maroon-dark);
+  border-color: var(--umn-color-maroon-dark);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .action
+  > button:focus-visible {
+  outline: 3px solid var(--umn-color-maroon);
+  outline-offset: 3px;
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .action
+  > button:active {
+  transform: translateY(1px);
+}
+
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .action
+  > button:disabled,
+form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+  > .action
+  > button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] input,
+  form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] textarea,
+  form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"] select,
+  form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
+    > .action
+    > button {
+    transition: none;
+  }
+}
 
 /* --------------------------------------------------------------------------
    Slate Application Actions
