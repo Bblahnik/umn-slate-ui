@@ -7157,9 +7157,16 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
  *       Section Title
  *     </h2>
  *
- *     <p class="umn-section-header__description">
+ *      *     <p class="umn-section-header__description">
  *       Optional supporting text.
  *     </p>
+ *
+ *     <div class="umn-section-header__meta">
+ *       <div class="umn-section-header__meta-item">
+ *         <strong>Label:</strong>
+ *         <span>Value</span>
+ *       </div>
+ *     </div>
  *   </div>
  *
  *   <div class="umn-section-header__actions">
@@ -7224,6 +7231,30 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   font-size: var(--umn-font-size-sm);
   line-height: 1.45;
 }
+/* --------------------------------------------------------------------------
+   Metadata
+   -------------------------------------------------------------------------- */
+
+.umn-section-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--umn-space-xs) var(--umn-space-lg);
+
+  margin-top: var(--umn-space-sm);
+
+  color: var(--umn-color-text-muted);
+  font-size: var(--umn-font-size-sm);
+  line-height: 1.45;
+}
+
+.umn-section-header__meta-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--umn-space-xs);
+
+  min-width: 0;
+}
 
 /* --------------------------------------------------------------------------
    Actions
@@ -7242,7 +7273,13 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
    Public Theme
    -------------------------------------------------------------------------- */
 
-.umn-theme-public .umn-section-header {
+/*
+ * Support the public theme on either an ancestor or directly on the
+ * component, which is useful with Slate's CSS Class Name field.
+ */
+
+.umn-theme-public .umn-section-header,
+.umn-theme-public.umn-section-header {
   gap: var(--umn-space-lg);
 
   padding-bottom: var(--umn-space-md);
@@ -7253,7 +7290,24 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
   font-size: 1.5rem;
 }
 
+/*
+ * Slate's #content heading rule has greater specificity than the regular
+ * public-theme selector. Preserve the public title treatment whether the
+ * theme is outside, on, or inside #content.
+ */
+
+.umn-theme-public #content .umn-section-header__title,
+#content.umn-theme-public .umn-section-header__title,
+#content .umn-theme-public .umn-section-header__title {
+  color: var(--umn-color-maroon);
+  font-size: 1.5rem;
+}
+
 .umn-theme-public .umn-section-header__description {
+  font-size: var(--umn-font-size-md);
+}
+
+.umn-theme-public .umn-section-header__meta {
   font-size: var(--umn-font-size-md);
 }
 /* --------------------------------------------------------------------------
