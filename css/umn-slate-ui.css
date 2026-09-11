@@ -669,6 +669,12 @@
 
   /* Semantic and accent colors */
   --umn-color-neutral-accent: #777777;
+
+  --umn-color-success: #1f6f3e;
+  --umn-color-success-subtle: #e6f4ea;
+  --umn-color-success-border: #a8d5b5;
+  --umn-color-success-text: #1f6f3e;
+
   --umn-color-danger: #b42318;
   --umn-color-danger-dark: #8f1c14;
   --umn-color-danger-subtle: #fdf0ef;
@@ -1688,6 +1694,7 @@
  * - info-primary
  * - info-secondary
  * - info-alternate
+ * - success
  * - warning
  * - danger
  *
@@ -1698,6 +1705,10 @@
  *
  * <span class="umn-badge umn-badge--info-primary">
  *   In Review
+ * </span>
+ * 
+ * <span class="umn-badge umn-badge--success">
+ *   Enrolled
  * </span>
  *
  * <span class="umn-badge umn-badge--warning umn-badge--pill">
@@ -1748,6 +1759,11 @@
   --umn-badge-background: #f2f5f4;
   --umn-badge-border-color: #c4d6d0;
   --umn-badge-color: #29453d;
+}
+.umn-badge--success {
+  --umn-badge-background: var(--umn-color-success-subtle);
+  --umn-badge-border-color: var(--umn-color-success-border);
+  --umn-badge-color: var(--umn-color-success-text);
 }
 
 .umn-badge--warning {
@@ -1801,6 +1817,11 @@
   --umn-badge-background: #fff9e6;
   --umn-badge-border-color: #e6cc72;
   --umn-badge-color: #594300;
+}
+.umn-theme-public .umn-badge--success {
+  --umn-badge-background: var(--umn-color-success-subtle);
+  --umn-badge-border-color: var(--umn-color-success-border);
+  --umn-badge-color: var(--umn-color-success-text);
 }
 
 .umn-theme-public .umn-badge--warning {
@@ -7883,8 +7904,8 @@ html[data-umn-theme="dark"] .umn-tooltip::after {
    -------------------------------------------------------------------------- */
 
 .umn-status--received {
-  --umn-status-icon-background: #e6f4ea;
-  --umn-status-icon-color: #1f6f3e;
+  --umn-status-icon-background: var(--umn-color-success-subtle);
+  --umn-status-icon-color: var(--umn-color-success);
 }
 
 /* --------------------------------------------------------------------------
