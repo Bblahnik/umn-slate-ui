@@ -7178,7 +7178,7 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
  *       Section Title
  *     </h2>
  *
- *      *     <p class="umn-section-header__description">
+ *     <p class="umn-section-header__description">
  *       Optional supporting text.
  *     </p>
  *
@@ -7343,6 +7343,210 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
 
   .umn-section-header__actions {
     justify-content: flex-start;
+  }
+}
+/* ==========================================================================
+   SECTION: Feature Header
+   ========================================================================== */
+
+/*
+ * Optional media composition for a page or record header.
+ *
+ * The component keeps text and media in separate regions so headings,
+ * metadata, links, and actions remain readable across images, color themes,
+ * viewport sizes, zoom levels, and print.
+ *
+ * Place the content before the media in the source so the page or record
+ * information remains first in the reading order. The media is optional;
+ * a content-only feature header remains full width. This supports Slate
+ * Liquid conditions that render the media and a layout modifier only when
+ * an image URL is available.
+ *
+ * Default: stacked content followed by shallow, wide media
+ * Modifier: .umn-feature-header--split
+ * Modifier: .umn-feature-header--compact
+ *
+ * Structure:
+ *
+ * <div class="umn-feature-header umn-feature-header--split">
+ *   <div class="umn-feature-header__content">
+ *     <header class="umn-section-header">
+ *       ...
+ *     </header>
+ *   </div>
+ *
+ *   <div class="umn-feature-header__media">
+ *     <img
+ *       class="umn-feature-header__image"
+ *       src="..."
+ *       alt=""
+ *     />
+ *   </div>
+ * </div>
+ *
+ * Use alt="" when the image is decorative. Supply meaningful alternative
+ * text when the image conveys information not available in nearby content.
+ * Adjust an individual image's focal point with:
+ *
+ *   style="--umn-feature-header-image-position: center 35%;"
+ */
+
+/* --------------------------------------------------------------------------
+   Base / Stacked Layout
+   -------------------------------------------------------------------------- */
+
+.umn-feature-header {
+  --umn-feature-header-gap: var(--umn-space-md);
+  --umn-feature-header-media-background: var(--umn-color-background-subtle);
+  --umn-feature-header-media-border-color: var(--umn-color-border);
+  --umn-feature-header-media-radius: var(--umn-border-radius-md);
+  --umn-feature-header-image-position: center;
+  --umn-feature-header-compact-media-size: 7rem;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--umn-feature-header-gap);
+
+  width: 100%;
+  min-width: 0;
+}
+
+.umn-feature-header__content {
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Media
+   -------------------------------------------------------------------------- */
+
+.umn-feature-header__media {
+  overflow: hidden;
+
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 3 / 1;
+
+  background: var(--umn-feature-header-media-background);
+  border: var(--umn-border-width) solid
+    var(--umn-feature-header-media-border-color);
+  border-radius: var(--umn-feature-header-media-radius);
+
+  box-sizing: border-box;
+}
+
+.umn-feature-header__media > picture {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.umn-feature-header__image,
+.umn-feature-header__media > picture > img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: var(--umn-feature-header-image-position);
+}
+
+/* --------------------------------------------------------------------------
+   Split Layout
+   -------------------------------------------------------------------------- */
+
+.umn-feature-header--split {
+  grid-template-columns: minmax(0, 3fr) minmax(12rem, 2fr);
+  align-items: start;
+}
+
+.umn-feature-header--split .umn-feature-header__content {
+  align-self: center;
+}
+
+.umn-feature-header--split .umn-feature-header__media {
+  aspect-ratio: 4 / 3;
+}
+
+/* --------------------------------------------------------------------------
+   Compact Layout
+   -------------------------------------------------------------------------- */
+
+.umn-feature-header--compact {
+  grid-template-columns:
+    minmax(0, 1fr)
+    var(--umn-feature-header-compact-media-size);
+  align-items: center;
+  gap: var(--umn-space-sm);
+}
+
+.umn-feature-header--compact .umn-feature-header__media {
+  aspect-ratio: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Public Theme
+   -------------------------------------------------------------------------- */
+
+/*
+ * Support the public theme on either an ancestor or directly on the
+ * component, matching the core section-header convention.
+ */
+
+.umn-theme-public .umn-feature-header,
+.umn-theme-public.umn-feature-header {
+  --umn-feature-header-gap: var(--umn-space-lg);
+  --umn-feature-header-compact-media-size: 8rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 48rem) {
+  .umn-feature-header--split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .umn-feature-header--split .umn-feature-header__content {
+    align-self: auto;
+  }
+
+  .umn-feature-header--split .umn-feature-header__media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 36rem) {
+  .umn-feature-header--compact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--umn-feature-header-gap);
+  }
+
+  .umn-feature-header__media,
+  .umn-feature-header--compact .umn-feature-header__media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Print
+   -------------------------------------------------------------------------- */
+
+/*
+ * Feature imagery is supplementary to the header content and is omitted
+ * from print so it does not consume space or obscure the page structure.
+ */
+
+@media print {
+  .umn-feature-header {
+    display: block;
+  }
+
+  .umn-feature-header__media {
+    display: none;
   }
 }
 /* ==========================================================================
