@@ -7469,7 +7469,14 @@ form[data-fw-form="1"][data-ready="1"][action*="cmd=widget"]
 .umn-feature-header--split .umn-feature-header__media {
   aspect-ratio: 4 / 3;
 }
+/*
+ * Allow conditional templates to retain the split modifier when no media
+ * is rendered. The content then spans the complete feature-header width.
+ */
 
+.umn-feature-header--split > .umn-feature-header__content:only-child {
+  grid-column: 1 / -1;
+}
 /* --------------------------------------------------------------------------
    Compact Layout
    -------------------------------------------------------------------------- */
