@@ -2060,7 +2060,7 @@
 
   color: inherit;
   font-size: 1rem;
-  font-weight: var(--umn-font-weight-bold);
+  font-weight: var(--umn-font-weight-medium);
   line-height: 1.3;
 }
 
@@ -2138,7 +2138,6 @@
 
 .umn-theme-public .umn-card__title {
   color: var(--umn-color-maroon);
-  font-size: 1.125rem;
 }
 
 /* ==========================================================================
