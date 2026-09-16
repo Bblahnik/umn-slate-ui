@@ -2055,7 +2055,8 @@
   border-bottom: var(--umn-border-width) solid var(--umn-card-border-color);
 }
 
-.umn-card__title {
+.umn-card .umn-card__title,
+.umn-theme-public .umn-card .umn-card__title {
   margin: 0;
 
   color: inherit;
@@ -2136,7 +2137,7 @@
   padding: var(--umn-space-sm);
 }
 
-.umn-theme-public .umn-card__title {
+.umn-theme-public .umn-card .umn-card__title {
   color: var(--umn-color-maroon);
 }
 
