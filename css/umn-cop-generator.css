@@ -1,0 +1,64 @@
+#cop-housing-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+#cop-housing-tabs:empty {
+  display: none;
+}
+
+#cop-housing-tabs button {
+  background: #fff;
+  color: #7a0019;
+  border: 1px solid #7a0019;
+  border-radius: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+#cop-housing-tabs button[aria-selected="true"] {
+  background: #7a0019;
+  color: #fff;
+}
+
+#cop-housing-tabs button:focus-visible {
+  outline: 2px solid #7a0019;
+  outline-offset: 3px;
+}
+
+#cop-housing [hidden] {
+  display: none !important;
+}
+
+@media print {
+  #cop-track-form,
+  #cop-html-export,
+  #cop-housing-tabs {
+    display: none !important;
+  }
+
+  #cop-housing [data-cop-panel][hidden] {
+    display: block !important;
+  }
+
+  #cop-housing [data-cop-panel] + [data-cop-panel] {
+    break-before: page;
+  }
+
+  #cop-housing h2,
+  #cop-housing h3,
+  #cop-housing caption {
+    break-after: avoid;
+  }
+
+  #cop-housing tr {
+    break-inside: avoid;
+  }
+
+  #cop-housing thead {
+    display: table-header-group;
+  }
+}
