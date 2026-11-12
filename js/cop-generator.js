@@ -330,6 +330,8 @@
       "caption { font-size: 10pt; font-weight: bold; padding: 2pt 0; }",
       "tr { break-inside: avoid; page-break-inside: avoid; }",
       "th, td { font: inherit; border: 0.5pt solid #aaa; padding: 1.5pt 4pt; text-align: left; vertical-align: top; }",
+      "tr > :not(:last-child) { border-right: none; }",
+      "tr > :not(:first-child) { border-left: none; }",
       "th, .total-row { font-weight: bold; }",
       "th:nth-child(2), td:nth-child(2) { text-align: right; white-space: nowrap; }",
       "small { font-size: 8pt; }",
