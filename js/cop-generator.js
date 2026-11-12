@@ -288,45 +288,85 @@
     });
     if (!panel) return;
 
+    var pageWidth = 8.5;
+    var pageHeight = 11;
+    var margin = 0.4;
+    var contentWidth = pageWidth - 2 * margin;
     var frame = document.createElement("iframe");
     frame.title = "Cost of Participation print layout";
     frame.setAttribute("aria-hidden", "true");
     frame.tabIndex = -1;
     frame.style.cssText =
-      "position:fixed;width:1px;height:1px;left:-9999px;border:0";
+      "position:fixed;height:1px;left:-9999px;top:0;border:0";
+    frame.style.width = contentWidth + "in";
     document.body.appendChild(frame);
 
     var printWindow = frame.contentWindow;
     var printDocument = frame.contentDocument;
+    printDocument.open();
+    printDocument.write(
+      "<!doctype html><html><head></head><body></body></html>",
+    );
+    printDocument.close();
     printDocument.title = "Cost of Participation";
     printDocument.documentElement.lang = document.documentElement.lang || "en";
+    var fontSource = panel.querySelector("td, th") || panel;
+    printDocument.body.style.fontFamily =
+      window.getComputedStyle(fontSource).fontFamily + ", Arial, sans-serif";
 
     var style = printDocument.createElement("style");
     style.textContent = [
-      "@page { size: letter portrait; margin: 0.4in; }",
-      "body { margin: 0; color: #000; font: 9pt/1.15 Arial, sans-serif; }",
+      "@page { size: letter portrait; margin: " + margin + "in; }",
+      "body { margin: 0; color: #000; font-size: 9pt; line-height: 1.15; }",
+      ".cop-print-layout { display: flow-root; width: " +
+        contentWidth +
+        "in; overflow-wrap: anywhere; }",
       "h1, h2, h3, h4, p, ul, ol { margin: 0 0 2pt; }",
       "h1 { font-size: 13pt; }",
       "h2 { font-size: 11pt; }",
       "h3, h4 { font-size: 10pt; }",
       "ul, ol { padding-left: 15pt; }",
-      "table { width: 100%; border-collapse: collapse; margin: 0 0 4pt; }",
+      "table { width: 100%; border-collapse: collapse; margin: 0 0 4pt; font: inherit; }",
+      "caption { font-size: 10pt; font-weight: bold; padding: 2pt 0; }",
       "tr { break-inside: avoid; page-break-inside: avoid; }",
-      "th, td { border: 0.5pt solid #aaa; padding: 2pt 4pt; text-align: left; vertical-align: top; }",
-      "td:nth-child(2) { text-align: right; white-space: nowrap; }",
+      "th, td { font: inherit; border: 0.5pt solid #aaa; padding: 1.5pt 4pt; text-align: left; vertical-align: top; }",
+      "th, .total-row { font-weight: bold; }",
+      "th:nth-child(2), td:nth-child(2) { text-align: right; white-space: nowrap; }",
       "small { font-size: 8pt; }",
-      "td small { display: block; }",
-      ".total-row { font-weight: bold; }",
+      "th small, td small { display: block; font-weight: normal; }",
     ].join("\n");
     printDocument.head.appendChild(style);
 
     // Copy the live panel so the printout uses its displayed amounts and notes.
-    var printPanel = printDocument.importNode(panel, true);
-    printDocument.body.appendChild(printPanel);
+    var sheet = printDocument.createElement("div");
+    var layout = printDocument.createElement("div");
+    layout.className = "cop-print-layout";
+    layout.appendChild(printDocument.importNode(panel, true));
+    sheet.appendChild(layout);
+    printDocument.body.appendChild(sheet);
 
-    printWindow.addEventListener("afterprint", function () {
-      frame.remove();
-    }, { once: true });
+    // Leave a little room for rounding and differences in print margins.
+    var availableHeight = (pageHeight - 2 * margin - 0.15) * 96;
+    var widthScale = layout.clientWidth / layout.scrollWidth;
+    var scale = Math.min(1, availableHeight / layout.offsetHeight, widthScale);
+    if (scale < 1) {
+      // Match the space reserved for pagination to the scaled content.
+      layout.style.width =
+        (contentWidth * Math.min(1, widthScale)) / scale + "in";
+      layout.style.transformOrigin = "top left";
+      layout.style.transform = "scale(" + scale + ")";
+      sheet.style.height =
+        Math.ceil(layout.getBoundingClientRect().height) + "px";
+      sheet.style.overflow = "hidden";
+    }
+
+    printWindow.addEventListener(
+      "afterprint",
+      function () {
+        frame.remove();
+      },
+      { once: true },
+    );
     printWindow.print();
   }
 
