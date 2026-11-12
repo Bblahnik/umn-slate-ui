@@ -326,7 +326,7 @@
       "h2 { font-size: 11pt; }",
       "h3, h4 { font-size: 10pt; }",
       "ul, ol { padding-left: 15pt; }",
-      "table { width: 100%; border-collapse: collapse; margin: 0 0 4pt; font: inherit; }",
+      "table { width: 100%; border-collapse: collapse; margin: 9pt 0 0; font: inherit; }",
       "caption { font-size: 10pt; font-weight: bold; padding: 2pt 0; }",
       "tr { break-inside: avoid; page-break-inside: avoid; }",
       "th, td { font: inherit; border: 0.5pt solid #aaa; padding: 1.5pt 4pt; text-align: left; vertical-align: top; }",
