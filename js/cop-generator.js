@@ -282,11 +282,57 @@
     field.select();
   }
 
+  function printHousingOption() {
+    var panel = panels.find(function (option) {
+      return !option.hidden;
+    });
+    if (!panel) return;
+
+    var frame = document.createElement("iframe");
+    frame.title = "Cost of Participation print layout";
+    frame.setAttribute("aria-hidden", "true");
+    frame.tabIndex = -1;
+    frame.style.cssText =
+      "position:fixed;width:1px;height:1px;left:-9999px;border:0";
+    document.body.appendChild(frame);
+
+    var printWindow = frame.contentWindow;
+    var printDocument = frame.contentDocument;
+    printDocument.title = "Cost of Participation";
+    printDocument.documentElement.lang = document.documentElement.lang || "en";
+
+    var style = printDocument.createElement("style");
+    style.textContent = [
+      "@page { size: letter portrait; margin: 0.4in; }",
+      "body { margin: 0; color: #000; font: 9pt/1.15 Arial, sans-serif; }",
+      "h1, h2, h3, h4, p, ul, ol { margin: 0 0 2pt; }",
+      "h1 { font-size: 13pt; }",
+      "h2 { font-size: 11pt; }",
+      "h3, h4 { font-size: 10pt; }",
+      "ul, ol { padding-left: 15pt; }",
+      "table { width: 100%; border-collapse: collapse; margin: 0 0 4pt; }",
+      "tr { break-inside: avoid; page-break-inside: avoid; }",
+      "th, td { border: 0.5pt solid #aaa; padding: 2pt 4pt; text-align: left; vertical-align: top; }",
+      "td:nth-child(2) { text-align: right; white-space: nowrap; }",
+      "small { font-size: 8pt; }",
+      "td small { display: block; }",
+      ".total-row { font-weight: bold; }",
+    ].join("\n");
+    printDocument.head.appendChild(style);
+
+    // Copy the live panel so the printout uses its displayed amounts and notes.
+    var printPanel = printDocument.importNode(panel, true);
+    printDocument.body.appendChild(printPanel);
+
+    printWindow.addEventListener("afterprint", function () {
+      frame.remove();
+    }, { once: true });
+    printWindow.print();
+  }
+
   document
     .getElementById("cop-print-pdf")
-    .addEventListener("click", function () {
-      window.print();
-    });
+    .addEventListener("click", printHousingOption);
   field.value = buildExport();
 
   button.addEventListener("click", function () {
